@@ -244,14 +244,21 @@
   color: var(--clr-accent);
 }
 
+.calc-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-calc-booking,
 .btn-calc-submit {
   width: 100%;
 }
 
 .calc-summary-note {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--clr-text-light);
-  line-height: 1.4;
+  line-height: 1.45;
   text-align: center;
   margin-top: 15px;
 }

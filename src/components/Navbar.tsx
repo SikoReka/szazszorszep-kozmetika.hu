@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Flower2 } from 'lucide-react';
 import './Navbar.css';
 
-const Navbar = () => {
+interface NavbarProps {
+  onOpenBooking: () => void;
+}
+
+const Navbar = ({ onOpenBooking }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,9 +49,9 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="btn btn-nav">
-            Bejelentkezés
-          </a>
+          <button onClick={onOpenBooking} className="btn btn-nav">
+            Időpontfoglalás
+          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -68,9 +72,15 @@ const Navbar = () => {
             {link.name}
           </a>
         ))}
-        <a href="#contact" className="btn btn-primary btn-mobile-nav" onClick={() => setIsOpen(false)}>
-          Bejelentkezés
-        </a>
+        <button 
+          className="btn btn-primary btn-mobile-nav" 
+          onClick={() => {
+            setIsOpen(false);
+            onOpenBooking();
+          }}
+        >
+          Időpontfoglalás
+        </button>
       </div>
     </nav>
   );

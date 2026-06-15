@@ -5,9 +5,10 @@ import './Calculator.css';
 
 interface CalculatorProps {
   onQuoteRequest: (message: string) => void;
+  onOpenBooking: () => void;
 }
 
-const Calculator = ({ onQuoteRequest }: CalculatorProps) => {
+const Calculator = ({ onQuoteRequest, onOpenBooking }: CalculatorProps) => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const handleToggle = (id: string) => {
@@ -107,15 +108,25 @@ const Calculator = ({ onQuoteRequest }: CalculatorProps) => {
                     </div>
                   </div>
 
-                  <button 
-                    className="btn btn-accent btn-calc-submit"
-                    onClick={handleRequest}
-                  >
-                    <Send size={16} />
-                    Időpont kérése
-                  </button>
+                  <div className="calc-actions">
+                    <button 
+                      className="btn btn-accent btn-calc-booking"
+                      onClick={onOpenBooking}
+                    >
+                      <Sparkles size={16} />
+                      Online foglalás
+                    </button>
+                    
+                    <button 
+                      className="btn btn-outline btn-calc-submit"
+                      onClick={handleRequest}
+                    >
+                      <Send size={14} />
+                      Kezelések átvitele űrlapra
+                    </button>
+                  </div>
                   <p className="calc-summary-note">
-                    A gombra kattintva a lenti űrlap üzenet mezeje automatikusan kitöltődik az itt összeállított kezelésekkel.
+                    Az <strong>Online foglalás</strong> gombbal azonnal választhat időpontot. A <strong>kezelések átvitelével</strong> a lenti űrlaphoz továbbítjuk a listát.
                   </p>
                 </div>
               )}

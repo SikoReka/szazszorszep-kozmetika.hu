@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import heroBg from '../assets/hero_bg.png';
 import './Hero.css';
 
-const Hero = () => {
+interface HeroProps {
+  onOpenBooking: () => void;
+}
+
+const Hero = ({ onOpenBooking }: HeroProps) => {
   return (
     <header id="home" className="hero-section">
       <div className="hero-bg-wrapper">
@@ -26,8 +30,8 @@ const Hero = () => {
             Az egészséges, üde és ragyogó arcbőr mindenkinek jár. Legfőbb misszióm, hogy vendégeim ezt saját bőrükön tapasztalják meg, prémium kezelések és személyre szabott gondoskodás mellett.
           </p>
           <div className="hero-actions">
-            <a href="#calculator" className="btn btn-primary">Kezelés-kalkulátor</a>
-            <a href="#services" className="btn btn-outline">Szolgáltatások</a>
+            <button onClick={onOpenBooking} className="btn btn-primary">Online Időpontfoglalás</button>
+            <a href="#calculator" className="btn btn-outline">Kezelés-kalkulátor</a>
           </div>
         </motion.div>
       </div>

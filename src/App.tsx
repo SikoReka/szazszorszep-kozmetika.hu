@@ -7,10 +7,12 @@ import Calculator from './components/Calculator';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BookingModal from './components/BookingModal';
 import './App.css';
 
 function App() {
   const [prefilledMessage, setPrefilledMessage] = useState('');
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const handleQuoteRequest = (message: string) => {
     setPrefilledMessage(message);
@@ -20,18 +22,21 @@ function App() {
     }
   };
 
+  const openBooking = () => setIsBookingOpen(true);
+
   return (
     <div className="app-container">
-      <Navbar />
+      <Navbar onOpenBooking={openBooking} />
       <main>
-        <Hero />
+        <Hero onOpenBooking={openBooking} />
         <Services />
         <About />
-        <Calculator onQuoteRequest={handleQuoteRequest} />
+        <Calculator onQuoteRequest={handleQuoteRequest} onOpenBooking={openBooking} />
         <Gallery />
-        <Contact prefilledMessage={prefilledMessage} />
+        <Contact prefilledMessage={prefilledMessage} onOpenBooking={openBooking} />
       </main>
       <Footer />
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );
 }

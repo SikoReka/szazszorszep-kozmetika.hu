@@ -5,9 +5,10 @@ import './Contact.css';
 
 interface ContactProps {
   prefilledMessage: string;
+  onOpenBooking: () => void;
 }
 
-const Contact = ({ prefilledMessage }: ContactProps) => {
+const Contact = ({ prefilledMessage, onOpenBooking }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -105,8 +106,19 @@ const Contact = ({ prefilledMessage }: ContactProps) => {
 
           {/* Contact Form Column */}
           <div className="contact-form-wrapper">
+            {/* Setmore Booking CTA */}
+            <div className="booking-cta-card glass">
+              <div>
+                <h4>Azonnali Időpontfoglalás</h4>
+                <p>Foglalja le szabad időpontját online, kényelmesen a Setmore rendszerünkben.</p>
+              </div>
+              <button onClick={onOpenBooking} className="btn btn-accent btn-booking-cta">
+                Foglalás most
+              </button>
+            </div>
+
             <div className="contact-card glass">
-              <h3 className="contact-column-title">Küldjön üzenetet</h3>
+              <h3 className="contact-column-title">Üzenetküldés / Egyedi megkeresés</h3>
               
               {submitted ? (
                 <motion.div 
