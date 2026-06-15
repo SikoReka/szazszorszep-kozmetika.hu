@@ -1,0 +1,154 @@
+.about-section {
+  background-color: var(--clr-bg);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-image-wrapper {
+  position: relative;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.about-img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+  position: relative;
+}
+
+.about-img-border {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 0;
+  left: 30px;
+  border: 1px solid var(--clr-accent);
+  border-radius: var(--radius-sm);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-content .section-subtitle {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.about-title {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+  color: var(--clr-primary);
+}
+
+.about-lead-text {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--clr-accent);
+  margin-bottom: 20px;
+}
+
+.about-desc {
+  font-size: 0.92rem;
+  color: var(--clr-text-light);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.value-title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--clr-primary);
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.value-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--clr-accent);
+  border-radius: 50%;
+}
+
+.value-desc {
+  font-size: 0.85rem;
+  color: var(--clr-text-light);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .about-image-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .about-content .section-subtitle {
+    text-align: center;
+  }
+  
+  .about-title {
+    text-align: center;
+    font-size: 2.2rem;
+  }
+  
+  .about-lead-text {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-values-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .about-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-lead-text {
+    font-size: 1.1rem;
+  }
+}
