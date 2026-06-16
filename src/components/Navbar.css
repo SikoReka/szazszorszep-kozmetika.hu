@@ -27,8 +27,17 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: var(--clr-primary);
+}
+
+.logo-img-fektetett {
+  height: 48px;
+  width: auto;
+  display: block;
+  transition: var(--transition);
+}
+
+.navbar.scrolled .logo-img-fektetett {
+  height: 40px;
 }
 
 .logo-icon {

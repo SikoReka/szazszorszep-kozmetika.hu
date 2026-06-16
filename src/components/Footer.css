@@ -19,17 +19,13 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--clr-primary);
   margin-bottom: 20px;
 }
 
-.footer-logo-icon {
-  color: var(--clr-accent);
+.logo-img-square {
+  height: 80px;
+  width: auto;
+  display: block;
 }
 
 .footer-desc {

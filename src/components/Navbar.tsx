@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Flower2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logoFektetett from '../assets/logo_fektetett.svg';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -31,11 +32,7 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#home" className="nav-logo">
-          <Flower2 className="logo-icon" size={24} />
-          <div className="logo-text">
-            <span className="logo-title">SZÁZSZORSZÉP</span>
-            <span className="logo-subtitle">K o z m e t i k a</span>
-          </div>
+          <img src={logoFektetett} alt="Százszorszép Kozmetika" className="logo-img-fektetett" />
         </a>
 
         {/* Desktop Menu */}

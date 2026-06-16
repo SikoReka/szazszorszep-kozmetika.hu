@@ -1,4 +1,4 @@
-import { Flower2 } from 'lucide-react';
+import logo from '../assets/logo.svg';
 import './Footer.css';
 
 const Footer = () => {
@@ -11,8 +11,7 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="footer-brand">
           <div className="footer-logo">
-            <Flower2 className="footer-logo-icon" size={20} />
-            <span>SZÁZSZORSZÉP</span>
+            <img src={logo} alt="Százszorszép Kozmetika" className="logo-img-square" />
           </div>
           <p className="footer-desc">
             Személyre szabott, szépítő és bőrfiatalító kezelések Mórahalmon.
