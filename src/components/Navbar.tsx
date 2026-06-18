@@ -47,7 +47,7 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
             </a>
           ))}
           <button onClick={onOpenBooking} className="btn btn-nav">
-            Időpontfoglalás
+            IDŐPONTFOGLALÁS
           </button>
         </div>
 
@@ -76,7 +76,7 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
             onOpenBooking();
           }}
         >
-          Időpontfoglalás
+          IDŐPONTFOGLALÁS
         </button>
       </div>
     </nav>
