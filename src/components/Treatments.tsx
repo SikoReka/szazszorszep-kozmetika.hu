@@ -25,7 +25,7 @@ interface Treatment {
 const treatmentsData: Treatment[] = [
   {
     id: 'thermage',
-    title: 'Hollywood Thermage Kezelés',
+    title: 'Hollywood Thermage 3D Bőrfeszesítés',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'MÁTRIX RF',
@@ -47,7 +47,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'ultrahang',
-    title: 'Simogató Ultrahangos Kezelés',
+    title: 'Százszorszép rituálé',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'HIDRATÁLÁS',
@@ -113,7 +113,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'nanosoft',
-    title: 'Nanosoft NCTF 135HA Kezelés',
+    title: 'NCTF 135HA Skinbooster Bőrfiatalítás',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'PRÉMIUM MEZOTERÁPIA',
@@ -135,7 +135,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'hidroabrazio',
-    title: 'Hidroabráziós Kezelés / Hydroabrázió',
+    title: 'Frissítő Vízsugaras Bőrmegújítás',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'MÉLYTISZTÍTÁS',
@@ -177,7 +177,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'dermapen',
-    title: 'Dermapen Nanotűs Kezelés',
+    title: 'Dermapen Kollagén-Boost Bőrújjáépítés',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'KOLLAGÉN INDUKCIÓ',
@@ -203,7 +203,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'bb-glow',
-    title: 'BB Glow Kezelés',
+    title: 'BB Glow Porcelánbőr Kezelés',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'RAGYOGÓ TÓNUS',
@@ -326,7 +326,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'oxigenspray',
-    title: 'Oxigénspray Kezelés',
+    title: 'Oxigén-Infúziós Sejtszintű Revitalizálás',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'SEJTSZINTŰ OXIGÉN',
