@@ -540,7 +540,6 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
   return (
     <section id="treatments" className="section treatments-section">
       <div className="container">
-        <span className="section-subtitle">Szolgáltatásaink</span>
         <h2 className="section-title">Kozmetikai Kezeléseink</h2>
         
         {/* Category Filters */}
