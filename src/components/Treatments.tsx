@@ -536,11 +536,6 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
     ? treatmentsData
     : treatmentsData.filter(t => t.category === activeCategory);
 
-  const openBooking = () => {
-    // Dispatch a custom event to open the booking modal
-    const event = new CustomEvent('open-booking-modal');
-    window.dispatchEvent(event);
-  };
 
   return (
     <section id="treatments" className="section treatments-section">
