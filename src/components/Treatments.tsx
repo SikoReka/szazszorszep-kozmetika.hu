@@ -403,7 +403,7 @@ const treatmentsData: Treatment[] = [
         'A kezelést követő napokban kerülni kell az arcmasszázst és az erős nyomást a kezelt területen.',
         'Ajaktöltés után pár napig javasolt kerülni a nagyon forró, fűszeres ételeket és a sminkelést.'
       ],
-      notes: 'Kizárólag prémium kategóriás, biztonságos, felszívódó hialuronsavas töltőanyagokkal dolgozunk.'
+      notes: 'A kezelést Dr. Dézsi Csilla esztétikai szakorvos végzi. Kizárólag prémium kategóriás, biztonságos, felszívódó hialuronsavas töltőanyagokkal dolgozunk.'
     }
   },
   {
@@ -436,7 +436,7 @@ const treatmentsData: Treatment[] = [
         'A bőrpír és az enyhe duzzanat 1-3 nap alatt teljesen elmúlik.',
         'Szigorú fényvédelem és a közvetlen napfény kerülése javasolt a kezelést követő héten.'
       ],
-      notes: 'Mivel a saját véredet használjuk, a kezelés 100%-ban természetes, nem okoz allergiás reakciókat.'
+      notes: 'A kezelést Dr. Dézsi Csilla esztétikai szakorvos végzi. Mivel a saját véredet használjuk, a kezelés 100%-ban természetes, nem okoz allergiás reakciókat.'
     }
   },
   {
@@ -469,7 +469,7 @@ const treatmentsData: Treatment[] = [
         'Kerülni kell a közvetlen napfényt és szigorú 50+ SPF fényvédelem szükséges legalább 2 hétig.',
         'A sminkelés a kezelést követő 48 órában nem ajánlott.'
       ],
-      notes: 'A Morpheus 8 jelenleg a világ egyik legelismertebb és leghatékonyabb nem sebészeti bőrfiatalító eljárása.'
+      notes: 'A kezelést Dr. Dézsi Csilla esztétikai szakorvos végzi. A Morpheus 8 jelenleg a világ egyik legelismertebb és leghatékonyabb nem sebészeti bőrfiatalító eljárása.'
     }
   },
   {
