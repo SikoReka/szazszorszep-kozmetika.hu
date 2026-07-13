@@ -21,17 +21,17 @@ const Hero = ({ onOpenBooking }: HeroProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="hero-tagline">ÜDVÖZÖLLEK A SZÁZSZORSZÉP KOZMETIKÁBAN</span>
+          <span className="hero-tagline">Örülök, hogy itt vagy.</span>
           <h1 className="hero-title">
-            HOSSZÚTÁVÚ <br />
-            <span>Szépségmegőrzés</span>
+            Üdvözöllek a <br />
+            <span>Százszorszép Kozmetikában</span>
           </h1>
           <p className="hero-desc">
-            Az egészséges, üde és ragyogó arcbőr mindenkinek jár. Legfőbb misszióm, hogy vendégeim ezt saját bőrükön tapasztalják meg, prémium kezelések és személyre szabott gondoskodás mellett.
+            Hiszem, hogy a szépség a gondoskodással kezdődik. A Százszorszép Kozmetikában minden Rólad szól: a személyre szabott figyelemről, a professzionális szakértelemről és arról a nyugalomról, amelyre a rohanó hétköznapokban mindannyiunknak szüksége van. A célom, hogy a nálunk töltött idő ne csupán egy kozmetikai kezelés legyen, hanem egy feltöltő élmény, ahol bőröd megkapja a számára legmegfelelőbb ápolást, Te pedig kipihenve, mosolyogva és magabiztosabban térsz haza. Várlak szeretettel!
           </p>
           <div className="hero-actions">
             <button onClick={onOpenBooking} className="btn btn-accent">ONLINE</button>
-            <a href="#calculator" className="btn btn-outline">KEZELÉS-KALKULÁTOR</a>
+            <a href="#treatments" className="btn btn-outline">KEZELÉSEK</a>
           </div>
         </motion.div>
       </div>

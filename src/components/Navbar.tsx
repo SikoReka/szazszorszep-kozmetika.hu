@@ -21,9 +21,9 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
 
   const navLinks = [
     { name: 'Kezdőlap', href: '#home' },
-    { name: 'Szolgáltatások', href: '#services' },
-    { name: 'Filozófiám', href: '#about' },
-    { name: 'Kalkulátor', href: '#calculator' },
+    { name: 'Munkatársaink', href: '#about' },
+    { name: 'Márkáink', href: '#brands' },
+    { name: 'Kezelések', href: '#treatments' },
     { name: 'Galéria', href: '#gallery' },
     { name: 'Kapcsolat', href: '#contact' },
   ];

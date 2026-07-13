@@ -39,9 +39,9 @@
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(249, 246, 240, 0.98) 0%,
-    rgba(249, 246, 240, 0.85) 45%,
-    rgba(249, 246, 240, 0.25) 100%
+    rgba(247, 243, 238, 0.98) 0%,
+    rgba(247, 243, 238, 0.85) 45%,
+    rgba(247, 243, 238, 0.25) 100%
   );
   z-index: 2;
 }
@@ -79,7 +79,7 @@
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 2.6rem;
   font-weight: 400;
   line-height: 1.25;
   text-transform: uppercase;
@@ -91,7 +91,7 @@
 .hero-title span {
   font-family: 'Brand', serif;
   font-style: italic;
-  font-size: 4.8rem;
+  font-size: 3.0rem;
   text-transform: none;
   color: var(--clr-accent);
   letter-spacing: 0.02em;
@@ -132,15 +132,19 @@
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .hero-title {
-    font-size: 3.2rem;
+    font-size: 2.0rem;
+  }
+  
+  .hero-title span {
+    font-size: 2.3rem;
   }
   
   .hero-overlay {
     background: linear-gradient(
       0deg,
-      rgba(250, 248, 246, 0.95) 0%,
-      rgba(250, 248, 246, 0.85) 60%,
-      rgba(250, 248, 246, 0.5) 100%
+      rgba(247, 243, 238, 0.95) 0%,
+      rgba(247, 243, 238, 0.85) 60%,
+      rgba(247, 243, 238, 0.5) 100%
     );
   }
   
@@ -167,13 +171,27 @@
 }
 
 @media (max-width: 576px) {
+  .hero-tagline {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 15px;
+  }
+
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-title span {
+    font-size: 1.8rem;
+    line-height: 1.1;
   }
   
   .hero-desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
     margin-bottom: 30px;
+    padding: 0 10px;
   }
   
   .hero-actions {

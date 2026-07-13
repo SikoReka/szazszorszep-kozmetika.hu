@@ -1,0 +1,331 @@
+.treatments-section {
+  background-color: var(--clr-bg-alt);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .treatments-section {
+    background-color: #171615;
+  }
+}
+
+/* Filters */
+.treatments-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-light);
+  padding: 10px 22px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: var(--clr-bg);
+  box-shadow: 0 4px 15px rgba(113, 73, 33, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .filter-btn:hover,
+  .filter-btn.active {
+    color: #ffffff;
+  }
+}
+
+/* Grid Layout */
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 1200px) {
+  .treatments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.treatment-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-card-bg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.treatment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--clr-accent);
+}
+
+.treatment-card.expanded {
+  grid-column: span 1; /* Keep normal layout but draw details vertically */
+  border-color: var(--clr-accent);
+}
+
+/* If a card is expanded on desktop/tablet, we want it to look extra nice but keep layout clean */
+.card-header-block {
+  padding: 30px 25px 20px 25px;
+  flex-grow: 1;
+}
+
+.treatment-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--clr-accent-dark);
+  background-color: rgba(190, 150, 109, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.treatment-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--clr-primary);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.treatment-short-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--clr-text-light);
+}
+
+@media (min-width: 768px) {
+  .treatment-card-title {
+    min-height: 54px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .treatment-short-desc {
+    min-height: 84px;
+  }
+}
+
+/* Accordion Trigger Button */
+.treatment-toggle-btn {
+  width: 100%;
+  padding: 15px 25px;
+  background: rgba(113, 73, 33, 0.02);
+  border: none;
+  border-top: 1px solid var(--clr-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-accent-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.treatment-toggle-btn:hover {
+  background: rgba(113, 73, 33, 0.06);
+  color: var(--clr-primary);
+}
+
+.treatment-toggle-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.treatment-card.expanded .treatment-toggle-btn svg {
+  transform: rotate(0deg);
+}
+
+/* Drawer / Accordion Content */
+.treatment-details-drawer {
+  overflow: hidden;
+  border-top: 1px solid var(--clr-border);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .treatment-details-drawer {
+    background: rgba(26, 25, 24, 0.2);
+  }
+}
+
+.drawer-inner-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clr-primary);
+}
+
+.detail-section-title svg {
+  color: var(--clr-accent);
+  flex-shrink: 0;
+}
+
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--clr-text);
+}
+
+.list-icon {
+  margin-top: 3px;
+  flex-shrink: 0;
+  color: var(--clr-accent);
+}
+
+.list-icon.result {
+  color: #4caf50;
+}
+
+.list-icon.info {
+  color: #be966d;
+}
+
+.list-icon.warning {
+  color: #e57373;
+}
+
+/* Numbered process steps */
+.detail-list.numbered li {
+  gap: 10px;
+}
+
+.list-number {
+  font-weight: 700;
+  color: var(--clr-accent-dark);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  min-width: 16px;
+}
+
+/* Warning block background */
+.detail-section.warning {
+  background-color: rgba(229, 115, 115, 0.05);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border-left: 2px solid #e57373;
+}
+
+.detail-section.warning .detail-section-title {
+  color: #c62828;
+}
+
+.detail-section.warning .detail-section-title svg {
+  color: #e57373;
+}
+
+.detail-section.warning .detail-list li {
+  color: #852222;
+}
+
+@media (prefers-color-scheme: dark) {
+  .detail-section.warning .detail-list li {
+    color: #e57373;
+  }
+}
+
+/* Notes section */
+.detail-section.notes {
+  border-left: 2px solid var(--clr-accent);
+  padding-left: 12px;
+  margin: 5px 0;
+}
+
+.detail-notes-text {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--clr-text-light);
+}
+
+/* Booking CTA inside card */
+.drawer-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-drawer-booking {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

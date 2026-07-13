@@ -1,106 +1,190 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import treatment1 from '../assets/treatment_1.png';
-import treatment2 from '../assets/treatment_2.png';
-import salonBg from '../assets/hero_bg.png';
-import beautician from '../assets/about_beautician.png';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Gallery.css';
 
-const galleryItems = [
-  {
-    id: 'g1',
-    img: treatment1,
-    title: 'Szépítő arckezelések',
-    category: 'Kezelés'
-  },
-  {
-    id: 'g2',
-    img: treatment2,
-    title: 'Szempilla & Szemöldök lifting',
-    category: 'Tekintet'
-  },
-  {
-    id: 'g3',
-    img: salonBg,
-    title: 'Prémium környezet',
-    category: 'Szalon'
-  },
-  {
-    id: 'g4',
-    img: beautician,
-    title: 'Személyre szabott diagnózis',
-    category: 'Konzultáció'
-  }
-];
+// Import all gallery images dynamically
+const imageModules = import.meta.glob('../assets/gallery/*.webp', { eager: true, as: 'url' });
+const galleryImages = Object.values(imageModules);
 
 const Gallery = () => {
-  const [selectedImg, setSelectedImg] = useState<string | null>(null);
-  const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'treatment'>('all');
+  const [visibleCount, setVisibleCount] = useState(8);
 
-  const handleOpen = (img: string, title: string) => {
-    setSelectedImg(img);
-    setSelectedTitle(title);
+  const categories = [
+    { id: 'all', name: 'Összes' },
+    { id: 'salon', name: 'Szalon' },
+    { id: 'treatment', name: 'Kezelések' }
+  ];
+
+  // Map the raw image URLs into structured gallery items
+  const galleryItems = galleryImages.map((img, index) => {
+    // Curated tags and titles to look extremely high-end
+    const isTreatment = index % 2 === 1;
+    let title = 'Prémium szalon belső';
+    if (index === 0) title = 'Elegáns kezelősarok';
+    else if (index === 1) title = 'Professzionális hatóanyagok';
+    else if (index === 2) title = 'Nyugtató környezet';
+    else if (index === 3) title = 'Személyre szabott kezelés';
+    else if (index === 4) title = 'Modern berendezés';
+    else if (index === 5) title = 'Nanomatrix technológia';
+    else if (index === 6) title = 'Szépítő részletek';
+    else if (index === 7) title = 'Mesotica bőrápolás';
+    else if (index === 8) title = 'Tiszta és harmonikus terek';
+    else if (index === 9) title = 'Thesera arckontúrozás';
+    else if (index === 10) title = 'Exkluzív szépítő sarok';
+    else if (index === 11) title = 'Klinikailag igazolt bőrápolás';
+    else if (index === 12) title = 'Kényelem és relaxáció';
+
+    return {
+      id: `g-${index}`,
+      img,
+      category: isTreatment ? 'treatment' : 'salon',
+      categoryLabel: isTreatment ? 'Kezelés' : 'Szalon',
+      title
+    };
+  });
+
+  const filteredItems = galleryItems.filter(item => {
+    if (activeFilter === 'all') return true;
+    return item.category === activeFilter;
+  });
+
+  const visibleItems = filteredItems.slice(0, visibleCount);
+  const hasMore = filteredItems.length > visibleCount;
+
+  const handlePrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setSelectedIdx(prev => (prev !== null ? (prev - 1 + filteredItems.length) % filteredItems.length : null));
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setSelectedIdx(prev => (prev !== null ? (prev + 1) % filteredItems.length : null));
+  };
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIdx === null) return;
+      if (e.key === 'ArrowLeft') {
+        handlePrev();
+      } else if (e.key === 'ArrowRight') {
+        handleNext();
+      } else if (e.key === 'Escape') {
+        setSelectedIdx(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIdx, filteredItems]);
+
+  const handleOpen = (imgUrl: string) => {
+    const idx = filteredItems.findIndex(item => item.img === imgUrl);
+    if (idx !== -1) {
+      setSelectedIdx(idx);
+    }
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount(prev => prev + 4);
   };
 
   return (
     <section id="gallery" className="section gallery-section">
       <div className="container">
-        <span className="section-subtitle">Galéria</span>
+        <span className="section-subtitle" style={{ display: 'block', textAlign: 'center', marginBottom: '15px' }}>Galéria</span>
         <h2 className="section-title">A szalon pillanatai</h2>
         
-        <div className="gallery-grid">
-          {galleryItems.map((item, index) => (
-            <motion.div 
-              key={item.id}
-              className="gallery-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => handleOpen(item.img, item.title)}
+        {/* Category Filters */}
+        <div className="gallery-filters">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              className={`filter-btn ${activeFilter === cat.id ? 'active' : ''}`}
+              onClick={() => {
+                setActiveFilter(cat.id as any);
+                setVisibleCount(8); // Reset count on filter change
+              }}
             >
-              <div className="gallery-img-container">
-                <img src={item.img} alt={item.title} className="gallery-img" />
-                <div className="gallery-overlay">
-                  <ZoomIn size={24} className="gallery-zoom-icon" />
-                  <span className="gallery-cat-label">{item.category}</span>
-                  <h4 className="gallery-card-title">{item.title}</h4>
-                </div>
-              </div>
-            </motion.div>
+              {cat.name}
+            </button>
           ))}
         </div>
 
-        {/* Lightbox Modal */}
-        <AnimatePresence>
-          {selectedImg && (
-            <motion.div 
-              className="lightbox-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedImg(null)}
-            >
-              <button className="lightbox-close" onClick={() => setSelectedImg(null)}>
-                <X size={28} />
-              </button>
-              
+        {/* Gallery Grid */}
+        <motion.div layout className="gallery-grid">
+          <AnimatePresence mode="popLayout">
+            {visibleItems.map((item) => (
               <motion.div 
-                className="lightbox-content"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                onClick={(e) => e.stopPropagation()}
+                layout
+                key={item.id}
+                className="gallery-card"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                onClick={() => handleOpen(item.img)}
               >
-                <img src={selectedImg} alt={selectedTitle || ''} className="lightbox-img" />
-                {selectedTitle && <div className="lightbox-caption">{selectedTitle}</div>}
+                <div className="gallery-img-container">
+                  <img src={item.img} alt={item.title} className="gallery-img" loading="lazy" />
+                  <div className="gallery-overlay">
+                    <ZoomIn size={28} className="gallery-zoom-icon" />
+                  </div>
+                </div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Show More Button */}
+        {hasMore && (
+          <div className="gallery-actions" style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
+            <button onClick={handleShowMore} className="btn btn-outline show-more-btn">
+              <span>További képek</span>
+              <ChevronDown size={16} />
+            </button>
+          </div>
+        )}
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedIdx !== null && (
+          <motion.div 
+            className="lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedIdx(null)}
+          >
+            <button className="lightbox-close" onClick={() => setSelectedIdx(null)} aria-label="Bezárás">
+              <X size={28} />
+            </button>
+            
+            <button className="lightbox-nav-btn prev" onClick={handlePrev} aria-label="Előző kép">
+              <ChevronLeft size={36} />
+            </button>
+            
+            <motion.div 
+              className="lightbox-content"
+              key={selectedIdx}
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={filteredItems[selectedIdx].img} alt={filteredItems[selectedIdx].title} className="lightbox-img" />
+            </motion.div>
+
+            <button className="lightbox-nav-btn next" onClick={handleNext} aria-label="Következő kép">
+              <ChevronRight size={36} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
