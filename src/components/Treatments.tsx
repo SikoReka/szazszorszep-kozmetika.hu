@@ -15,7 +15,7 @@ interface CollapsibleInfo {
 interface Treatment {
   id: string;
   title: string;
-  category: 'orvosi' | 'arc' | 'lezer' | 'szem' | 'szortelenites';
+  category: 'orvosi' | 'intim' | 'arc' | 'lezer' | 'szem' | 'szortelenites';
   categoryLabel: string;
   badge: string;
   shortDesc: string;
@@ -475,13 +475,13 @@ const treatmentsData: Treatment[] = [
   {
     id: 'emsella',
     title: 'EMSella Medencefenék-Rehabilitáció',
-    category: 'orvosi',
-    categoryLabel: 'Orvosi Esztétika',
+    category: 'intim',
+    categoryLabel: 'Intim Kezelés',
     badge: 'HIFEM INTIM',
     shortDesc: 'Forradalmi, nem invazív medencefenék-erősítő kezelés inkontinencia ellen, a szexuális egészség javítására és a kismedencei izmok regenerálására, teljesen felöltözve.',
     details: {
       process: [
-        'Rövid orvosi konzultáció és az egyéni panaszok átbeszélése.',
+        'Személyes konzultáció és az egyéni panaszok átbeszélése.',
         'A vendég teljesen felöltözve helyet foglal a speciális EMSella székben.',
         'A kezelőfej intenzív, fókuszált elektromágneses hullámokat (HIFEM) bocsát ki.',
         'A kezelés mindössze 28 percet vesz igénybe, amely alatt több ezer szupramaximális izomösszehúzódás történik.'
@@ -511,7 +511,7 @@ interface TreatmentsProps {
 }
 
 const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'orvosi' | 'arc' | 'lezer' | 'szem' | 'szortelenites'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'orvosi' | 'intim' | 'arc' | 'lezer' | 'szem' | 'szortelenites'>('all');
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
 
   const toggleExpand = (id: string) => {
@@ -525,6 +525,7 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
   const categories = [
     { id: 'all', name: 'Összes' },
     { id: 'orvosi', name: 'Orvosi Esztétika' },
+    { id: 'intim', name: 'Intim Kezelések' },
     { id: 'arc', name: 'Arc & Anti-aging' },
     { id: 'lezer', name: 'Lézeres Kezelések' },
     { id: 'szem', name: 'Pilla & Szemöldök' },
