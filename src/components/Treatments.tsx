@@ -15,7 +15,7 @@ interface CollapsibleInfo {
 interface Treatment {
   id: string;
   title: string;
-  category: 'arc' | 'lezer' | 'szem' | 'szortelenites';
+  category: 'orvosi' | 'arc' | 'lezer' | 'szem' | 'szortelenites';
   categoryLabel: string;
   badge: string;
   shortDesc: string;
@@ -343,6 +343,166 @@ const treatmentsData: Treatment[] = [
         'Bőrnyugtató és gyulladáscsökkentő hatású, irritáció nélkül.'
       ]
     }
+  },
+  {
+    id: 'botox_3regio',
+    title: 'Prémium Botox Ránctalanítás (3 régió)',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'ORVOSI BOTOX',
+    shortDesc: 'Ránctalanítás az arc felső harmadában: homlok ráncai, szemöldökök közötti mérgesránc (glabella) és a szem körüli szarkalábak egyidejű, professzionális orvosi botox kezelése.',
+    details: {
+      process: [
+        'Személyes orvosi konzultáció és az arcizomzat működésének felmérése.',
+        'A kezelendő pontok precíz kijelölése és fertőtlenítése.',
+        'A botulinum toxin mikrotűvel történő precíz bejuttatása a célizmokba.',
+        'A kezelés gyors, minimális kellemetlenséggel jár, és kb. 15-20 percet vesz igénybe.'
+      ],
+      results: [
+        'Az arc felső részének mimikai ráncai kisimulnak, a bőr feszes és sima lesz.',
+        'A hatás fokozatosan, 4-10 nap alatt alakul ki.',
+        'Természetes, kipihent arckifejezés anélkül, hogy az arc „lefagyna”.',
+        'Az eredmény egyéntől függően 3-6 hónapig tart.'
+      ],
+      recommendations: [
+        'Homlok és szemkörnyéki mimikai ráncok halványítására és megelőzésére.',
+        'Kifejezetten ajánlott mérgesráncok és szarkalábak finomítására.'
+      ],
+      aftercare: [
+        'A kezelés után 4 óráig tilos lefeküdni, hajolgatni vagy az arcot dörzsölni.',
+        '48 óráig kerülni kell az intenzív edzést, a szaunát, a szoláriumot és a forró fürdőt.'
+      ],
+      notes: 'A kezelést Dr. Dézsi Csilla esztétikai szakorvos végzi a legmagasabb szakmai protokollok szerint.'
+    }
+  },
+  {
+    id: 'hialuronsav',
+    title: 'Hialuronsavas Arckontúrozás & Ajaktöltés',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'HIALURONSAV',
+    shortDesc: 'Ajak-, orca- vagy állvonal-töltés prémium minőségű hialuronsavas töltőanyagokkal a volumenpótlásra, a kontúrok kiemelésére és a ráncok azonnali kisimítására.',
+    details: {
+      process: [
+        'Személyes konzultáció, az egyéni anatómiai adottságok és igények megbeszélése.',
+        'A kezelendő terület érzéstelenítése érzéstelenítő krémmel vagy injekcióval.',
+        'A prémium hialuronsav bevitele vékony tűvel vagy kanüllel a bőr megfelelő rétegeibe.',
+        'A terület finom masszírozása a tökéletes eloszlásért.'
+      ],
+      results: [
+        'Azonnali, látványos volumen és megfiatalodott arckontúrok.',
+        'Természetes hatású, telt és hidratált ajkak.',
+        'Az eredmény azonnal látható, és egyéntől függően 9-14 hónapig tart.'
+      ],
+      recommendations: [
+        'Vékony, aszimmetrikus ajkak formázására és dúsítására.',
+        'Az orr-száj barázda (nasolabialis redő) és a szomorú szájszéli ráncok feltöltésére.',
+        'Az orca és az állvonal kontúrjainak hangsúlyozására.'
+      ],
+      aftercare: [
+        'A kezelést követő napokban kerülni kell az arcmasszázst és az erős nyomást a kezelt területen.',
+        'Ajaktöltés után pár napig javasolt kerülni a nagyon forró, fűszeres ételeket és a sminkelést.'
+      ],
+      notes: 'Kizárólag prémium kategóriás, biztonságos, felszívódó hialuronsavas töltőanyagokkal dolgozunk.'
+    }
+  },
+  {
+    id: 'prp_vampire',
+    title: 'PRP Sajátvér Terápia (Vampire Lift)',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'PRP SAJÁTVÉR',
+    shortDesc: 'A legtermészetesebb bőrrejuvenáció! Saját vérből kinyert, vérlemezkékben gazdag plazma (PRP) mikrotűs vagy injekciós bejuttatása a sejtszintű megújulásért és kollagéntermelésért.',
+    details: {
+      process: [
+        'Konzultáció és a kezelendő területek (arc, nyak, dekoltázs vagy fejbőr) felmérése.',
+        'Kis mennyiségű (10-20 ml) vénás vér levétele.',
+        'A vér speciális centrifugálása a vérlemezke-gazdag plazma (PRP) kinyeréséhez.',
+        'A kezelt terület érzéstelenítése után a plazma apró tűszúrásokkal történő bejuttatása.'
+      ],
+      results: [
+        'A bőr feszessége és rugalmassága jelentősen javul, a pórusok összehúzódnak.',
+        'Finom ráncok és hegek látványos halványulása.',
+        'A hajas fejbőrön alkalmazva serkenti a hajhagymákat és csökkenti a hajhullást.',
+        'A maximális hatás 2-3 hónap alatt alakul ki, kúraszerűen 3 alkalom ajánlott.'
+      ],
+      recommendations: [
+        'Fáradt, fakó, tónustalan bőr intenzív revitalizálására.',
+        'Acne utáni hegek, tág pórusok és finom ráncok kezelésére.',
+        'Hajhullás megállítására és a hajszálak megerősítésére.'
+      ],
+      aftercare: [
+        'A kezelés után 24 óráig ne érje víz és kozmetikum a kezelt területet.',
+        'A bőrpír és az enyhe duzzanat 1-3 nap alatt teljesen elmúlik.',
+        'Szigorú fényvédelem és a közvetlen napfény kerülése javasolt a kezelést követő héten.'
+      ],
+      notes: 'Mivel a saját véredet használjuk, a kezelés 100%-ban természetes, nem okoz allergiás reakciókat.'
+    }
+  },
+  {
+    id: 'morpheus8',
+    title: 'Morpheus 8 Mikrotűs RF Kezelés',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'FRAKCIONÁLT RF',
+    shortDesc: 'A legmodernebb frakcionált rádiófrekvenciás és mikrotűs technológia kombinációja, amely mélyen újjáépíti a bőr szerkezetét, feszesít és csökkenti a zsírszövetet az arc alsó részén.',
+    details: {
+      process: [
+        'A kezelendő felület alapos tisztítása és helyi érzéstelenítése krémmel (30-40 perc hatóidő).',
+        'A Morpheus 8 kezelőfej mikrotűinek behatolása a bőrbe (akár 4 mm mélyen).',
+        'Rádiófrekvenciás energia leadása a tűk hegyén keresztül a mélyebb rétegekben.',
+        'Bőrnyugtató és regeneráló gél alkalmazása.'
+      ],
+      results: [
+        'A toka és az állvonal látványos kontúrozása, a megereszkedett bőr megemelése.',
+        'A kollagén- és elasztinrostok azonnali és hosszú távú képződése.',
+        'Egyenletesebb bőrfelszín, tág pórusok és hegek csökkenése.',
+        'A teljes eredmény 2-3 hónap alatt érik be, kúraszerűen 2-3 alkalom javasolt.'
+      ],
+      recommendations: [
+        'Megereszkedett toka, elmosódott állvonal feszesítésére és kontúrozására.',
+        'Mélyebb aknés hegek, egyenetlen bőrfelszín javítására.',
+        'Arc, nyak és dekoltázs intenzív anti-aging megújítására.'
+      ],
+      aftercare: [
+        'A kezelés után enyhe vörösség és rácsmintás nyomok láthatók 2-4 napig.',
+        'Kerülni kell a közvetlen napfényt és szigorú 50+ SPF fényvédelem szükséges legalább 2 hétig.',
+        'A sminkelés a kezelést követő 48 órában nem ajánlott.'
+      ],
+      notes: 'A Morpheus 8 jelenleg a világ egyik legelismertebb és leghatékonyabb nem sebészeti bőrfiatalító eljárása.'
+    }
+  },
+  {
+    id: 'emsella',
+    title: 'EMSella Medencefenék-Rehabilitáció',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'HIFEM INTIM',
+    shortDesc: 'Forradalmi, nem invazív medencefenék-erősítő kezelés inkontinencia ellen, a szexuális egészség javítására és a kismedencei izmok regenerálására, teljesen felöltözve.',
+    details: {
+      process: [
+        'Rövid orvosi konzultáció és az egyéni panaszok átbeszélése.',
+        'A vendég teljesen felöltözve helyet foglal a speciális EMSella székben.',
+        'A kezelőfej intenzív, fókuszált elektromágneses hullámokat (HIFEM) bocsát ki.',
+        'A kezelés mindössze 28 percet vesz igénybe, amely alatt több ezer szupramaximális izomösszehúzódás történik.'
+      ],
+      results: [
+        'A medencefenék izmai jelentősen megerősödnek, visszaáll az intim területek tónusa.',
+        'Az inkontinenciás panaszok (vizeletszivárgás) drasztikus csökkenése vagy teljes megszűnése.',
+        'Javuló szexuális egészség és fokozott vérkeringés a kismedencei régióban.',
+        'Ajánlott kúra: 6 alkalom, heti 2 alkalommal ismételve.'
+      ],
+      recommendations: [
+        'Stressz-, sürgősségi vagy kevert típusú inkontinencia kezelésére.',
+        'Szülés utáni regenerációra a gátizmok gyors megerősítésére.',
+        'Az intim területek izomtónusának és a szexuális elégedettségnek a fokozására.'
+      ],
+      aftercare: [
+        'A kezelés nem igényel felépülési időt, azonnal visszatérhet a napi tevékenységeihez.',
+        'Ellenjavallatok: terhesség, pacemaker, fém implantátum a kismedencei területen.'
+      ],
+      notes: 'Kényelmes, diszkrét és fájdalommentes kezelés – a vendégnek csak ülnie kell és olvashat a kezelés alatt.'
+    }
   }
 ];
 
@@ -351,7 +511,7 @@ interface TreatmentsProps {
 }
 
 const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'arc' | 'lezer' | 'szem' | 'szortelenites'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'orvosi' | 'arc' | 'lezer' | 'szem' | 'szortelenites'>('all');
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
 
   const toggleExpand = (id: string) => {
@@ -364,6 +524,7 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
 
   const categories = [
     { id: 'all', name: 'Összes' },
+    { id: 'orvosi', name: 'Orvosi Esztétika' },
     { id: 'arc', name: 'Arc & Anti-aging' },
     { id: 'lezer', name: 'Lézeres Kezelések' },
     { id: 'szem', name: 'Pilla & Szemöldök' },
