@@ -5,7 +5,7 @@ import './Gallery.css';
 
 // Import all gallery images dynamically
 const imageModules = import.meta.glob('../assets/gallery/*.webp', { eager: true, as: 'url' });
-const galleryImages = Object.values(imageModules);
+const galleryImages = Object.values(imageModules).map((mod: any) => mod.default || mod);
 
 const Gallery = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
