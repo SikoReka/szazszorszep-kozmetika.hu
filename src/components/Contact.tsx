@@ -74,7 +74,7 @@ const Contact = ({ onOpenBooking }: ContactProps) => {
                 <Clock className="detail-icon" size={20} />
                 <div className="detail-text">
                   <h5>Nyitvatartás</h5>
-                  <p>Hétfőtől péntekig: 9:00 - 17:00<br />Szombat - Vasárnap: Zárva</p>
+                  <p>Hétfőtől péntekig: 9:00 - 17:00<br />Szombat: 8:00 - 13:00<br />Vasárnap: Zárva</p>
                 </div>
               </div>
             </div>

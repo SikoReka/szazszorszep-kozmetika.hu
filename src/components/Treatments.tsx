@@ -346,7 +346,11 @@ const treatmentsData: Treatment[] = [
   }
 ];
 
-const Treatments = () => {
+interface TreatmentsProps {
+  onOpenBooking: () => void;
+}
+
+const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'arc' | 'lezer' | 'szem' | 'szortelenites'>('all');
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
 
@@ -537,7 +541,7 @@ const Treatments = () => {
 
                           {/* Direct Booking CTA */}
                           <div className="drawer-actions">
-                            <button onClick={openBooking} className="btn btn-accent btn-drawer-booking">
+                            <button onClick={onOpenBooking} className="btn btn-accent btn-drawer-booking">
                               <Calendar size={14} />
                               <span>Időpontot foglalok</span>
                             </button>

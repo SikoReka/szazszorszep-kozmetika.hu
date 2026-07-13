@@ -22,7 +22,7 @@ function App() {
         <Hero onOpenBooking={openBooking} />
         <About />
         <Brands />
-        <Treatments />
+        <Treatments onOpenBooking={openBooking} />
         <Gallery />
         <Contact onOpenBooking={openBooking} />
       </main>
