@@ -318,3 +318,13 @@
     font-size: 1.1rem;
   }
 }
+
+.about-main-title {
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .about-main-title {
+    margin-bottom: 40px;
+  }
+}

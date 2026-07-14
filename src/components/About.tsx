@@ -58,7 +58,7 @@ const About = () => {
     <section id="about" className="section about-section">
       <div className="container">
         <span className="section-subtitle" style={{ display: 'block', textAlign: 'center', marginBottom: '15px' }}>Bemutatkozás</span>
-        <h2 className="about-main-title" style={{ textAlign: 'center', marginBottom: '80px', textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '2.8rem', color: 'var(--clr-primary)', fontWeight: '400' }}>Munkatársaink</h2>
+        <h2 className="section-title about-main-title">Munkatársaink</h2>
 
         <div className="about-members-list">
           {members.map((member, index) => {
