@@ -183,9 +183,3 @@
     gap: 15px;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .brand-logo-img {
-    filter: invert(1) brightness(1.5);
-  }
-}

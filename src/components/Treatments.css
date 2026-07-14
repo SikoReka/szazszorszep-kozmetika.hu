@@ -5,12 +5,6 @@
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  .treatments-section {
-    background-color: #171615;
-  }
-}
-
 /* Filters */
 .treatments-filters {
   display: flex;
@@ -41,13 +35,6 @@
   border-color: var(--clr-primary);
   color: var(--clr-bg);
   box-shadow: 0 4px 15px rgba(113, 73, 33, 0.15);
-}
-
-@media (prefers-color-scheme: dark) {
-  .filter-btn:hover,
-  .filter-btn.active {
-    color: #ffffff;
-  }
 }
 
 /* Grid Layout */
@@ -183,12 +170,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-@media (prefers-color-scheme: dark) {
-  .treatment-details-drawer {
-    background: rgba(26, 25, 24, 0.2);
-  }
-}
-
 .drawer-inner-content {
   padding: 25px;
   display: flex;
@@ -287,12 +268,6 @@
 
 .detail-section.warning .detail-list li {
   color: #852222;
-}
-
-@media (prefers-color-scheme: dark) {
-  .detail-section.warning .detail-list li {
-    color: #e57373;
-  }
 }
 
 /* Notes section */

@@ -46,17 +46,6 @@
   z-index: 2;
 }
 
-@media (prefers-color-scheme: dark) {
-  .hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(18, 18, 18, 0.98) 0%,
-      rgba(18, 18, 18, 0.85) 45%,
-      rgba(18, 18, 18, 0.25) 100%
-    );
-  }
-}
-
 .hero-container {
   position: relative;
   z-index: 3;
@@ -108,12 +97,6 @@
   font-weight: 400;
 }
 
-@media (prefers-color-scheme: dark) {
-  .hero-desc {
-    color: var(--clr-text-light);
-  }
-}
-
 .hero-actions {
   display: flex;
   gap: 20px;
@@ -146,17 +129,6 @@
       rgba(247, 243, 238, 0.85) 60%,
       rgba(247, 243, 238, 0.5) 100%
     );
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .hero-overlay {
-      background: linear-gradient(
-        0deg,
-        rgba(18, 18, 18, 0.95) 0%,
-        rgba(18, 18, 18, 0.85) 60%,
-        rgba(18, 18, 18, 0.5) 100%
-      );
-    }
   }
   
   .hero-content {

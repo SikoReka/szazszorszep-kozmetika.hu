@@ -96,12 +96,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-@media (prefers-color-scheme: dark) {
-  .social-link-btn {
-    background-color: #1c1a18;
-  }
-}
-
 .contact-map {
   overflow: hidden;
   border-radius: var(--radius-sm);
@@ -157,13 +151,6 @@
   color: var(--clr-primary);
   transition: var(--transition);
   outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  .form-group input,
-  .form-group textarea {
-    background-color: #121212;
-  }
 }
 
 .form-group input:focus,
