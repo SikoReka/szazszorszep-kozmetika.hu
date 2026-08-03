@@ -376,6 +376,41 @@ const treatmentsData: Treatment[] = [
     }
   },
   {
+    id: 'botox_honalj',
+    title: 'Botox Kezelés - Hónalj Izzadásgátlás',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'HYPERHIDROSIS BOTOX',
+    shortDesc: 'A fokozott hónalji izzadás (hyperhidrosis) leghatékonyabb, FDA által jóváhagyott botulinum toxinos kezelése, amely 80-95%-os izzadáscsökkenést és tartós szárazságot nyújt 6-12 hónapig.',
+    details: {
+      recommendations: [
+        'Kinek ajánlott: fokozott hónalji izzadás (hyperhidrosis) esetén, amikor a hagyományos dezodorok hatástalanok.',
+        'Ruhák rendszeres izzadságfoltjainak megelőzésére és a kellemetlen szagok megszüntetésére.',
+        'Szociális feszélyezettség és önbizalomhiány enyhítésére, valamint fontos események (esküvő, előadás, interjú) előtt.'
+      ],
+      process: [
+        'Személyes orvosi konzultáció, a hyperhidrosis felmérése és az ellenjavallatok kizárása.',
+        'Érzéstelenítő krém felvitele a hónalj érzékeny területére (30-40 perc hatóidő).',
+        '20-25 apró felületi mikroinjekciós pont kijelölése rácsmintázatban mindkét hónaljon (kb. 20-30 perc).',
+        'A hatás 2-4 nap alatt indul meg, és 1-2 hét múlva éri el a maximális eredményt.'
+      ],
+      results: [
+        '80-95%-os izzadáscsökkenés vagy a hónalji izzadás teljes megszűnése.',
+        'Az izzadság és a kellemetlen szagok drasztikus csökkenése.',
+        'Rendkívül tartós hatás: 6-12 hónapig tartó szárazság (a leghosszabb hatástartam a botox kezelések között).'
+      ],
+      whatToExpect: [
+        'A kezelés minimális kellemetlenséggel jár az előzetes érzéstelenítésnek köszönhetően.',
+        'Normális reakciók: enyhe duzzanat vagy bőrpír az injekciós pontokon (néhány órán belül elmúlik).'
+      ],
+      aftercare: [
+        'Ellenjavallatok: terhesség, szoptatás, neuromuszkuláris betegségek (pl. myasthenia gravis), aktív hónalji bőrfertőzés vagy botulinum toxin allergia.',
+        'A kezelés utáni 24 órában kerülni kell az dörzsölést, az intenzív edzést, a szaunát és a forró fürdőt.'
+      ],
+      notes: 'A kezelést Dr. Dézsi Csilla esztétikai szakorvos végzi. Az FDA által hivatalosan jóváhagyott, biztonságos és kiemelkedően hatékony eljárás.'
+    }
+  },
+  {
     id: 'hialuronsav',
     title: 'Hialuronsavas Arckontúrozás & Ajaktöltés',
     category: 'orvosi',
