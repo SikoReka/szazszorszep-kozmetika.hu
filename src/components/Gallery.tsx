@@ -11,19 +11,14 @@ const galleryImages = Object.values(imageModules).map((mod: any) => mod.default 
 const pictureModules = import.meta.glob('../assets/pictures/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, as: 'url' });
 const pictureImages = Object.values(pictureModules).map((mod: any) => mod.default || mod);
 
-// Load treatment before/after pictures
-const treatmentModules = import.meta.glob('../assets/treatment_gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, as: 'url' });
-const treatmentImages = Object.values(treatmentModules).map((mod: any) => mod.default || mod);
-
 const Gallery: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'treatment' | 'workshop'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'workshop'>('all');
   const [visibleCount, setVisibleCount] = useState(8);
 
   const categories = [
     { id: 'all', name: 'Összes' },
     { id: 'salon', name: 'Szalon' },
-    { id: 'treatment', name: 'Kezelések' },
     { id: 'workshop', name: 'Workshopok' }
   ];
 
@@ -52,27 +47,6 @@ const Gallery: React.FC = () => {
       img,
       category: 'salon',
       categoryLabel: 'Szalon',
-      title,
-    });
-  });
-
-  // Treatment before/after pictures
-  treatmentImages.forEach((img, idx) => {
-    let title = 'Kezelés eredmény: Előtte & Utána';
-    const imgStr = String(img).toLowerCase();
-
-    if (imgStr.includes('thermage')) title = 'Hollywood Thermage 3D - Előtte & Utána';
-    else if (imgStr.includes('carbon')) title = 'Carbon Peeling Kezelés - Előtte & Utána';
-    else if (imgStr.includes('elysion')) title = 'Elysion Pro Lézer - Előtte & Utána';
-    else if (imgStr.includes('tetovalas')) title = 'Lézeres Tetoválás Eltávolítás - Előtte & Utána';
-    else if (imgStr.includes('1783858473109')) title = 'Szempilla Lifting - Előtte & Utána';
-    else if (imgStr.includes('1783858861502')) title = 'Szemöldök Laminálás - Előtte & Utána';
-
-    galleryItems.push({
-      id: `t-${idx}`,
-      img,
-      category: 'treatment',
-      categoryLabel: 'Kezelések',
       title,
     });
   });
