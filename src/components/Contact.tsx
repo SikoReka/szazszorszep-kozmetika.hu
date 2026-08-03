@@ -71,12 +71,12 @@ const Contact = ({ onOpenBooking }: ContactProps) => {
               </div>
 
               <div className="detail-item">
-                <Clock className="detail-icon" size={20} />
-                <div className="detail-text">
-                  <h5>Nyitvatartás</h5>
-                  <p>Hétfőtől péntekig: 9:00 - 17:00<br />Szombat: 8:00 - 13:00<br />Vasárnap: Zárva</p>
-                </div>
-              </div>
+  <Clock className="detail-icon" size={20} />
+  <div className="detail-text">
+    <h5>Nyitva tartás</h5>
+    <p>Bejelentkezés alapján</p>
+  </div>
+</div>
             </div>
 
             {/* Social media connections */}
