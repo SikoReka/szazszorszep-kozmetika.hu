@@ -553,8 +553,8 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
   const toggleExpand = (id: string) => {
     setExpandedIds(prev => 
       prev.includes(id) 
-        ? prev.filter(item => item !== id)
-        : [...prev, id]
+        ? []
+        : [id]
     );
   };
 
