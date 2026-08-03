@@ -6,22 +6,26 @@ import './Gallery.css';
 // Import all gallery images dynamically
 const imageModules = import.meta.glob('../assets/gallery/*.webp', { eager: true, as: 'url' });
 const galleryImages = Object.values(imageModules).map((mod: any) => mod.default || mod);
+// Load workshop pictures
+const pictureModules = import.meta.glob('../assets/pictures/*.{png,jpg,webp}', { eager: true, as: 'url' });
+const pictureImages = Object.values(pictureModules).map((mod: any) => mod.default || mod);
 
 const Gallery = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'treatment'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'treatment' | 'workshop'>('all');
   const [visibleCount, setVisibleCount] = useState(8);
 
   const categories = [
     { id: 'all', name: 'Összes' },
     { id: 'salon', name: 'Szalon' },
-    { id: 'treatment', name: 'Kezelések' }
+    { id: 'treatment', name: 'Kezelések' },
+    { id: 'workshop', name: 'Workshopok' }
   ];
 
   // Map the raw image URLs into structured gallery items
-  const galleryItems = galleryImages.map((img, index) => {
-    // Curated tags and titles to look extremely high-end
-    const isTreatment = index % 2 === 1;
+  const galleryItems = [];
+  // Salon & treatment images (default to salon category)
+  galleryImages.forEach((img, index) => {
     let title = 'Prémium szalon belső';
     if (index === 0) title = 'Elegáns kezelősarok';
     else if (index === 1) title = 'Professzionális hatóanyagok';
@@ -37,13 +41,24 @@ const Gallery = () => {
     else if (index === 11) title = 'Klinikailag igazolt bőrápolás';
     else if (index === 12) title = 'Kényelem és relaxáció';
 
-    return {
+    galleryItems.push({
       id: `g-${index}`,
       img,
-      category: isTreatment ? 'treatment' : 'salon',
-      categoryLabel: isTreatment ? 'Kezelés' : 'Szalon',
-      title
-    };
+      category: 'salon',
+      categoryLabel: 'Szalon',
+      title,
+    });
+  });
+  // Workshop pictures
+  pictureImages.forEach((img, idx) => {
+    const wIdx = galleryItems.length + idx;
+    galleryItems.push({
+      id: `w-${idx}`,
+      img,
+      category: 'workshop',
+      categoryLabel: 'Workshop',
+      title: 'Workshop kép',
+    });
   });
 
   const filteredItems = galleryItems.filter(item => {
