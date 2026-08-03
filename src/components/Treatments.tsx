@@ -642,36 +642,7 @@ const treatmentsData: Treatment[] = [
       notes: 'A HydraScan Pro+ a legmodernebb arctisztító technológia, amely egyesíti a vákuumos hidradermabráziót és a célzott hatóanyag-bevitelt.'
     }
   },
-  {
-    id: 'yag_laser',
-    title: 'Q-Switched YAG Lézeres Pigment- és Tetoválás Eltávolítás',
-    category: 'lezer',
-    categoryLabel: 'Lézeres Kezelések',
-    badge: 'Q-SWITCHED YAG',
-    shortDesc: 'Nagy hatékonyságú lézeres eljárás májfoltok, szeplők, pigmentfoltok, valamint megunt vagy elrontott sminktetoválások és testtetoválások halványítására, eltávolítására.',
-    details: {
-      recommendations: [
-        'Napfoltok, májfoltok és hiperpigmentációs elváltozások esetén.',
-        'Elrontott vagy megfakult szemöldök- és ajaktetoválások halványítására.',
-        'Nem kívánt testtetoválások biztonságos eltávolítására.'
-      ],
-      process: [
-        'A kezelendő bőrfelület fertőtlenítése és hűtése.',
-        'Nagy energiasűrűségű lézerimpulzusok célzott alkalmazása a pigmentrészecskék lebontására.',
-        'Nyugtató és hámlást elősegítő utóápoló krém felvitele.'
-      ],
-      results: [
-        'A nem kívánt pigmentek és festékmolekulák fokozatos elhalványulása.',
-        'Egységes, tiszta bőrtónus visszaszerzése.'
-      ],
-      aftercare: [
-        'A kezelt területet legalább 2-3 hétig szigorúan védeni kell a napsugárzástól (SPF 50+).',
-        'Kerülendő a szauna, forró fürdő és a dörzsölés a gyógyulási időszakban.'
-      ],
-      notes: 'A lézerfény a pigmentmolekulákat apró részecskékre bontja, amelyeket a szervezet természetes nyirokrendszere fokozatosan elszállít.'
-    }
-  },
-  {
+    {
     id: 'sminktetovalas',
     title: 'Prémium Sminktetoválás (Ajak, Szemöldök & Szemhéj)',
     category: 'sminktetovalas',
@@ -727,36 +698,7 @@ const treatmentsData: Treatment[] = [
       notes: 'A Mina Henna táplálja és erősíti a szőrszálak szerkezetét, elősegítve azok egészséges növekedését.'
     }
   },
-  {
-    id: 'morpheus_plasma',
-    title: 'Morpheus3D & Plazma Bőrfiatalító Terápia',
-    category: 'orvosi',
-    categoryLabel: 'Orvosi Esztétika',
-    badge: 'ORVOSI PLAZMA',
-    shortDesc: 'Innovatív orvosi esztétikai kötőszövet-regeneráló eljárás a megereszkedett bőr, nyak, dekoltázs és szemkörnyék látványos feszítésére.',
-    details: {
-      recommendations: [
-        'Mély ráncok, megereszkedett nyak- és dekoltázsbőr esetén.',
-        'Műtét nélküli megereszkedett szemhéj feszesítésére (plazma-pen terápia).',
-        'Aknés heghelyek és kitágult pórusok finomítására.'
-      ],
-      process: [
-        'Kezelendő terület zsibbasztása érzéstelenítő krémmel.',
-        'Plazma kisülések vagy frakcionált mátrix energiabevitel a dermisz rétegbe.',
-        'Orvosi hatóanyagos hűsítő és steril lezárás.'
-      ],
-      results: [
-        'Azonnali és folyamatosan fokozódó bőrfeszesítő hatás.',
-        'Beindul a saját kollagén- és elasztintermelés.'
-      ],
-      aftercare: [
-        'A kezelt felületen mikropörkök keletkezhetnek, amelyek 5-7 nap alatt maguktól leválnak.',
-        'Fényvédő (SPF 50+) használata elengedhetetlen.'
-      ],
-      notes: 'Kiváló orvosi alternatíva a plasztikai beavatkozások helyett műtéti hegek és felépülési idő nélkül.'
-    }
-  },
-  {
+    {
     id: 'tini_facial',
     title: 'Tini Mélytisztító Arckezelés',
     category: 'arc',
@@ -782,36 +724,7 @@ const treatmentsData: Treatment[] = [
       notes: 'A kezelés során megtanítjuk a fiataloknak a helyes arctisztítási lépéseket is az aknék megelőzésére.'
     }
   },
-  {
-    id: 'dioda_laser',
-    title: 'Dióda Lézeres Végleges Szőrtelenítés (Arc & Test)',
-    category: 'szortelenites',
-    categoryLabel: 'Szőrtelenítés',
-    badge: 'DIÓDA LÉZER',
-    shortDesc: 'Személyre szabott, fájdalommentes végleges szőrtelenítés nőknek és férfiaknak a legfejlettebb hűtőfejes dióda lézer technológiával.',
-    details: {
-      recommendations: [
-        'Szőrbenövések, szőrtüszőgyulladások végleges megszüntetésére.',
-        'Ha megelégelte a mindennapos borotválást és a gyantázással járó fájdalmat.',
-        'Arc, hónalj, intim, láb, kar vagy hát szőrtelenítésére.'
-      ],
-      process: [
-        'A bőrfelület felmérése és a lézeres paraméterek személyre szabása.',
-        'Hűsítő gél felvitele és a kezelt terület lépésről lépésre történő pásztázása.',
-        'Bőrnyugtató krém felvitele.'
-      ],
-      results: [
-        'Már az 1-2. alkalom után szembetűnően kevesebb és finomabb szőrszál.',
-        '6-8 alkalom után tartósan selymes és szőrmentes bőr.'
-      ],
-      whatToExpect: [
-        'A beépített kontakt-hűtőrendszernek köszönhetően a kezelés minimális kellemetlenséggel jár.',
-        'Gyors, biztonságos és egész évben (barnult bőrön is) végezhető.'
-      ],
-      notes: 'A dióda lézer szelektíven a szőrtüszőben lévő melaninban nyelődik el, elpusztítva a szőrszálat tápláló mátrixsejteket.'
-    }
-  },
-  {
+    {
     id: 'studex_ear',
     title: 'Studex System75 Steril Fülbelövés',
     category: 'arc',
