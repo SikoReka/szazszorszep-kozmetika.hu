@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ZoomIn, ChevronDown, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import './Gallery.css';
+
+// Import video files
+import video1 from '../assets/videos/hydrascan_pro.mp4';
+import video2 from '../assets/videos/nano_matrix_hyaluron_plasztika.mp4';
+import video3 from '../assets/videos/onsminkelo_workshop.mp4';
 
 // Import all gallery images dynamically
 const imageModules = import.meta.glob('../assets/gallery/*.webp', { eager: true, as: 'url' });
@@ -11,18 +16,46 @@ const galleryImages = Object.values(imageModules).map((mod: any) => mod.default 
 const pictureModules = import.meta.glob('../assets/pictures/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, as: 'url' });
 const pictureImages = Object.values(pictureModules).map((mod: any) => mod.default || mod);
 
+const videosData = [
+  {
+    id: 'v-1',
+    type: 'video',
+    src: video1,
+    category: 'video',
+    categoryLabel: 'Videó',
+    title: 'HydraScan Pro+ AI Hydrofacial Kezelés',
+  },
+  {
+    id: 'v-2',
+    type: 'video',
+    src: video2,
+    category: 'video',
+    categoryLabel: 'Videó',
+    title: 'Nano Matrix Hyaluron Bőrplasztika',
+  },
+  {
+    id: 'v-3',
+    type: 'video',
+    src: video3,
+    category: 'video',
+    categoryLabel: 'Videó',
+    title: 'Önsminkelő Workshop Pillanatok',
+  }
+];
+
 const Gallery: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'workshop'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'workshop' | 'video'>('all');
   const [visibleCount, setVisibleCount] = useState(8);
 
   const categories = [
     { id: 'all', name: 'Összes' },
     { id: 'salon', name: 'Szalon' },
-    { id: 'workshop', name: 'Workshopok' }
+    { id: 'workshop', name: 'Workshopok' },
+    { id: 'video', name: 'Videók 🎥' }
   ];
 
-  // Map the raw image URLs into structured gallery items
+  // Map the raw items into structured gallery items
   const galleryItems: any[] = [];
 
   // Salon images
@@ -44,7 +77,8 @@ const Gallery: React.FC = () => {
 
     galleryItems.push({
       id: `g-${index}`,
-      img,
+      type: 'image',
+      src: img,
       category: 'salon',
       categoryLabel: 'Szalon',
       title,
@@ -55,11 +89,17 @@ const Gallery: React.FC = () => {
   pictureImages.forEach((img, idx) => {
     galleryItems.push({
       id: `w-${idx}`,
-      img,
+      type: 'image',
+      src: img,
       category: 'workshop',
       categoryLabel: 'Workshop',
       title: 'Sminkelő Workshop',
     });
+  });
+
+  // Add Videos to galleryItems
+  videosData.forEach(v => {
+    galleryItems.push(v);
   });
 
   const filteredItems = galleryItems.filter(item => {
@@ -105,8 +145,8 @@ const Gallery: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIdx, filteredItems]);
 
-  const handleOpen = (imgUrl: string) => {
-    const idx = filteredItems.findIndex(item => item.img === imgUrl);
+  const handleOpen = (itemSrc: string) => {
+    const idx = filteredItems.findIndex(item => item.src === itemSrc);
     if (idx !== -1) {
       setSelectedIdx(idx);
     }
@@ -149,14 +189,24 @@ const Gallery: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 key={item.id}
-                className="gallery-card glass"
-                onClick={() => handleOpen(item.img)}
+                className={`gallery-card glass ${item.type === 'video' ? 'video-card' : ''}`}
+                onClick={() => handleOpen(item.src)}
               >
                 <div className="gallery-img-wrapper">
-                  <img src={item.img} alt={item.title} className="gallery-img" loading="lazy" />
+                  {item.type === 'video' ? (
+                    <>
+                      <video src={item.src} className="gallery-video-preview" muted playsInline />
+                      <div className="video-play-badge">
+                        <Play size={24} fill="#ffffff" />
+                      </div>
+                    </>
+                  ) : (
+                    <img src={item.src} alt={item.title} className="gallery-img" loading="lazy" />
+                  )}
+                  
                   <div className="gallery-overlay">
                     <div className="overlay-icon">
-                      <ZoomIn size={24} />
+                      {item.type === 'video' ? <Play size={22} fill="#ffffff" /> : <ZoomIn size={24} />}
                     </div>
                     <span className="overlay-category">{item.categoryLabel}</span>
                     <h3 className="overlay-title">{item.title}</h3>
@@ -171,7 +221,7 @@ const Gallery: React.FC = () => {
         {hasMore && (
           <div className="gallery-more-wrapper">
             <button onClick={() => setVisibleCount(prev => prev + 6)} className="btn btn-outline">
-              <span>További képek betöltése</span>
+              <span>További tartalmak betöltése</span>
               <ChevronDown size={16} />
             </button>
           </div>
@@ -192,7 +242,7 @@ const Gallery: React.FC = () => {
             {/* Top Bar with Counter and Close */}
             <div className="lightbox-top-bar" onClick={(e) => e.stopPropagation()}>
               <span className="lightbox-counter">
-                {selectedIdx + 1} / {filteredItems.length} kép
+                {selectedIdx + 1} / {filteredItems.length} {filteredItems[selectedIdx].type === 'video' ? 'videó' : 'kép'}
               </span>
               <button className="lightbox-close" onClick={() => setSelectedIdx(null)} aria-label="Bezárás">
                 <X size={26} />
@@ -200,7 +250,7 @@ const Gallery: React.FC = () => {
             </div>
 
             {/* Nav Prev */}
-            <button className="lightbox-nav prev" onClick={handlePrev} aria-label="Előző kép">
+            <button className="lightbox-nav prev" onClick={handlePrev} aria-label="Előző">
               <ChevronLeft size={36} />
             </button>
 
@@ -219,11 +269,21 @@ const Gallery: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="lightbox-img-container">
-                <img
-                  src={filteredItems[selectedIdx].img}
-                  alt={filteredItems[selectedIdx].title}
-                  className="lightbox-img"
-                />
+                {filteredItems[selectedIdx].type === 'video' ? (
+                  <video
+                    src={filteredItems[selectedIdx].src}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="lightbox-video-player"
+                  />
+                ) : (
+                  <img
+                    src={filteredItems[selectedIdx].src}
+                    alt={filteredItems[selectedIdx].title}
+                    className="lightbox-img"
+                  />
+                )}
               </div>
               
               <div className="lightbox-caption">
@@ -233,7 +293,7 @@ const Gallery: React.FC = () => {
             </motion.div>
 
             {/* Nav Next */}
-            <button className="lightbox-nav next" onClick={handleNext} aria-label="Következő kép">
+            <button className="lightbox-nav next" onClick={handleNext} aria-label="Következő">
               <ChevronRight size={36} />
             </button>
           </motion.div>
