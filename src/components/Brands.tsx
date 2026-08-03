@@ -10,7 +10,7 @@ const Brands = () => {
       name: 'Nanomatrix',
       logo: nanomatrixLogo,
       tagline: 'Hyaluron Plasztika és Nanoszálas Technológia',
-      desc: 'A legújabb innovatív termékcsalád a Százszorszép Kozmetikában. Nanoszálas kezelései rendkívüli sűrűségben juttatnak be aktív hatóanyagokat a bőrbe.',
+      desc: 'A Százszorszép Kozmetika legújabb, innovatív termékcsaládja. Nanoszálas technológiája révén rendkívül magas koncentrációban juttatja be az aktív hatóanyagokat a bőr mélyebb rétegeibe.',
       stats: [
         { label: 'Hialuronsav koncentráció', value: '40x' },
         { label: 'Peptid sűrűség', value: '16x' },
