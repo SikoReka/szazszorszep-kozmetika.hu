@@ -84,6 +84,26 @@ const testimonialsData: TestimonialItem[] = [
     text: 'Egyszerűen tökéletes 😌 szívből ajánlom mindenkinek! 🫶❤️',
     verified: true,
     avatarLetter: 'T'
+  },
+  {
+    id: '8',
+    name: 'Erika Cs.Szabó',
+    treatment: 'Relaxáló Arckezelés',
+    rating: 5,
+    date: 'Setmore Értékelés',
+    text: 'Jól esett ellazulni Rékánál. Nagyon finom, gondos ápolásban volt részem.',
+    verified: true,
+    avatarLetter: 'E'
+  },
+  {
+    id: '9',
+    name: 'Bagi Erika',
+    treatment: 'Kozmetikai Szolgáltatás',
+    rating: 5,
+    date: 'Setmore Értékelés',
+    text: 'Maximálisan elégedett vagyok mind a kezeléssel, mind a szalon környezetével!',
+    verified: true,
+    avatarLetter: 'B'
   }
 ];
 
@@ -127,7 +147,7 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
             <span className="trust-score">5.0 / 5.0</span>
-            <span className="trust-label">• Hivatalos Setmore® Vendégértékelések alapján</span>
+            <span className="trust-label">• 9 Hivatalos Setmore® Vendégértékelés alapján</span>
           </div>
         </div>
 
