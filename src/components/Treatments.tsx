@@ -47,7 +47,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'ultrahang',
-    title: 'Százszorszép rituálé',
+    title: 'Százszorszép Rituálé',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'HIDRATÁLÁS',
