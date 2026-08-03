@@ -503,6 +503,42 @@ const treatmentsData: Treatment[] = [
       ],
       notes: 'Kényelmes, diszkrét és fájdalommentes kezelés – a vendégnek csak ülnie kell és olvashat a kezelés alatt.'
     }
+  },
+  {
+    id: 'emsculpt',
+    title: 'EMSculpt Izomépítő & Zsírégető Kezelés',
+    category: 'intim',
+    categoryLabel: 'Test Kezelés',
+    badge: 'HIFEM ALAKFORMÁLÁS',
+    shortDesc: 'Az EMSculpt egy forradalmi, nem invazív testformáló eljárás, amely nagy intenzitású fókuszált elektromágneses (HIFEM) technológiával egyszerre épít izomtömeget és csökkenti a zsírréteget.',
+    details: {
+      recommendations: [
+        'Kinek ajánlott: normális testsúly (BMI < 30) mellett a csekély zsírfelesleg ("utolsó 3-5 kg") célzott eltüntetésére.',
+        'Izomtónus fokozására, definiáltabb testkontúrra (pl. "six-pack" has, kerekebb fenék).',
+        'Szülés utáni szétnyílt hasizom (diastasis recti) és tónustalanság hatékony regenerálására.',
+        'Sérülés vagy tartós fekvés utáni izomvesztés rehabilitációjára.'
+      ],
+      process: [
+        'A kezelendő felület (has, fenék, comb) kiválasztása és a HIFEM kezelőfejek felhelyezése.',
+        'Egy 30 perces kezelés során 20.000 szupramaximális izomösszehúzódás történik, ami 20.000 felüléssel vagy guggolással egyenértékű.',
+        'Alapprotokoll: 4 kezelés 2 hetes kúra alatt (2-3 naponta, minimum 48 óra pihenővel az izomregenerációért).',
+        'Fenntartás: 1-3 havonta 1 alkalom az elért látványos eredmények hosszas megőrzésére.'
+      ],
+      results: [
+        'Izomtömeg növekedés: átlagosan 15-20%-os izomnövekedés 3 hónap alatt, definiáltabb izomzattal.',
+        'Zsírcsökkentés: átlagosan 19%-os zsírcsökkenés a kezelt területen (hasnál 3-5 cm derékbőség-csökkenés).',
+        'Fenék és comb területeken 20-30%-os javulás a cellulitisz megjelenésében.'
+      ],
+      whatToExpect: [
+        'A kezelés teljesen fájdalommentes, intenzív izom-összehúzódási érzéssel jár.',
+        'Normális reakciók: edzés utáni érzésre hasonlító izomláz (24-72 óráig), izomfáradtság és múló bőrpír.'
+      ],
+      aftercare: [
+        'Ellenjavallatok: terhesség, szoptatás, sérv, pacemaker, fém implantátum vagy fém spirál a kezelt terület 10 cm-es körzetében.',
+        'Az elért eredmények megőrzéséhez kifejezetten javasolt a rendszeres mozgás és az egészséges életmód folytatása.'
+      ],
+      notes: 'Az EMSculpt az egyetlen FDA által jóváhagyott technológia, amely sebészeti beavatkozás nélkül képes egyszerre izmot építeni és zsírt csökkenteni.'
+    }
   }
 ];
 
