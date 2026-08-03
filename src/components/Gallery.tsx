@@ -106,6 +106,15 @@ const Gallery: React.FC = () => {
     setSelectedIdx(prev => (prev !== null ? (prev + 1) % filteredItems.length : null));
   };
 
+  const handleDragEnd = (_: any, info: { offset: { x: number }; velocity: { x: number } }) => {
+    const swipe = info.offset.x;
+    if (swipe < -50 || info.velocity.x < -200) {
+      handleNext();
+    } else if (swipe > 50 || info.velocity.x > 200) {
+      handlePrev();
+    }
+  };
+
   // Keyboard navigation for lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -196,42 +205,60 @@ const Gallery: React.FC = () => {
 
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Fullscreen Modal */}
       <AnimatePresence>
         {selectedIdx !== null && filteredItems[selectedIdx] && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="lightbox-backdrop"
+            className="lightbox-overlay"
             onClick={() => setSelectedIdx(null)}
           >
-            <button className="lightbox-close" onClick={() => setSelectedIdx(null)} aria-label="Bezárás">
-              <X size={28} />
-            </button>
+            {/* Top Bar with Counter and Close */}
+            <div className="lightbox-top-bar" onClick={(e) => e.stopPropagation()}>
+              <span className="lightbox-counter">
+                {selectedIdx + 1} / {filteredItems.length} kép
+              </span>
+              <button className="lightbox-close" onClick={() => setSelectedIdx(null)} aria-label="Bezárás">
+                <X size={26} />
+              </button>
+            </div>
 
+            {/* Nav Prev */}
             <button className="lightbox-nav prev" onClick={handlePrev} aria-label="Előző kép">
               <ChevronLeft size={36} />
             </button>
 
+            {/* Main Lightbox Content with Drag Swipe */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              key={selectedIdx}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
               className="lightbox-content"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={filteredItems[selectedIdx].img}
-                alt={filteredItems[selectedIdx].title}
-                className="lightbox-img"
-              />
+              <div className="lightbox-img-container">
+                <img
+                  src={filteredItems[selectedIdx].img}
+                  alt={filteredItems[selectedIdx].title}
+                  className="lightbox-img"
+                />
+              </div>
+              
               <div className="lightbox-caption">
                 <span className="lightbox-category">{filteredItems[selectedIdx].categoryLabel}</span>
                 <h3 className="lightbox-title">{filteredItems[selectedIdx].title}</h3>
               </div>
             </motion.div>
 
+            {/* Nav Next */}
             <button className="lightbox-nav next" onClick={handleNext} aria-label="Következő kép">
               <ChevronRight size={36} />
             </button>
