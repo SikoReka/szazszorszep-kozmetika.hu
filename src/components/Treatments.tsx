@@ -784,7 +784,109 @@ const treatmentsData: Treatment[] = [
       ],
       notes: 'A System75 eszköz nem csattan, így nem ijeszti meg a kisgyermekeket sem. Orvosi minőségű, hipoallergén fülbevalókkal dolgozunk.'
     }
+  },
+
+  {
+    id: 'thesera',
+    title: 'Thesera L7 Nanoszálas Arclifting & Bőrtömörítés',
+    category: 'arc',
+    categoryLabel: 'Arc & Anti-aging',
+    badge: 'TŰ NÉLKÜLI LIFTING',
+    shortDesc: 'Forradalmi, tű nélküli arclifting és bőrtömörítés felszívódó kollagén nanoszálakkal. Látványosan simítja a ráncokat és emeli ki az arc kontúrjait sebesedés nélkül.',
+    details: {
+      recommendations: [
+        'Megereszkedett, feszességét vesztett arcbőr és állvonal emelésére.',
+        'Szemkörnyéki, homloki és szájkörnyéki ráncok finomítására.',
+        'Fájdalom- és tűmentes alternatívát keresőknek azonnali eredményekkel.'
+      ],
+      process: [
+        'Savassági előkészítés és bőrcsiszolás a sejtközötti járatok megnyitásához.',
+        'Felszívódó kollagén és selyem nanoszálak bevitele a ráncokba.',
+        'Aktiváló szérummaszk felvitele a szálak mélyrétegű beépüléséhez.',
+        'Feszesítő és sejtregeneráló fény- és ultrahangos lezárás.'
+      ],
+      results: [
+        'Azonnal simább, tömörebb és rugalmasabb bőrtextúra.',
+        'Kiemeltebb arckontúrok és halványabb ráncok.',
+        'Tartós hatás kúraszerű (3-4 alkalom) alkalmazás esetén.'
+      ],
+      whatToExpect: [
+        'A kezelés teljesen fájdalommentes és kellemes hűsítő érzéssel jár.',
+        'Nincs felépülési idő, a kezelés után azonnal folytatható a nap.'
+      ],
+      notes: 'A Thesera technológia a dél-koreai bőrápolási innováció csúcsa, amely tűszúrás nélkül juttatja a kollagént a bőr mélyebb rétegeibe.'
+    }
+  },
+  {
+    id: 'mesotica',
+    title: 'Mesotica Peptid 3D & Hialuron Bőrépítés',
+    category: 'arc',
+    categoryLabel: 'Arc & Anti-aging',
+    badge: 'PEPTID TERÁPIA',
+    shortDesc: 'A legmagasabb koncentrációjú peptid- és hialuronsavas bőrépítő kezeléssorozat. Célzottan serkenti a sejtszintű kollagénszintézist és mélyrétegben tölti fel a bőrt.',
+    details: {
+      recommendations: [
+        'Dehidratált, feszességét vesztett, fáradt bőr sejtregenerálására.',
+        'Intenzív anti-aging megelőzésre és meglévő ráncok mélységének csökkentésére.',
+        'Érzékeny, rosaceára vagy gyulladásra hajlamos bőr táplálására.'
+      ],
+      process: [
+        'Bőrazonos savas peeling a felhám kíméletes megújítására.',
+        'High-tech peptid és peptidszármazék koktélok ultrahangos bevitele.',
+        '3D hialuronsavas feltöltés a felületi és mélyrétegi nedvességmegkötésért.'
+      ],
+      results: [
+        'Selymes, élettel teli, mélyen hidratált és rugalmas arcbőr.',
+        'Egységesebb bőrtónus és láthatóan csökkent ráncmélység.'
+      ],
+      notes: 'A Mesotica intelligent skin care a peptidek erejével sejtszinten programozza újra a bőr megújulási folyamatait.'
+    }
+  },
+  {
+    id: 'smink',
+    title: 'Alkalmi & Menyasszonyi Smink',
+    category: 'sminktetovalas',
+    categoryLabel: 'Sminktetoválás & Smink',
+    badge: 'PRÉMIUM SMINK',
+    shortDesc: 'Professzionális nappali, alkalmi és esküvői menyasszonyi smink. Tartós, bőrkímélő csúcsminőségű kozmetikumokkal az egyéni szépség kiemelésére.',
+    details: {
+      recommendations: [
+        'Esküvőkre, fotózásokra, szalagavatókra, gálákra és fontos eseményekre.',
+        'Tartós, akár 16 órán át tökéletesen maradó, víz- és izzadságálló sminkhez.'
+      ],
+      process: [
+        'Bőrelőkészítés: hidratáló, pórusfinomító és primerező alapozás.',
+        'Személyre szabott színek és technikák (füstös szem, természetes nude, ragyogó menyasszonyi smink).',
+        'Professzionális fixálás a hosszan tartó ragyogásért.'
+      ],
+      results: [
+        'Tökéletes fedés, természetes hatású ragyogás és hibátlan fotógén bőr.'
+      ]
+    }
+  },
+  {
+    id: 'love-glow',
+    title: 'Love Glow Kényeztető Rituálé',
+    category: 'arc',
+    categoryLabel: 'Arc & Anti-aging',
+    badge: 'EXKLUZÍV MASSZÁZS',
+    shortDesc: 'Exkluzív kényeztető fejmasszázs és mélyrétegű revitalizáló arckezelés. Tökéletes pihentető élmény, amely ragyogást és selymes feszességet ad az arcbőrnek.',
+    details: {
+      recommendations: [
+        'Stresszes, fáradt időszakban az elme és a test teljes ellazítására.',
+        'Ajándékként vagy különleges alkalmak előtt a bőr és a lélek felüdítésére.'
+      ],
+      process: [
+        'Gyengéd tisztítás és vitaminos aromatakarítás.',
+        'Aromaterápiás kényeztető fej- és nyakmasszázs a feszültség kioldására.',
+        'Tápláló maszk és ragyogásfokozó hatóanyag-beviteli rituálé.'
+      ],
+      results: [
+        'Kipihent, üde arckifejezés és selymes, sima bőrtextúra.'
+      ]
+    }
   }
+
 ];
 
 interface TreatmentsProps {
