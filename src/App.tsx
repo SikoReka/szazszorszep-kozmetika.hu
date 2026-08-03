@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Brands from './components/Brands';
 import Treatments from './components/Treatments';
+import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -23,6 +24,7 @@ function App() {
         <About />
         <Brands />
         <Treatments onOpenBooking={openBooking} />
+        <Testimonials />
         <Gallery />
         <Contact onOpenBooking={openBooking} />
       </main>
