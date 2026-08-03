@@ -7,7 +7,7 @@ import './Gallery.css';
 const imageModules = import.meta.glob('../assets/gallery/*.webp', { eager: true, as: 'url' });
 const galleryImages = Object.values(imageModules).map((mod: any) => mod.default || mod);
 // Load workshop pictures
-const pictureModules = import.meta.glob('../assets/pictures/*.{png,jpg,webp}', { eager: true, as: 'url' });
+const pictureModules = import.meta.glob('../assets/pictures/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, as: 'url' });
 const pictureImages = Object.values(pictureModules).map((mod: any) => mod.default || mod);
 
 const Gallery = () => {
@@ -23,7 +23,7 @@ const Gallery = () => {
   ];
 
   // Map the raw image URLs into structured gallery items
-  const galleryItems = [];
+  const galleryItems: any[] = [];
   // Salon & treatment images (default to salon category)
   galleryImages.forEach((img, index) => {
     let title = 'Prémium szalon belső';
@@ -51,13 +51,12 @@ const Gallery = () => {
   });
   // Workshop pictures
   pictureImages.forEach((img, idx) => {
-    const wIdx = galleryItems.length + idx;
     galleryItems.push({
       id: `w-${idx}`,
       img,
       category: 'workshop',
       categoryLabel: 'Workshop',
-      title: 'Workshop kép',
+      title: 'Sminkelő Workshop',
     });
   });
 
