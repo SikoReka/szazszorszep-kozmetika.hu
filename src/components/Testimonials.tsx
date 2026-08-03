@@ -88,6 +88,15 @@ const Testimonials: React.FC = () => {
     setCurrentIndex((prev) => (prev === testimonialsData.length - 1 ? 0 : prev + 1));
   };
 
+  const handleDragEnd = (_: any, info: { offset: { x: number }; velocity: { x: number } }) => {
+    const swipe = info.offset.x;
+    if (swipe < -40 || info.velocity.x < -200) {
+      handleNext();
+    } else if (swipe > 40 || info.velocity.x > 200) {
+      handlePrev();
+    }
+  };
+
   const visibleItems = [0, 1, 2].map(
     (offset) => testimonialsData[(currentIndex + offset) % testimonialsData.length]
   );
@@ -126,6 +135,10 @@ const Testimonials: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.35, ease: 'easeInOut' }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.15}
+                onDragEnd={handleDragEnd}
                 className="testimonials-row"
               >
                 {visibleItems.map((item, idx) => (
