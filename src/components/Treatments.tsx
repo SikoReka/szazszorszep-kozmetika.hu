@@ -346,7 +346,7 @@ const treatmentsData: Treatment[] = [
   },
   {
     id: 'botox_3regio',
-    title: 'Prémium Botox Ránctalanítás (3 régió)',
+    title: 'Prémium Botox - Dysport Ránctalanítás (3 régió)',
     category: 'orvosi',
     categoryLabel: 'Orvosi Esztétika',
     badge: 'ORVOSI BOTOX',
