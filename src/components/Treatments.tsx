@@ -15,7 +15,7 @@ interface CollapsibleInfo {
 interface Treatment {
   id: string;
   title: string;
-  category: 'orvosi' | 'intim' | 'arc' | 'lezer' | 'szem' | 'szortelenites';
+  category: 'orvosi' | 'intim' | 'arc' | 'lezer' | 'szem' | 'szortelenites' | 'sminktetovalas';
   categoryLabel: string;
   badge: string;
   shortDesc: string;
@@ -634,6 +634,7 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
     { id: 'intim', name: 'Test Kezelések' },
     { id: 'arc', name: 'Arc & Anti-aging' },
     { id: 'lezer', name: 'Lézeres Kezelések' },
+    { id: 'sminktetovalas', name: 'Sminktetoválás & Smink' },
     { id: 'szem', name: 'Pilla & Szemöldök' },
     { id: 'szortelenites', name: 'Szőrtelenítés' },
   ];
