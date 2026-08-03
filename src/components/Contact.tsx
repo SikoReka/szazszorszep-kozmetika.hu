@@ -66,7 +66,7 @@ const Contact = ({ onOpenBooking }: ContactProps) => {
                 <Mail className="detail-icon" size={20} />
                 <div className="detail-text">
                   <h5>E-mail</h5>
-                  <p><a href="mailto:rekasiko78@gmail.com">rekasiko78@gmail.com</a></p>
+                  <p><a href="mailto:reka@szazszorszep-kozmetika.hu">reka@szazszorszep-kozmetika.hu</a></p>
                 </div>
               </div>
 
