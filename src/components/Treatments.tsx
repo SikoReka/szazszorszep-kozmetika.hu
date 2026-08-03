@@ -592,7 +592,7 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
         </div>
 
         {/* Treatments Grid */}
-        <motion.div layout className="treatments-grid">
+        <motion.div layout className={`treatments-grid ${expandedIds.length > 0 ? 'has-expanded' : ''}`}>
           <AnimatePresence mode="popLayout">
             {filteredTreatments.map((treatment) => {
               const isExpanded = expandedIds.includes(treatment.id);

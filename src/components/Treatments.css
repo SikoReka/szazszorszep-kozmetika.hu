@@ -42,7 +42,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  align-items: start;
 }
 
 @media (max-width: 1200px) {
@@ -68,6 +67,12 @@
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+/* When a card in the grid is expanded, closed cards do not stretch vertically */
+.treatments-grid.has-expanded .treatment-card:not(.expanded) {
+  height: auto;
   align-self: start;
 }
 
