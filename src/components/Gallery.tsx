@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Gallery.css';
@@ -6,11 +6,16 @@ import './Gallery.css';
 // Import all gallery images dynamically
 const imageModules = import.meta.glob('../assets/gallery/*.webp', { eager: true, as: 'url' });
 const galleryImages = Object.values(imageModules).map((mod: any) => mod.default || mod);
+
 // Load workshop pictures
 const pictureModules = import.meta.glob('../assets/pictures/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, as: 'url' });
 const pictureImages = Object.values(pictureModules).map((mod: any) => mod.default || mod);
 
-const Gallery = () => {
+// Load treatment before/after pictures
+const treatmentModules = import.meta.glob('../assets/treatment_gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, as: 'url' });
+const treatmentImages = Object.values(treatmentModules).map((mod: any) => mod.default || mod);
+
+const Gallery: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState<'all' | 'salon' | 'treatment' | 'workshop'>('all');
   const [visibleCount, setVisibleCount] = useState(8);
@@ -24,7 +29,8 @@ const Gallery = () => {
 
   // Map the raw image URLs into structured gallery items
   const galleryItems: any[] = [];
-  // Salon & treatment images (default to salon category)
+
+  // Salon images
   galleryImages.forEach((img, index) => {
     let title = 'Prémium szalon belső';
     if (index === 0) title = 'Elegáns kezelősarok';
@@ -49,6 +55,28 @@ const Gallery = () => {
       title,
     });
   });
+
+  // Treatment before/after pictures
+  treatmentImages.forEach((img, idx) => {
+    let title = 'Kezelés eredmény: Előtte & Utána';
+    const imgStr = String(img).toLowerCase();
+
+    if (imgStr.includes('thermage')) title = 'Hollywood Thermage 3D - Előtte & Utána';
+    else if (imgStr.includes('carbon')) title = 'Carbon Peeling Kezelés - Előtte & Utána';
+    else if (imgStr.includes('elysion')) title = 'Elysion Pro Lézer - Előtte & Utána';
+    else if (imgStr.includes('tetovalas')) title = 'Lézeres Tetoválás Eltávolítás - Előtte & Utána';
+    else if (imgStr.includes('1783858473109')) title = 'Szempilla Lifting - Előtte & Utána';
+    else if (imgStr.includes('1783858861502')) title = 'Szemöldök Laminálás - Előtte & Utána';
+
+    galleryItems.push({
+      id: `t-${idx}`,
+      img,
+      category: 'treatment',
+      categoryLabel: 'Kezelések',
+      title,
+    });
+  });
+
   // Workshop pictures
   pictureImages.forEach((img, idx) => {
     galleryItems.push({
@@ -101,16 +129,16 @@ const Gallery = () => {
     }
   };
 
-  const handleShowMore = () => {
-    setVisibleCount(prev => prev + 4);
-  };
-
   return (
     <section id="gallery" className="section gallery-section">
       <div className="container">
-        <span className="section-subtitle" style={{ display: 'block', textAlign: 'center', marginBottom: '15px' }}>Galéria</span>
-        <h2 className="section-title">A szalon pillanatai</h2>
         
+        {/* Header Block */}
+        <div className="gallery-header-block">
+          <span className="section-subtitle">Galéria</span>
+          <h2 className="section-title">A Szalon Pillanatai</h2>
+        </div>
+
         {/* Category Filters */}
         <div className="gallery-filters">
           {categories.map((cat) => (
@@ -119,7 +147,7 @@ const Gallery = () => {
               className={`filter-btn ${activeFilter === cat.id ? 'active' : ''}`}
               onClick={() => {
                 setActiveFilter(cat.id as any);
-                setVisibleCount(8); // Reset count on filter change
+                setVisibleCount(8);
               }}
             >
               {cat.name}
@@ -127,24 +155,28 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Gallery Grid */}
+        {/* Grid Layout */}
         <motion.div layout className="gallery-grid">
           <AnimatePresence mode="popLayout">
             {visibleItems.map((item) => (
-              <motion.div 
+              <motion.div
                 layout
-                key={item.id}
-                className="gallery-card"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.3 }}
+                key={item.id}
+                className="gallery-card glass"
                 onClick={() => handleOpen(item.img)}
               >
-                <div className="gallery-img-container">
+                <div className="gallery-img-wrapper">
                   <img src={item.img} alt={item.title} className="gallery-img" loading="lazy" />
                   <div className="gallery-overlay">
-                    <ZoomIn size={28} className="gallery-zoom-icon" />
+                    <div className="overlay-icon">
+                      <ZoomIn size={24} />
+                    </div>
+                    <span className="overlay-category">{item.categoryLabel}</span>
+                    <h3 className="overlay-title">{item.title}</h3>
                   </div>
                 </div>
               </motion.div>
@@ -152,53 +184,61 @@ const Gallery = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Show More Button */}
+        {/* Load More Button */}
         {hasMore && (
-          <div className="gallery-actions" style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
-            <button onClick={handleShowMore} className="btn btn-outline show-more-btn">
-              <span>További képek</span>
+          <div className="gallery-more-wrapper">
+            <button onClick={() => setVisibleCount(prev => prev + 6)} className="btn btn-outline">
+              <span>További képek betöltése</span>
               <ChevronDown size={16} />
             </button>
           </div>
         )}
+
       </div>
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {selectedIdx !== null && (
-          <motion.div 
-            className="lightbox-overlay"
+        {selectedIdx !== null && filteredItems[selectedIdx] && (
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="lightbox-backdrop"
             onClick={() => setSelectedIdx(null)}
           >
             <button className="lightbox-close" onClick={() => setSelectedIdx(null)} aria-label="Bezárás">
               <X size={28} />
             </button>
-            
-            <button className="lightbox-nav-btn prev" onClick={handlePrev} aria-label="Előző kép">
+
+            <button className="lightbox-nav prev" onClick={handlePrev} aria-label="Előző kép">
               <ChevronLeft size={36} />
             </button>
-            
-            <motion.div 
-              className="lightbox-content"
-              key={selectedIdx}
-              initial={{ scale: 0.95, opacity: 0 }}
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.25 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="lightbox-content"
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={filteredItems[selectedIdx].img} alt={filteredItems[selectedIdx].title} className="lightbox-img" />
+              <img
+                src={filteredItems[selectedIdx].img}
+                alt={filteredItems[selectedIdx].title}
+                className="lightbox-img"
+              />
+              <div className="lightbox-caption">
+                <span className="lightbox-category">{filteredItems[selectedIdx].categoryLabel}</span>
+                <h3 className="lightbox-title">{filteredItems[selectedIdx].title}</h3>
+              </div>
             </motion.div>
 
-            <button className="lightbox-nav-btn next" onClick={handleNext} aria-label="Következő kép">
+            <button className="lightbox-nav next" onClick={handleNext} aria-label="Következő kép">
               <ChevronRight size={36} />
             </button>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 };
