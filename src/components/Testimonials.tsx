@@ -17,63 +17,73 @@ interface TestimonialItem {
 const testimonialsData: TestimonialItem[] = [
   {
     id: '1',
-    name: 'Kovács Viktória',
-    treatment: 'Százszorszép Rituálé',
+    name: 'Nóra Kálai',
+    treatment: 'Személyre szabott ápolás',
     rating: 5,
-    date: 'Google Értékelés',
-    text: 'Rékánál járni mindig igazi testi-lelki feltöltődés! A Százszorszép rituálé után a bőröm csodálatosan puha és ragyogó lett, az arc- és dekoltázsmasszázs pedig valami mennyei. Csak ajánlani tudom mindenkinek!',
-    verified: true,
-    avatarLetter: 'K'
-  },
-  {
-    id: '2',
-    name: 'Nagy-Horváth Eszter',
-    treatment: 'Hollywood Thermage 3D',
-    rating: 5,
-    date: 'Google Értékelés',
-    text: 'A Thermage kezelés hatása már az első alkalom után szembetűnő volt. A finom ráncaim kisimultak, a kontúrjaim sokkal feszesebbek lettek. Nagyon professzionális a környezet és a szakértelem!',
+    date: 'Setmore Értékelés',
+    text: 'Igényes csodaszép környezet, személyre szabott szolgáltatásokkal és egy szuper kedves szakemberrel.',
     verified: true,
     avatarLetter: 'N'
   },
   {
-    id: '3',
-    name: 'Dr. Molnár Beatrix',
-    treatment: 'EMSella Medencefenék-Rehabilitáció',
+    id: '2',
+    name: 'Berényi-Ormándlaky Csenge',
+    treatment: 'Kíméletes Gyantázás',
     rating: 5,
-    date: 'Facebook Értékelés',
-    text: 'Hihetetlenül hálás vagyok az EMSella kezelésért! Diszkrét, kényelmes és ami a legfontosabb: valóban működik. Már a kúra felénél éreztem a látványos változást. Minden nőnek szívből ajánlom!',
-    verified: true,
-    avatarLetter: 'M'
-  },
-  {
-    id: '4',
-    name: 'Szabó-Tóth Andrea',
-    treatment: 'Prémium Botox & Ajaktöltés',
-    rating: 5,
-    date: 'Google Értékelés',
-    text: 'Dr. Dézsi Csillánál voltam botox és ajaktöltés kezelésen. Nagyon izgultam, de az eredmény annyira természetes és elegáns lett, hogy azóta mindenki azt kérdezi, hol kipihentem ki magam ennyire!',
-    verified: true,
-    avatarLetter: 'S'
-  },
-  {
-    id: '5',
-    name: 'Balogh Dóra',
-    treatment: 'Elysion Pro Lézeres Szőrtelenítés',
-    rating: 5,
-    date: 'Facebook Értékelés',
-    text: 'Fájdalommentes és elképesztően hatékony! Már az első 2-3 alkalom után alig nőtt vissza szőrszál. Réka kedvessége, figyelmessége és a szalon tisztasága, eleganciája 10/10.',
+    date: 'Setmore Értékelés',
+    text: 'Ha lehetne 10 csillagot adni, én annyit adnék! Gyantáztatni járok Rékához, és komolyan mondom, sokszor fel sem tűnik, hogy közben egyáltalán gyantáznak annyira jókat beszélgetünk, hogy mire észbe kapok, már kész is vagyunk. Réka kedves, közvetlen, és mindig jó hangulatot teremt. Szívből ajánlom mindenkinek!',
     verified: true,
     avatarLetter: 'B'
   },
   {
-    id: '6',
-    name: 'Varga Klára',
-    treatment: 'Thesera Arclifting & Nanosoft',
+    id: '3',
+    name: 'Tanácsné Polyák Annamária',
+    treatment: 'Prémium Szalon Ápolás',
     rating: 5,
-    date: 'Google Értékelés',
-    text: 'Fájdalommentes bőrmegújítás, ami tényleg látványos! A bőröm rugalmas és kisimult lett, a szalon hangulata pedig végtelenül megnyugtató. Biztosan törzsvendég maradok.',
+    date: 'Setmore Értékelés',
+    text: 'A legcsodálatosabb ember, kozmetikus Réka🥰 és csodálatos a szalon, fantasztikus szaktudás!!! Mindenkinek ilyen kozmetikust kívánok!🥰',
     verified: true,
-    avatarLetter: 'V'
+    avatarLetter: 'T'
+  },
+  {
+    id: '4',
+    name: 'Kristó Judit',
+    treatment: 'Arcápolási Kezelések',
+    rating: 5,
+    date: 'Setmore Értékelés',
+    text: 'Rendszeresen járok Rékához arcápolási kezelésre. Mindig feltöltődöm, ellazulok és kisimulok. Szeretem ahogy Réka dolgozik. Precíz, alapos, nyugodt. Réka kozmetikája az a hely, ahová visszavágyik az ember!',
+    verified: true,
+    avatarLetter: 'K'
+  },
+  {
+    id: '5',
+    name: 'Horváth Eszter',
+    treatment: 'Szempilla Lifting',
+    rating: 5,
+    date: 'Setmore Értékelés',
+    text: 'Nagyon elégedett vagyok a szempilla lifting eredményével! A saját szempilláim látványosan íveltebbek és hosszabbnak tűnnek, mégis teljesen természetes hatást kaptam. A kezelés kényelmes volt. Mindenkinek ajánlom! 😊',
+    verified: true,
+    avatarLetter: 'H'
+  },
+  {
+    id: '6',
+    name: 'Tari Zsuzsanna',
+    treatment: 'Arckontúr & Bőrápolás',
+    rating: 5,
+    date: 'Setmore Értékelés',
+    text: 'Mindenkinek ajánlom, 10 csillag tőlem. 😊 Réka kedvessége, szakértelme és a szalon csodálatos hangulata egyszerűen páratlan.',
+    verified: true,
+    avatarLetter: 'T'
+  },
+  {
+    id: '7',
+    name: 'Túri Ramóna',
+    treatment: 'Kozmetikai Kezelés',
+    rating: 5,
+    date: 'Setmore Értékelés',
+    text: 'Egyszerűen tökéletes 😌 szívből ajánlom mindenkinek! 🫶❤️',
+    verified: true,
+    avatarLetter: 'T'
   }
 ];
 
@@ -117,7 +127,7 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
             <span className="trust-score">5.0 / 5.0</span>
-            <span className="trust-label">• Google & Facebook Értékelések alapján</span>
+            <span className="trust-label">• Hivatalos Setmore® Vendégértékelések alapján</span>
           </div>
         </div>
 
