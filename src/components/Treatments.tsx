@@ -788,7 +788,7 @@ const treatmentsData: Treatment[] = [
 
   {
     id: 'thesera',
-    title: 'Thesera L7 Nanoszálas Arclifting & Bőrtömörítés',
+    title: 'Thesera L7 Kollagén szálas Arclifting',
     category: 'arc',
     categoryLabel: 'Arc & Anti-aging',
     badge: 'TŰ NÉLKÜLI LIFTING',
@@ -861,28 +861,6 @@ const treatmentsData: Treatment[] = [
       ],
       results: [
         'Tökéletes fedés, természetes hatású ragyogás és hibátlan fotógén bőr.'
-      ]
-    }
-  },
-  {
-    id: 'love-glow',
-    title: 'Love Glow Kényeztető Rituálé',
-    category: 'arc',
-    categoryLabel: 'Arc & Anti-aging',
-    badge: 'EXKLUZÍV MASSZÁZS',
-    shortDesc: 'Exkluzív kényeztető fejmasszázs és mélyrétegű revitalizáló arckezelés. Tökéletes pihentető élmény, amely ragyogást és selymes feszességet ad az arcbőrnek.',
-    details: {
-      recommendations: [
-        'Stresszes, fáradt időszakban az elme és a test teljes ellazítására.',
-        'Ajándékként vagy különleges alkalmak előtt a bőr és a lélek felüdítésére.'
-      ],
-      process: [
-        'Gyengéd tisztítás és vitaminos aromatakarítás.',
-        'Aromaterápiás kényeztető fej- és nyakmasszázs a feszültség kioldására.',
-        'Tápláló maszk és ragyogásfokozó hatóanyag-beviteli rituálé.'
-      ],
-      results: [
-        'Kipihent, üde arckifejezés és selymes, sima bőrtextúra.'
       ]
     }
   }
