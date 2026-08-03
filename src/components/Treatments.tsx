@@ -610,6 +610,230 @@ const treatmentsData: Treatment[] = [
       notes: 'Az EMSculpt az egyetlen FDA által jóváhagyott technológia, amely sebészeti beavatkozás nélkül képes egyszerre izmot építeni és zsírt csökkenteni.'
     }
   }
+,
+  {
+    id: 'hydrascan',
+    title: 'HydraScan Pro+ & AI Hydrofacial',
+    category: 'arc',
+    categoryLabel: 'Arc & Anti-aging',
+    badge: 'AI MÉLYTISZTÍTÁS',
+    shortDesc: 'A legújabb generációs, mesterséges intelligenciával támogatott mélytisztító és bőrmegújító komplex arckezelés. Eltávolítja a mitesszereket és sejtszinten hidratálja a bőrt.',
+    details: {
+      recommendations: [
+        'Mitesszeres, eltömődött pórusok és tág pórusú arcbőr esetén.',
+        'Fakó, dehidratált, fáradt arcbőr azonnali felfrissítésére.',
+        'Egyenetlen bőrfelszín és finom ráncok simítására.'
+      ],
+      process: [
+        'Precíz AI bőrelemzés a bőr állapotának felmérésére.',
+        'Vákuumos hidrodermabráziós mélytisztítás szalicilsavas és glikolsavas peelinggel.',
+        'Hatóanyag-infúzió (hialuronsav, peptid szérumok) bevitele.',
+        'Nyugtató és sejtregeneráló LED fényterápia.'
+      ],
+      results: [
+        'Azonnal tisztább, selymesebb és élettel telibb arcbőr.',
+        'Láthatóan szűkebb pórusok és csökkent faggyútermelés.',
+        'Mélyrétegű hidratáltság és természetes ragyogás.'
+      ],
+      whatToExpect: [
+        'A kezelés teljesen fájdalommentes, kellemes hűsítő érzéssel jár.',
+        'Nincs felépülési idő, a kezelés után azonnal folytatható a napi rutin.'
+      ],
+      notes: 'A HydraScan Pro+ a legmodernebb arctisztító technológia, amely egyesíti a vákuumos hidradermabráziót és a célzott hatóanyag-bevitelt.'
+    }
+  },
+  {
+    id: 'yag_laser',
+    title: 'Q-Switched YAG Lézeres Pigment- és Tetoválás Eltávolítás',
+    category: 'lezer',
+    categoryLabel: 'Lézeres Kezelések',
+    badge: 'Q-SWITCHED YAG',
+    shortDesc: 'Nagy hatékonyságú lézeres eljárás májfoltok, szeplők, pigmentfoltok, valamint megunt vagy elrontott sminktetoválások és testtetoválások halványítására, eltávolítására.',
+    details: {
+      recommendations: [
+        'Napfoltok, májfoltok és hiperpigmentációs elváltozások esetén.',
+        'Elrontott vagy megfakult szemöldök- és ajaktetoválások halványítására.',
+        'Nem kívánt testtetoválások biztonságos eltávolítására.'
+      ],
+      process: [
+        'A kezelendő bőrfelület fertőtlenítése és hűtése.',
+        'Nagy energiasűrűségű lézerimpulzusok célzott alkalmazása a pigmentrészecskék lebontására.',
+        'Nyugtató és hámlást elősegítő utóápoló krém felvitele.'
+      ],
+      results: [
+        'A nem kívánt pigmentek és festékmolekulák fokozatos elhalványulása.',
+        'Egységes, tiszta bőrtónus visszaszerzése.'
+      ],
+      aftercare: [
+        'A kezelt területet legalább 2-3 hétig szigorúan védeni kell a napsugárzástól (SPF 50+).',
+        'Kerülendő a szauna, forró fürdő és a dörzsölés a gyógyulási időszakban.'
+      ],
+      notes: 'A lézerfény a pigmentmolekulákat apró részecskékre bontja, amelyeket a szervezet természetes nyirokrendszere fokozatosan elszállít.'
+    }
+  },
+  {
+    id: 'sminktetovalas',
+    title: 'Prémium Sminktetoválás (Ajak, Szemöldök & Szemhéj)',
+    category: 'sminktetovalas',
+    categoryLabel: 'Sminktetoválás & Smink',
+    badge: 'TARTÓS SMINK',
+    shortDesc: 'Egyénre szabott formatervezésű, természetes hatású ajak- (félsatír, teljes akvarell satír), szemöldök- (soft powder / púderes) és szemhéj sminktetoválás.',
+    details: {
+      recommendations: [
+        'Ha szeretne minden nap tökéletes, mégis természetes hatású sminkkel ébredni.',
+        'Ajakaszimmetria, fakó ajakszín vagy hiányos szemöldök korrekciójára.',
+        'Sportos, aktív életmódot folytatóknak.'
+      ],
+      process: [
+        'Részletes konzultáció és precíz, egyéni forma- és színtervezés.',
+        'Helyi érzéstelenítés a maximális kényelemért.',
+        'Prémium, minősített pigmentek bevitele mikrotűs technológiával.',
+        'Ingyenes korrekció 4-6 héttel a kezelés után.'
+      ],
+      results: [
+        'Tartós, 1.5 - 3 évig tartó esztétikus végeredmény.',
+        'Tökéletesen szimmetrikus és harmonikus arcvonások.'
+      ],
+      aftercare: [
+        'A tetovált területet utóápoló krémmel kell kenni, óvni kell a víztől és a naptól az első napokban.',
+        'A pörköst szigorúan tilos kapargatni!'
+      ],
+      notes: 'A sminktetoválás célja az arc természetes szépségének finom kiemelése és az esztétikai aszimmetriák észrevétlen korrigálása.'
+    }
+  },
+  {
+    id: 'henna_eyebrow',
+    title: 'Mina Henna Szemöldök Tervezés & Festés',
+    category: 'szem',
+    categoryLabel: 'Pilla & Szemöldök',
+    badge: 'MINA HENNA',
+    shortDesc: '100%-ban természetes alapú henna festés, amely nemcsak a szőrszálakat, hanem a bőr felszínét is gyengéden szinezi, telt és formás szemöldököt biztosítva hetekre.',
+    details: {
+      recommendations: [
+        'Ritkás, hiányos vagy egyenetlen szemöldök dúsítására és formázására.',
+        'Ha a hagyományos szemöldökfestésnél tartósabb, púderes hatást szeretne.',
+        'Természetes, vegyszermentes összetevőket preferálóknak.'
+      ],
+      process: [
+        'Szemöldök környékének letisztítása és radírozása.',
+        'Archarányokhoz igazított precíz szemöldök kartografálás / tervezés.',
+        'Mina Henna paszta felvitele és hatóideje.',
+        'Szemöldök szedés és ápoló olajos lezárás.'
+      ],
+      results: [
+        'A bőrön 1-2 hétig, a szőrszálakon akár 6 hétig tartó intenzív szín.',
+        'Karakteres, mégis természetes megjelenés.'
+      ],
+      notes: 'A Mina Henna táplálja és erősíti a szőrszálak szerkezetét, elősegítve azok egészséges növekedését.'
+    }
+  },
+  {
+    id: 'morpheus_plasma',
+    title: 'Morpheus3D & Plazma Bőrfiatalító Terápia',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'ORVOSI PLAZMA',
+    shortDesc: 'Innovatív orvosi esztétikai kötőszövet-regeneráló eljárás a megereszkedett bőr, nyak, dekoltázs és szemkörnyék látványos feszítésére.',
+    details: {
+      recommendations: [
+        'Mély ráncok, megereszkedett nyak- és dekoltázsbőr esetén.',
+        'Műtét nélküli megereszkedett szemhéj feszesítésére (plazma-pen terápia).',
+        'Aknés heghelyek és kitágult pórusok finomítására.'
+      ],
+      process: [
+        'Kezelendő terület zsibbasztása érzéstelenítő krémmel.',
+        'Plazma kisülések vagy frakcionált mátrix energiabevitel a dermisz rétegbe.',
+        'Orvosi hatóanyagos hűsítő és steril lezárás.'
+      ],
+      results: [
+        'Azonnali és folyamatosan fokozódó bőrfeszesítő hatás.',
+        'Beindul a saját kollagén- és elasztintermelés.'
+      ],
+      aftercare: [
+        'A kezelt felületen mikropörkök keletkezhetnek, amelyek 5-7 nap alatt maguktól leválnak.',
+        'Fényvédő (SPF 50+) használata elengedhetetlen.'
+      ],
+      notes: 'Kiváló orvosi alternatíva a plasztikai beavatkozások helyett műtéti hegek és felépülési idő nélkül.'
+    }
+  },
+  {
+    id: 'tini_facial',
+    title: 'Tini Mélytisztító Arckezelés',
+    category: 'arc',
+    categoryLabel: 'Arc & Anti-aging',
+    badge: 'TINI KEZELÉS',
+    shortDesc: 'Kifejezetten a fiatal, hormonális változások miatti hajlamos problémás, pattanásos bőr alapos mélytisztítása és faggyútermelésének egyensúlyba hozása.',
+    details: {
+      recommendations: [
+        'Kamaszkori mitesszeres, aknés, gyulladt bőr tisztítására.',
+        'Túlzott faggyútermelés és zsíros fényű arcbőr kezelésére.',
+        'A helyes otthoni arcápolási rutin elsajátítására.'
+      ],
+      process: [
+        'Bőrtípusnak megfelelő kíméletes tisztítás.',
+        'Gőzölés vagy puhító gél alkalmazása a pórusok megnyitásához.',
+        'Kíméletes, szakszerű manuális mélytisztítás.',
+        'Fertőtlenítő VIO / összehúzó pakolás és faggyúszabályozó krém.'
+      ],
+      results: [
+        'Megtisztított, kevesebb mitesszert és gyulladást mutató arcbőr.',
+        'Matírozott, friss bőrérzet.'
+      ],
+      notes: 'A kezelés során megtanítjuk a fiataloknak a helyes arctisztítási lépéseket is az aknék megelőzésére.'
+    }
+  },
+  {
+    id: 'dioda_laser',
+    title: 'Dióda Lézeres Végleges Szőrtelenítés (Arc & Test)',
+    category: 'szortelenites',
+    categoryLabel: 'Szőrtelenítés',
+    badge: 'DIÓDA LÉZER',
+    shortDesc: 'Személyre szabott, fájdalommentes végleges szőrtelenítés nőknek és férfiaknak a legfejlettebb hűtőfejes dióda lézer technológiával.',
+    details: {
+      recommendations: [
+        'Szőrbenövések, szőrtüszőgyulladások végleges megszüntetésére.',
+        'Ha megelégelte a mindennapos borotválást és a gyantázással járó fájdalmat.',
+        'Arc, hónalj, intim, láb, kar vagy hát szőrtelenítésére.'
+      ],
+      process: [
+        'A bőrfelület felmérése és a lézeres paraméterek személyre szabása.',
+        'Hűsítő gél felvitele és a kezelt terület lépésről lépésre történő pásztázása.',
+        'Bőrnyugtató krém felvitele.'
+      ],
+      results: [
+        'Már az 1-2. alkalom után szembetűnően kevesebb és finomabb szőrszál.',
+        '6-8 alkalom után tartósan selymes és szőrmentes bőr.'
+      ],
+      whatToExpect: [
+        'A beépített kontakt-hűtőrendszernek köszönhetően a kezelés minimális kellemetlenséggel jár.',
+        'Gyors, biztonságos és egész évben (barnult bőrön is) végezhető.'
+      ],
+      notes: 'A dióda lézer szelektíven a szőrtüszőben lévő melaninban nyelődik el, elpusztítva a szőrszálat tápláló mátrixsejteket.'
+    }
+  },
+  {
+    id: 'studex_ear',
+    title: 'Studex System75 Steril Fülbelövés',
+    category: 'arc',
+    categoryLabel: 'Arc & Anti-aging',
+    badge: 'STUDEX SYSTEM75',
+    shortDesc: 'Teljesen fájdalommentes, halk, szövetkímélő és 100%-ban steril fülbelövő rendszer felnőtteknek és kisgyermekeknek egyaránt.',
+    details: {
+      recommendations: [
+        'Felnőttek és gyermekek / csecsemők első vagy újabb fülbevalójának behelyezésére.',
+        'Allergiamentes, prémium orvosi fém fülbevalót keresőknek.'
+      ],
+      process: [
+        'Célzott fertőtlenítés és a kívánt pont pontos bejelölése.',
+        'Steril, egyedileg csomagolt Studex System75 kapszula behelyezése.',
+        'Egyetlen halk és gyors mozdulattal történő beszúrás.'
+      ],
+      results: [
+        'Azonnali, tökéletesen elhelyezett fülbevaló gyulladásmentes gyógyulással.'
+      ],
+      notes: 'A System75 eszköz nem csattan, így nem ijeszti meg a kisgyermekeket sem. Orvosi minőségű, hipoallergén fülbevalókkal dolgozunk.'
+    }
+  }
 ];
 
 interface TreatmentsProps {
@@ -617,7 +841,7 @@ interface TreatmentsProps {
 }
 
 const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'orvosi' | 'intim' | 'arc' | 'lezer' | 'szem' | 'szortelenites'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'orvosi' | 'intim' | 'arc' | 'lezer' | 'szem' | 'szortelenites' | 'sminktetovalas'>('all');
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
 
   const toggleExpand = (id: string) => {
