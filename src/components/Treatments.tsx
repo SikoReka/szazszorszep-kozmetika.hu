@@ -411,6 +411,41 @@ const treatmentsData: Treatment[] = [
     }
   },
   {
+    id: 'botox_migren',
+    title: 'Botox Kezelés - Krónikus Migrén Terápia',
+    category: 'orvosi',
+    categoryLabel: 'Orvosi Esztétika',
+    badge: 'MIGRÉN BOTOX',
+    shortDesc: 'A krónikus migrén FDA és EMA által jóváhagyott, hatékony orvosi megelőző botox kezelése, amely a fájdalomjelek gátlásával átlagosan felére csökkenti a havi fejfájásos napok számát.',
+    details: {
+      recommendations: [
+        'Kinek ajánlott: krónikus migrénben szenvedőknek, akiknél havonta 15 vagy több fejfájásos nap fordul elő legalább 3 hónapja.',
+        'Azoknak, akiknél a hagyományos gyógyszeres megelőző kezelések nem hoztak elegendő eredményt vagy mellékhatásokat okoztak.',
+        'A havi migrénes napok számának, a rohamok intenzitásának és a fájdalomcsillapító-igénynek a jelentős mérséklésére.'
+      ],
+      process: [
+        'Orvosi konzultáció, a krónikus migrén típusának felmérése és az ellenjavallatok kizárása.',
+        'Injektálás a standard nemzetközi protokoll szerint 31-39 ponton (homlok, halánték, tarkó, nyak és váll izmai).',
+        'A beavatkozás mindössze 20-30 percet vesz igénybe, enyhe tűszúrásszerű érzéssel jár.',
+        'A hatás 4-6 hét alatt indul meg, és 2-3 egymást követő ciklus (3 havonta ismételve) után éri el a maximális eredményt.'
+      ],
+      results: [
+        'A havi fejfájásos napok száma átlagosan 8-9 nappal csökken (a migrénes napok száma akár felére mérséklődik).',
+        'A rohamok intenzitásának és időtartamának kifejezett csökkenése.',
+        'A szükséges fájdalomcsillapítók mennyiségének és az életminőségnek a látható javulása.'
+      ],
+      whatToExpect: [
+        'Enyhe bőrpír, duzzanat az injekciós pontokon (24-48 órán belül spontán elmúlik).',
+        'Átmenetileg nyak- vagy vállmerevség előfordulhat az első 1-2 hétben.'
+      ],
+      aftercare: [
+        'Ellenjavallatok: terhesség, szoptatás, neuromuszkuláris betegségek (pl. myasthenia gravis) vagy aktív fertőzés a kezelendő pontokon.',
+        'Ajánlott ismétlési időköz: 12 hét (3 havonta) a tartós és kiegyensúlyozott hatásért.'
+      ],
+      notes: 'A kezelést Dr. Dézsi Csilla esztétikai szakorvos végzi a nemzetközi neurológiai protokollok szerint.'
+    }
+  },
+  {
     id: 'hialuronsav',
     title: 'Hialuronsavas Arckontúrozás & Ajaktöltés',
     category: 'orvosi',
