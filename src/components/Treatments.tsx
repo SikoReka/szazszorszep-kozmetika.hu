@@ -476,7 +476,7 @@ const treatmentsData: Treatment[] = [
     id: 'emsella',
     title: 'EMSella Medencefenék-Rehabilitáció',
     category: 'intim',
-    categoryLabel: 'Intim Kezelés',
+    categoryLabel: 'Test Kezelés',
     badge: 'HIFEM INTIM',
     shortDesc: 'Forradalmi, nem invazív medencefenék-erősítő kezelés inkontinencia ellen, a szexuális egészség javítására és a kismedencei izmok regenerálására, teljesen felöltözve.',
     details: {
@@ -525,7 +525,7 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
   const categories = [
     { id: 'all', name: 'Összes' },
     { id: 'orvosi', name: 'Orvosi Esztétika' },
-    { id: 'intim', name: 'Intim Kezelések' },
+    { id: 'intim', name: 'Test Kezelések' },
     { id: 'arc', name: 'Arc & Anti-aging' },
     { id: 'lezer', name: 'Lézeres Kezelések' },
     { id: 'szem', name: 'Pilla & Szemöldök' },
