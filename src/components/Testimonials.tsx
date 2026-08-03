@@ -88,6 +88,10 @@ const Testimonials: React.FC = () => {
     setCurrentIndex((prev) => (prev === testimonialsData.length - 1 ? 0 : prev + 1));
   };
 
+  const visibleItems = [0, 1, 2].map(
+    (offset) => testimonialsData[(currentIndex + offset) % testimonialsData.length]
+  );
+
   return (
     <section id="testimonials" className="section testimonials-section">
       <div className="container">
@@ -114,7 +118,7 @@ const Testimonials: React.FC = () => {
             <ChevronLeft size={22} />
           </button>
 
-          <div className="testimonials-grid-container">
+          <div className="testimonials-cards-grid">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -122,37 +126,44 @@ const Testimonials: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.35, ease: 'easeInOut' }}
-                className="testimonial-card glass"
+                className="testimonials-row"
               >
-                <Quote size={40} className="quote-icon" />
+                {visibleItems.map((item, idx) => (
+                  <div
+                    key={item.id}
+                    className={`testimonial-card glass ${idx === 1 ? 'card-second' : ''} ${idx === 2 ? 'card-third' : ''}`}
+                  >
+                    <Quote size={32} className="quote-icon" />
 
-                <div className="testimonial-stars">
-                  {[...Array(testimonialsData[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} size={16} fill="var(--clr-accent)" color="var(--clr-accent)" />
-                  ))}
-                </div>
+                    <div className="testimonial-stars">
+                      {[...Array(item.rating)].map((_, i) => (
+                        <Star key={i} size={15} fill="var(--clr-accent)" color="var(--clr-accent)" />
+                      ))}
+                    </div>
 
-                <p className="testimonial-text">
-                  "{testimonialsData[currentIndex].text}"
-                </p>
+                    <p className="testimonial-text">
+                      "{item.text}"
+                    </p>
 
-                <div className="testimonial-footer">
-                  <div className="author-avatar">
-                    {testimonialsData[currentIndex].avatarLetter}
+                    <div className="testimonial-footer">
+                      <div className="author-avatar">
+                        {item.avatarLetter}
+                      </div>
+                      
+                      <div className="author-info">
+                        <h4 className="author-name">
+                          {item.name}
+                          {item.verified && (
+                            <CheckCircle2 size={14} className="verified-icon" />
+                          )}
+                        </h4>
+                        <span className="treatment-tag">{item.treatment}</span>
+                      </div>
+                      
+                      <span className="source-tag">{item.date}</span>
+                    </div>
                   </div>
-                  
-                  <div className="author-info">
-                    <h4 className="author-name">
-                      {testimonialsData[currentIndex].name}
-                      {testimonialsData[currentIndex].verified && (
-                        <CheckCircle2 size={15} className="verified-icon" />
-                      )}
-                    </h4>
-                    <span className="treatment-tag">{testimonialsData[currentIndex].treatment}</span>
-                  </div>
-                  
-                  <span className="source-tag">{testimonialsData[currentIndex].date}</span>
-                </div>
+                ))}
               </motion.div>
             </AnimatePresence>
           </div>
