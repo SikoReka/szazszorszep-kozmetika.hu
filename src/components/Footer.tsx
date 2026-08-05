@@ -1,4 +1,5 @@
 import logo from '../assets/logo.svg';
+import borbasLogo from '../assets/borbas_webdesign_logo.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -44,7 +45,12 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container footer-bottom-container">
           <p>&copy; {currentYear} Százszorszép Kozmetika – Minden jog fenntartva.</p>
-          <p className="footer-powered">Készítette: Antigravity</p>
+          <div className="credit-section">
+            <a href="https://borbaswebdesign.hu/" target="_blank" rel="noopener noreferrer" className="credit-link">
+              <span className="credit-text">készítette</span>
+              <img src={borbasLogo} alt="Borbás Webdesign" className="credit-logo" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

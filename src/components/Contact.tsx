@@ -29,7 +29,7 @@ const Contact = ({ onOpenBooking }: ContactProps) => {
     console.log("Submitting contact request:", formData);
     setSubmitted(true);
     
-    // Reset form after a delay (except submission state)
+    // Reset form after a delay
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
@@ -71,12 +71,12 @@ const Contact = ({ onOpenBooking }: ContactProps) => {
               </div>
 
               <div className="detail-item">
-  <Clock className="detail-icon" size={20} />
-  <div className="detail-text">
-    <h5>Nyitva tartás</h5>
-    <p>Bejelentkezés alapján</p>
-  </div>
-</div>
+                <Clock className="detail-icon" size={20} />
+                <div className="detail-text">
+                  <h5>Nyitva tartás</h5>
+                  <p>Bejelentkezés alapján</p>
+                </div>
+              </div>
             </div>
 
             {/* Social media connections */}
