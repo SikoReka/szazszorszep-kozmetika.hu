@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Check } from 'lucide-react';
+import borbasLogo from '../assets/borbas_webdesign_logo.png';
 import './Contact.css';
 
 interface ContactProps {
@@ -203,6 +204,14 @@ const Contact = ({ onOpenBooking }: ContactProps) => {
             </div>
           </div>
 
+        </div>
+
+        {/* Borbás Webdesign Credit centered in the white space area under the contact grid */}
+        <div className="section-bottom-credit">
+          <a href="https://borbaswebdesign.hu/" target="_blank" rel="noopener noreferrer" className="credit-link">
+            <span className="credit-text">készítette</span>
+            <img src={borbasLogo} alt="Borbás Webdesign" className="credit-logo" />
+          </a>
         </div>
       </div>
     </section>
