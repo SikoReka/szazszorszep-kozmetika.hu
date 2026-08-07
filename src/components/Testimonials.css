@@ -43,9 +43,8 @@
 /* Carousel Layout */
 .testimonials-carousel-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -53,7 +52,6 @@
 }
 
 .testimonials-cards-grid {
-  flex: 1;
   width: 100%;
   overflow: hidden;
   touch-action: pan-y;
@@ -86,7 +84,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 15px;
+  gap: 18px;
   height: 100%;
   user-select: none;
 }
@@ -96,6 +94,7 @@
   top: 20px;
   right: 20px;
   color: rgba(190, 150, 109, 0.18);
+  pointer-events: none;
 }
 
 .testimonial-stars {
@@ -105,20 +104,22 @@
 
 .testimonial-text {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.65;
   color: var(--clr-text);
   font-style: italic;
   flex: 1;
+  word-break: break-word;
 }
 
 .testimonial-footer {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 14px;
   margin-top: auto;
-  padding-top: 15px;
+  padding-top: 16px;
   border-top: 1px solid rgba(190, 150, 109, 0.18);
+  width: 100%;
 }
 
 .author-avatar {
@@ -135,24 +136,34 @@
   font-size: 1rem;
   box-shadow: 0 4px 10px rgba(113, 73, 33, 0.15);
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .author-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   min-width: 0;
+}
+
+.author-header-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
 }
 
 .author-name {
   font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--clr-primary);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  line-height: 1.3;
 }
 
 .verified-icon {
@@ -162,28 +173,37 @@
 
 .treatment-tag {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--clr-accent-dark);
+  font-size: 0.78rem;
+  color: var(--clr-text-light);
   font-weight: 500;
+  line-height: 1.3;
 }
 
 .source-tag {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  color: var(--clr-text-light);
-  background: rgba(190, 150, 109, 0.08);
-  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--clr-accent-dark);
+  background: rgba(190, 150, 109, 0.1);
+  padding: 3px 10px;
   border-radius: 20px;
-  border: 1px solid rgba(190, 150, 109, 0.18);
+  border: 1px solid rgba(190, 150, 109, 0.2);
   white-space: nowrap;
   flex-shrink: 0;
-  align-self: center;
 }
 
-/* Nav Buttons */
+/* Controls Bar (Dots & Nav Arrows) */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 35px;
+}
+
 .carousel-nav-btn {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid var(--clr-border);
@@ -207,9 +227,9 @@
 /* Dots */
 .carousel-dots {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 35px;
 }
 
 .dot {
@@ -237,7 +257,11 @@
 
 @media (max-width: 768px) {
   .testimonials-section {
-    padding: 70px 0;
+    padding: 60px 0;
+  }
+
+  .testimonials-header-block {
+    margin-bottom: 35px;
   }
 
   .card-second,
@@ -246,24 +270,46 @@
   }
 
   .testimonial-card {
-    padding: 25px 20px;
+    padding: 24px 20px;
     min-height: auto;
+    border-radius: 16px;
+    gap: 16px;
   }
 
   .testimonial-text {
     font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .author-header-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .source-tag {
+    align-self: flex-start;
   }
 
   .trust-rating-badge {
     flex-direction: column;
-    gap: 4px;
-    border-radius: 16px;
+    gap: 6px;
+    border-radius: 20px;
     padding: 12px 18px;
+    text-align: center;
+  }
+
+  .trust-label {
+    font-size: 0.75rem;
+  }
+
+  .carousel-controls {
+    margin-top: 25px;
+    gap: 15px;
   }
 
   .carousel-nav-btn {
-    display: flex;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
   }
 }

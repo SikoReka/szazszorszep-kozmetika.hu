@@ -151,12 +151,8 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* Carousel Container */}
+        {/* Carousel Wrapper */}
         <div className="testimonials-carousel-wrapper">
-          <button onClick={handlePrev} className="carousel-nav-btn prev" aria-label="Előző vélemény">
-            <ChevronLeft size={22} />
-          </button>
-
           <div className="testimonials-cards-grid">
             <AnimatePresence mode="wait">
               <motion.div
@@ -194,16 +190,17 @@ const Testimonials: React.FC = () => {
                       </div>
                       
                       <div className="author-info">
-                        <h4 className="author-name">
-                          {item.name}
-                          {item.verified && (
-                            <CheckCircle2 size={14} className="verified-icon" />
-                          )}
-                        </h4>
+                        <div className="author-header-line">
+                          <h4 className="author-name">
+                            <span>{item.name}</span>
+                            {item.verified && (
+                              <CheckCircle2 size={14} className="verified-icon" />
+                            )}
+                          </h4>
+                          <span className="source-tag">{item.date}</span>
+                        </div>
                         <span className="treatment-tag">{item.treatment}</span>
                       </div>
-                      
-                      <span className="source-tag">{item.date}</span>
                     </div>
                   </div>
                 ))}
@@ -211,21 +208,27 @@ const Testimonials: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          <button onClick={handleNext} className="carousel-nav-btn next" aria-label="Következő vélemény">
-            <ChevronRight size={22} />
-          </button>
-        </div>
+          {/* Unified Carousel Bottom Controls */}
+          <div className="carousel-controls">
+            <button onClick={handlePrev} className="carousel-nav-btn prev" aria-label="Előző vélemény">
+              <ChevronLeft size={20} />
+            </button>
 
-        {/* Dots Navigation */}
-        <div className="carousel-dots">
-          {testimonialsData.map((_, idx) => (
-            <button
-              key={idx}
-              className={`dot ${idx === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(idx)}
-              aria-label={`Vélemény ${idx + 1}`}
-            />
-          ))}
+            <div className="carousel-dots">
+              {testimonialsData.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`dot ${idx === currentIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Vélemény ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <button onClick={handleNext} className="carousel-nav-btn next" aria-label="Következő vélemény">
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
 
       </div>
