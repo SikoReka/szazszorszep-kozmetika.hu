@@ -1,26 +1,9 @@
-import thermageBefore from '../assets/before_after/thermage_elotte.jpg';
-import thermageAfter from '../assets/before_after/thermage_utana.jpg';
-import carbonBefore from '../assets/before_after/carbon_peeling_elotte.jpg';
-import carbonAfter from '../assets/before_after/carbon_peeling_utana_1.jpg';
-import tetovalasBefore from '../assets/before_after/tetovalas_eltavolitas_elotte.jpg';
-import tetovalasAfter from '../assets/before_after/tetovalas_eltavolitas_utana.jpg';
-import elysionBefore from '../assets/before_after/elysion_pro_elotte_honalj.jpg';
-import elysionAfter from '../assets/before_after/elysion_pro_utana_honalj.jpg';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Clock, Sparkles, CheckCircle2, AlertCircle, Calendar } from 'lucide-react';
 import './Treatments.css';
 
-interface BeforeAfterInfo {
-  title: string;
-  beforeImg: string;
-  afterImg: string;
-  beforeLabel?: string;
-  afterLabel?: string;
-}
-
 interface CollapsibleInfo {
-  beforeAfter?: BeforeAfterInfo;
   recommendations?: string[];
   process?: string[];
   results?: string[];
@@ -59,12 +42,7 @@ const treatmentsData: Treatment[] = [
         'A beavatkozás teljesen fájdalommentes.',
         'Kúraszerűen ajánlott 3-4 hetente, összesen 4-5 alkalommal (a bőr minőségétől függően).'
       ],
-      notes: 'A Hollywood Thermage kezelés egy rendkívül gyors és biztonságos megoldás, amely azonnali, látványos eredményt hoz!',
-      beforeAfter: {
-        title: 'HOLLYWOOD THERMAGE 3D',
-        beforeImg: thermageBefore,
-        afterImg: thermageAfter
-      }
+      notes: 'A Hollywood Thermage kezelés egy rendkívül gyors és biztonságos megoldás, amely azonnali, látványos eredményt hoz!'
       
     }
   },
@@ -112,12 +90,7 @@ const treatmentsData: Treatment[] = [
       results: [
         'Mivel a lézer csak az aktív növekedési fázisban lévő szőrszálakat (alkalmanként kb. 15-20%) tudja elpusztítani, a tartós eredményhez általában 6-8 kezelés szükséges.',
         'A kezelések között testtájéktól függően 6-8-12 hét szünetet kell tartani.'
-      ],
-      beforeAfter: {
-        title: 'ELYSION PRO DIÓDA LÉZER',
-        beforeImg: elysionBefore,
-        afterImg: elysionAfter
-      }
+      ]
     }
   },
   {
@@ -265,12 +238,7 @@ const treatmentsData: Treatment[] = [
       whatToExpect: [
         'A kezelés gyors (30-45 perc), teljesen fájdalommentes és nincs gyógyulási idő.',
         'Nyáron is végezhető fokozott fényvédelem mellett, de szeplős vagy pigmentfoltra fokozottan hajlamos bőr esetén inkább ősztől javasolt.'
-      ],
-      beforeAfter: {
-        title: 'CARBON PEELING KEZELÉS',
-        beforeImg: carbonBefore,
-        afterImg: carbonAfter
-      }
+      ]
     }
   },
   {
@@ -290,12 +258,7 @@ const treatmentsData: Treatment[] = [
         'A kezelés enyhe, jól tolerálható fájdalommal járhat.',
         'A tetoválás színétől és mélységétől függően általában 3-10 alkalom szükséges a teljes eltávolításhoz.',
         'Két kezelés között kötelezően 4-6 hét gyógyulási szünetet kell tartani.'
-      ],
-      beforeAfter: {
-        title: 'LÉZERES TETOVÁLÁS ELTÁVOLÍTÁS',
-        beforeImg: tetovalasBefore,
-        afterImg: tetovalasAfter
-      }
+      ]
     }
   },
   {
@@ -1058,32 +1021,6 @@ const Treatments = ({ onOpenBooking }: TreatmentsProps) => {
                           )}
 
                           
-                          {/* Before & After Photo Comparison */}
-                          {treatment.details.beforeAfter && (
-                            <div className="detail-section before-after-section">
-                              <h4 className="detail-section-title">
-                                <Sparkles size={14} />
-                                <span>Eredmények: Előtte & Utána</span>
-                              </h4>
-                              <div className="before-after-card">
-                                <div className="ba-header-banner">
-                                  <span className="ba-main-title">{treatment.details.beforeAfter.title}</span>
-                                  <span className="ba-sub-title">előtte & utána</span>
-                                </div>
-                                <div className="ba-images-row">
-                                  <div className="ba-image-wrapper">
-                                    <img src={treatment.details.beforeAfter.beforeImg} alt="Előtte" className="ba-img" />
-                                    <div className="ba-badge before">ELŐTTE</div>
-                                  </div>
-                                  <div className="ba-image-wrapper">
-                                    <img src={treatment.details.beforeAfter.afterImg} alt="Utána" className="ba-img" />
-                                    <div className="ba-badge after">UTÁNA</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
                           {/* Direct Booking CTA */}
                           <div className="drawer-actions">
                             <button onClick={onOpenBooking} className="btn btn-accent btn-drawer-booking">
