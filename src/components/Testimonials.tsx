@@ -190,16 +190,17 @@ const Testimonials: React.FC = () => {
                       </div>
                       
                       <div className="author-info">
-                        <div className="author-header-line">
-                          <h4 className="author-name">
-                            <span>{item.name}</span>
-                            {item.verified && (
-                              <CheckCircle2 size={14} className="verified-icon" />
-                            )}
-                          </h4>
+                        <h4 className="author-name">
+                          <span>{item.name}</span>
+                          {item.verified && (
+                            <CheckCircle2 size={14} className="verified-icon" />
+                          )}
+                        </h4>
+
+                        <div className="author-sub-line">
+                          <span className="treatment-tag">{item.treatment}</span>
                           <span className="source-tag">{item.date}</span>
                         </div>
-                        <span className="treatment-tag">{item.treatment}</span>
                       </div>
                     </div>
                   </div>
