@@ -320,13 +320,13 @@ export const SalonAdmin: React.FC = () => {
               )}
             </div>
 
-            {/* Kézi token beírási lehetőség (ha nem megy a kamera) */}
+            {/* Kézi keresés email cím vagy kód alapján (ha nem megy a kamera) */}
             <div className="manual-token-box">
-              <span className="manual-label">Vagy írd be a kódot kézzel:</span>
+              <span className="manual-label">Vagy keresd meg a vendéget email cím alapján:</span>
               <div className="manual-row">
                 <input
                   type="text"
-                  placeholder="szsz_xxxxxxxx"
+                  placeholder="vendeg@gmail.com vagy kód"
                   value={manualToken}
                   onChange={(e) => setManualToken(e.target.value)}
                   className="manual-input"

@@ -25,6 +25,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     if (userId) {
       query += 'id = ?';
       param = userId;
+    } else if (qrToken && qrToken.includes('@')) {
+      // Ha a beírt szöveg egy email cím
+      query += 'LOWER(email) = LOWER(?)';
+      param = qrToken.trim();
     } else {
       query += 'qr_token = ?';
       param = qrToken!;
