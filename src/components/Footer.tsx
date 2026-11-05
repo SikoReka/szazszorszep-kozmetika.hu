@@ -35,6 +35,7 @@ const Footer = () => {
               <li><a href="#about">Munkatársaink</a></li>
               <li><a href="#brands">Márkáink</a></li>
               <li><a href="#treatments">Kezelések</a></li>
+              <li><a href="#loyalty">Hűségprogram</a></li>
             </ul>
           </div>
         </div>
@@ -43,7 +44,17 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-container">
-          <p>&copy; {currentYear} Százszorszép Kozmetika – Minden jog fenntartva.</p>
+          <p>
+            &copy; {currentYear} Százszorszép Kozmetika – Minden jog fenntartva.
+            <span style={{ margin: '0 8px', opacity: 0.4 }}>•</span>
+            <a 
+              href="/szalon-admin" 
+              style={{ color: 'inherit', textDecoration: 'none', opacity: 0.6, fontSize: '0.85em' }}
+              title="Munkatársi PIN Kódos Belépés"
+            >
+              Munkatársi Belépés 🔒
+            </a>
+          </p>
         </div>
       </div>
     </footer>

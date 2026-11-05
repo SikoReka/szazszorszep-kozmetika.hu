@@ -1,0 +1,234 @@
+/* src/components/LoyaltySection.css */
+/* Borbás Webdesign Luxury Standard - Hűségprogram Szekció */
+
+.loyalty-section {
+  background: linear-gradient(180deg, #faf9f6 0%, #f5efe6 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.loyalty-header-block {
+  max-width: 680px;
+  margin: 0 auto 50px auto;
+}
+
+.luxury-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #714921;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.loyalty-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+.loyalty-step-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px 26px;
+  border: 1px solid rgba(190, 150, 109, 0.25);
+  box-shadow: 0 10px 30px rgba(113, 73, 33, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+
+.highlighted-step {
+  border-color: #d4af37;
+  background: linear-gradient(165deg, #ffffff 0%, #fcf9f2 100%);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+}
+
+.step-number-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(190, 150, 109, 0.2);
+  line-height: 1;
+}
+
+.step-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(190, 150, 109, 0.25) 100%);
+  color: #714921;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.highlighted-step .step-icon-circle {
+  background: linear-gradient(135deg, #d4af37 0%, #b89158 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.step-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4a3525;
+  margin: 6px 0 0 0;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #6d5b4d;
+  margin: 0;
+  flex: 1;
+}
+
+.step-sub-note {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b89158;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding-top: 10px;
+  border-top: 1px solid rgba(190, 150, 109, 0.15);
+  width: 100%;
+}
+
+/* CTA Doboz */
+.loyalty-cta-banner {
+  background: linear-gradient(135deg, #ffffff 0%, #faf6f0 100%);
+  border-radius: 28px;
+  padding: 40px;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 45px rgba(113, 73, 33, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.cta-text-group {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cta-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b89158;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cta-heading {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.7rem;
+  color: #4a3525;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cta-sub {
+  font-size: 0.95rem;
+  color: #6d5b4d;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.open-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cta-trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(190, 150, 109, 0.2);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #714921;
+}
+
+.trust-item svg {
+  color: #27ae60;
+}
+
+/* Reszponzív nézetek */
+@media (max-width: 992px) {
+  .loyalty-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .cta-trust-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .loyalty-section {
+    padding: 60px 0;
+  }
+
+  .loyalty-cta-banner {
+    padding: 26px 20px;
+  }
+
+  .cta-heading {
+    font-size: 1.35rem;
+  }
+
+  .open-card-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

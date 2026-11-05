@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Brands from './components/Brands';
 import Treatments from './components/Treatments';
+import LoyaltySection from './components/LoyaltySection';
 import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
@@ -44,6 +45,7 @@ function App() {
         <About />
         <Brands />
         <Treatments onOpenBooking={openBooking} />
+        <LoyaltySection />
         <Testimonials />
         <Gallery />
         <Contact onOpenBooking={openBooking} />
