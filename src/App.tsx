@@ -28,12 +28,14 @@ function App() {
 
   const openBooking = () => setIsBookingOpen(true);
 
-  // Útvonal-választó
-  if (currentPath === '/kartya' || currentPath === '/klub') {
+  // Útvonal-választó (kezelve a kis- és nagybetűket, valamint az esetleges záró perjelet)
+  const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, '') || '/';
+
+  if (normalizedPath === '/kartya' || normalizedPath === '/klub') {
     return <LoyaltyCard />;
   }
 
-  if (currentPath === '/szalon-admin' || currentPath === '/admin') {
+  if (normalizedPath === '/szalon-admin' || normalizedPath === '/admin') {
     return <SalonAdmin />;
   }
 
