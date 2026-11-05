@@ -116,6 +116,33 @@ export const LoyaltyCard: React.FC = () => {
     }
   };
 
+  // Automatikus háttér-frissítés (polling 3 másodpercenként)
+  useEffect(() => {
+    if (!user) return;
+
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch(`/api/card?userId=${encodeURIComponent(user.id)}`);
+        const data = await res.json();
+        if (res.ok && data.success) {
+          // Csak akkor frissítünk ha változott a pecsétek száma
+          if (data.user.stamps !== user.stamps || data.user.total_stamps !== user.total_stamps) {
+            setUser(data.user);
+            localStorage.setItem('szaszszorszep_loyalty_user', JSON.stringify(data.user));
+            // Haptic visszajelzés mobilon ha támogatott
+            if (navigator.vibrate) {
+              navigator.vibrate([100, 50, 100]);
+            }
+          }
+        }
+      } catch (err) {
+        // Csendes hiba háttérben
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [user]);
+
   const handleLogout = () => {
     localStorage.removeItem('szaszszorszep_loyalty_user');
     setUser(null);
