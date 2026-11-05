@@ -162,6 +162,18 @@
   line-height: 1.55;
 }
 
+.cta-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+}
+
+.cta-install-sub {
+  width: 100%;
+}
+
 .open-card-btn {
   display: inline-flex;
   align-items: center;
@@ -292,7 +304,19 @@
     justify-content: center;
   }
 
-  .open-card-btn {
+  .cta-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+}
+
+.cta-install-sub {
+  width: 100%;
+}
+
+.open-card-btn {
     width: 100%;
     max-width: 100%;
     padding: 14px 18px;
@@ -327,7 +351,19 @@
     border-radius: 18px;
   }
 
-  .open-card-btn {
+  .cta-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+}
+
+.cta-install-sub {
+  width: 100%;
+}
+
+.open-card-btn {
     padding: 13px 14px;
     font-size: 0.85rem;
     gap: 6px;

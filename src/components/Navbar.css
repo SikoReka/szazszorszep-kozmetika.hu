@@ -111,6 +111,38 @@
   width: 100%;
 }
 
+.btn-nav-loyalty,
+.nav-loyalty-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(229, 192, 123, 0.28) 100%);
+  color: #714921;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.nav-loyalty-link:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #b89158 100%);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+.gold-sparkle-icon {
+  color: #d4af37;
+}
+
+.nav-loyalty-link:hover .gold-sparkle-icon {
+  color: #ffffff;
+}
+
 .btn-nav {
   padding: 0.6rem 1.6rem;
   font-size: 0.75rem;
@@ -177,6 +209,45 @@
     font-weight: 500;
   }
   
+  .mobile-menu-loyalty-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(190, 150, 109, 0.2);
+    border-bottom: 1px solid rgba(190, 150, 109, 0.2);
+    margin: 10px 0;
+  }
+
+  .mobile-loyalty-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(229, 192, 123, 0.25) 100%);
+    border: 1.5px solid rgba(212, 175, 55, 0.45);
+    color: #714921;
+    padding: 12px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .mobile-admin-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #8c7360;
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 6px;
+    opacity: 0.85;
+  }
+
   .btn-mobile-nav {
     width: 100%;
     margin-top: 20px;

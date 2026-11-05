@@ -219,6 +219,10 @@ export const LoyaltyCard: React.FC = () => {
               <ShieldCheck size={16} />
               <span>Biztonságos Google bejelentkezés • 0 Ft havidíj • Bármikor elérhető</span>
             </div>
+
+            <div style={{ width: '100%', marginTop: '14px' }}>
+              <InstallAppModal appName="Százszorszép Hűségkártya" />
+            </div>
           </motion.div>
         ) : (
           /* Belépett nézet: A Prémium Digitális Kártya */
@@ -227,6 +231,9 @@ export const LoyaltyCard: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="loyalty-member-view"
           >
+            {/* Felső gyors app-ikon elérés */}
+            <InstallAppModal appName="Százszorszép Hűségkártya" />
+
             {/* Fő Kártya */}
             <div className={`digital-pass-card ${isRewardReady ? 'reward-active-glow' : ''}`}>
               <div className="card-top-header">

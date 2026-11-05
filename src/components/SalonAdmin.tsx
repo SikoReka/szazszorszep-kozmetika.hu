@@ -280,6 +280,10 @@ export const SalonAdmin: React.FC = () => {
                 Belépés
               </button>
             </form>
+
+            <div style={{ width: '100%', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(190, 150, 109, 0.2)' }}>
+              <InstallAppModal appName="Százszorszép Admin" />
+            </div>
           </motion.div>
         ) : (
           /* SZALON KEZELŐPULT */

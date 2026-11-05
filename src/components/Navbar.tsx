@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sparkles, ShieldCheck } from 'lucide-react';
 import logoFektetett from '../assets/logo_fektetett.svg';
 import './Navbar.css';
 
@@ -10,6 +10,7 @@ interface NavbarProps {
 const Navbar = ({ onOpenBooking }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState<any>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,17 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('szaszszorszep_loyalty_user');
+      if (saved) {
+        setLoggedInUser(JSON.parse(saved));
+      }
+    } catch (e) {
+      // Ignored
+    }
   }, []);
 
   const navLinks = [
@@ -47,6 +59,10 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
               {link.name}
             </a>
           ))}
+          <a href="/kartya" className="nav-loyalty-link" title="Digitális Hűségkártya és Belépés">
+            <Sparkles size={14} className="gold-sparkle-icon" />
+            <span>{loggedInUser ? `Kártyám (${loggedInUser.stamps} pecsét)` : 'Hűségkártya (App)'}</span>
+          </a>
           <button onClick={onOpenBooking} className="btn btn-nav">
             IDŐPONTFOGLALÁS
           </button>
@@ -70,6 +86,26 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
             {link.name}
           </a>
         ))}
+
+        <div className="mobile-menu-loyalty-box">
+          <a 
+            href="/kartya" 
+            className="mobile-loyalty-btn"
+            onClick={() => setIsOpen(false)}
+          >
+            <Sparkles size={16} />
+            <span>{loggedInUser ? `Hűségkártyám (${loggedInUser.stamps} pecsét)` : 'Digitális Hűségkártya (App / Belépés)'}</span>
+          </a>
+          <a 
+            href="/szalon-admin" 
+            className="mobile-admin-link"
+            onClick={() => setIsOpen(false)}
+          >
+            <ShieldCheck size={14} />
+            <span>Munkatársi Belépés 🔒</span>
+          </a>
+        </div>
+
         <button 
           className="btn btn-primary btn-mobile-nav" 
           onClick={() => {
