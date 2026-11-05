@@ -24,6 +24,7 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
     { name: 'Munkatársaink', href: '#about' },
     { name: 'Márkáink', href: '#brands' },
     { name: 'Kezelések', href: '#treatments' },
+    { name: 'Hűségkártya', href: '/kartya' },
     { name: 'Galéria', href: '#gallery' },
     { name: 'Kapcsolat', href: '#contact' },
   ];

@@ -1,0 +1,428 @@
+/* src/components/SalonAdmin.css */
+/* Borbás Webdesign - Szalon Csippantó Admin Stílusok */
+
+.admin-page-wrapper {
+  min-height: 100vh;
+  background: #f4eee6;
+  padding: 30px 16px 80px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  color: #2c241d;
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #714921;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(190, 150, 109, 0.25);
+}
+
+.admin-logout-btn {
+  background: none;
+  border: none;
+  color: #a84242;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+/* PIN KÓD KÁRTYA */
+.pin-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px 24px;
+  border: 1px solid rgba(190, 150, 109, 0.25);
+  box-shadow: 0 15px 35px rgba(113, 73, 33, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.shield-icon-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  color: #714921;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-card h2 {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.5rem;
+  color: #4a3525;
+  margin: 0;
+}
+
+.pin-card p {
+  font-size: 0.9rem;
+  color: #7d6b5d;
+  margin: 0;
+}
+
+.pin-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+
+.pin-input-field {
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  letter-spacing: 8px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1.5px solid #d4af37;
+  background: #faf8f5;
+  outline: none;
+}
+
+.pin-submit-btn {
+  background: linear-gradient(135deg, #714921 0%, #b89158 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pin-submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ADMIN DASHBOARD */
+.admin-dashboard-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-header-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid rgba(190, 150, 109, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-info h1 {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.3rem;
+  color: #4a3525;
+  margin: 0;
+}
+
+.operator-tag {
+  font-size: 0.8rem;
+  color: #8c7360;
+}
+
+.db-init-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fdfaf6;
+  border: 1px solid rgba(190, 150, 109, 0.3);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  color: #714921;
+  cursor: pointer;
+}
+
+/* Szkenner Gomb */
+.scanner-control-box {
+  width: 100%;
+}
+
+.big-scan-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #d4af37 0%, #b89158 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 22px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+  transition: all 0.2s ease;
+}
+
+.big-scan-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(212, 175, 55, 0.45);
+}
+
+.camera-active-container {
+  background: #000000;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.qr-camera-viewport {
+  width: 100%;
+  min-height: 280px;
+}
+
+.cancel-scan-btn {
+  background: #2b2b2b;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Kézi token doboz */
+.manual-token-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid rgba(190, 150, 109, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.manual-label {
+  font-size: 0.75rem;
+  color: #8c7360;
+}
+
+.manual-row {
+  display: flex;
+  gap: 8px;
+}
+
+.manual-input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #dcd3c7;
+  font-size: 0.85rem;
+}
+
+.manual-btn {
+  background: #714921;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Állapotjelző */
+.status-alert-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-alert-box.success {
+  background: #eef8f1;
+  color: #1e7e34;
+  border: 1px solid #c3e6cb;
+}
+
+.status-alert-box.error {
+  background: #fdf2f2;
+  color: #b02a37;
+  border: 1px solid #f5c2c7;
+}
+
+/* Beolvasott vendég kártyája */
+.scanned-user-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 22px;
+  border: 1.5px solid #d4af37;
+  box-shadow: 0 15px 35px rgba(113, 73, 33, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.user-info-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
+  object-fit: cover;
+}
+
+.user-thumb-fallback {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #714921;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.user-card-name {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.25rem;
+  color: #4a3525;
+  margin: 0;
+}
+
+.user-card-email {
+  font-size: 0.8rem;
+  color: #8c7360;
+}
+
+.stamps-counter-box {
+  background: #faf7f2;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.counter-label {
+  font-size: 0.8rem;
+  color: #8c7360;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.counter-value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.big-stamp-count {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: #714921;
+  line-height: 1;
+}
+
+.max-stamp-count {
+  font-size: 1.3rem;
+  color: #b89158;
+  font-weight: 600;
+}
+
+.total-visits-tag {
+  font-size: 0.8rem;
+  color: #7d6b5d;
+}
+
+/* Akciógombok */
+.admin-actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-btn {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.add-stamp-btn {
+  background: #2e7d32;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.25);
+}
+
+.redeem-reward-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #b89158 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}

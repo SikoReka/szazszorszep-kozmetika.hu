@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,12 +9,32 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
+import LoyaltyCard from './components/LoyaltyCard';
+import SalonAdmin from './components/SalonAdmin';
 import './App.css';
 
 function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const openBooking = () => setIsBookingOpen(true);
+
+  // Útvonal-választó
+  if (currentPath === '/kartya' || currentPath === '/klub') {
+    return <LoyaltyCard />;
+  }
+
+  if (currentPath === '/szalon-admin' || currentPath === '/admin') {
+    return <SalonAdmin />;
+  }
 
   return (
     <div className="app-container">
