@@ -165,11 +165,38 @@
 .open-card-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  background: linear-gradient(135deg, #714921 0%, #b89158 100%);
+  color: #ffffff;
   padding: 16px 32px;
-  font-size: 1rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
   font-weight: 700;
-  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(113, 73, 33, 0.22);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-sizing: border-box;
+  max-width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.open-card-btn:hover {
+  background: linear-gradient(135deg, #b89158 0%, #d4af37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.35);
+  color: #ffffff;
+}
+
+.btn-arrow-icon {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.open-card-btn:hover .btn-arrow-icon {
+  transform: translateX(4px);
 }
 
 .cta-trust-row {
@@ -192,6 +219,7 @@
 
 .trust-item svg {
   color: #27ae60;
+  flex-shrink: 0;
 }
 
 /* Reszponzív nézetek */
@@ -203,8 +231,14 @@
 
   .cta-content {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .cta-btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .cta-trust-row {
@@ -216,19 +250,96 @@
 
 @media (max-width: 768px) {
   .loyalty-section {
-    padding: 60px 0;
+    padding: 50px 0;
+  }
+
+  .loyalty-header-block {
+    margin-bottom: 35px;
+    padding: 0 10px;
+  }
+
+  .loyalty-step-card {
+    padding: 28px 20px;
+    border-radius: 20px;
   }
 
   .loyalty-cta-banner {
-    padding: 26px 20px;
+    padding: 24px 18px;
+    border-radius: 22px;
+    gap: 20px;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-text-group {
+    max-width: 100%;
+    text-align: center;
   }
 
   .cta-heading {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
+  }
+
+  .cta-sub {
+    font-size: 0.88rem;
+  }
+
+  .cta-btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .open-card-btn {
     width: 100%;
+    max-width: 100%;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .cta-trust-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+    text-align: center;
+  }
+
+  .trust-item {
+    font-size: 0.82rem;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .loyalty-section .container {
+    padding: 0 16px;
+  }
+
+  .loyalty-cta-banner {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+
+  .open-card-btn {
+    padding: 13px 14px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .step-number-badge {
+    font-size: 1.8rem;
+    top: 16px;
+    right: 16px;
+  }
+
+  .loyalty-step-card {
+    padding: 24px 16px;
   }
 }

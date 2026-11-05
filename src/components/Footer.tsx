@@ -46,10 +46,10 @@ const Footer = () => {
         <div className="container footer-bottom-container">
           <p>
             &copy; {currentYear} Százszorszép Kozmetika – Minden jog fenntartva.
-            <span style={{ margin: '0 8px', opacity: 0.4 }}>•</span>
+            <span className="footer-sep">•</span>
             <a 
               href="/szalon-admin" 
-              style={{ color: 'inherit', textDecoration: 'none', opacity: 0.6, fontSize: '0.85em' }}
+              className="staff-login-link"
               title="Munkatársi PIN Kódos Belépés"
             >
               Munkatársi Belépés 🔒

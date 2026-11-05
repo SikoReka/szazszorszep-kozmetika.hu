@@ -85,9 +85,9 @@ export const LoyaltySection: React.FC = () => {
               </p>
             </div>
             <div className="cta-btn-group">
-              <a href="/kartya" className="btn btn-primary open-card-btn">
+              <a href="/kartya" className="open-card-btn">
                 <span>Hűségkártyám Megnyitása</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={18} className="btn-arrow-icon" />
               </a>
             </div>
           </div>

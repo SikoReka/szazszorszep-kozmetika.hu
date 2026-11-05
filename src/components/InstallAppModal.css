@@ -16,6 +16,9 @@
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
   transition: all 0.25s ease;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .install-pwa-badge-btn:hover {
