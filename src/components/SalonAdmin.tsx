@@ -36,11 +36,24 @@ export const SalonAdmin: React.FC = () => {
   const [manualToken, setManualToken] = useState('');
   const scannerRef = useRef<any>(null);
 
-  // Belépés ellenőrzése
+  // Belépés ellenőrzése és Admin Manifest beállítása a telefonnak
   useEffect(() => {
     if (pin === '2026') {
       setIsAuthenticated(true);
     }
+
+    // Átállítjuk a manifestet az Admin Manifestre, hogy a telefon a szalon admint telepítse
+    const manifestLink = document.querySelector('link[rel="manifest"]');
+    if (manifestLink) {
+      manifestLink.setAttribute('href', '/admin-manifest.json');
+    }
+
+    return () => {
+      // Visszaállítás a vendég manifestre ha elnavigál
+      if (manifestLink) {
+        manifestLink.setAttribute('href', '/manifest.json');
+      }
+    };
   }, [pin]);
 
   const handlePinSubmit = (e: React.FormEvent) => {
