@@ -38,26 +38,32 @@ export const LoyaltyCard: React.FC = () => {
   useEffect(() => {
     const initGoogle = () => {
       if (window.google?.accounts?.id) {
-        window.google.accounts.id.initialize({
-          client_id: GOOGLE_CLIENT_ID,
-          callback: handleGoogleResponse,
-        });
+        try {
+          window.google.accounts.id.initialize({
+            client_id: GOOGLE_CLIENT_ID,
+            callback: handleGoogleResponse,
+            auto_select: false,
+            cancel_on_tap_outside: true,
+          });
 
-        // Csak akkor rendereljük a gombot, ha még nincs belépve
-        if (!user) {
-          const btnParent = document.getElementById('google-btn-container');
-          if (btnParent) {
-            btnParent.innerHTML = '';
-            window.google.accounts.id.renderButton(btnParent, {
-              theme: 'outline',
-              size: 'large',
-              type: 'standard',
-              shape: 'pill',
-              text: 'continue_with',
-              logo_alignment: 'left',
-              width: 280,
-            });
+          // Csak akkor rendereljük a gombot, ha még nincs belépve
+          if (!user) {
+            const btnParent = document.getElementById('google-btn-container');
+            if (btnParent) {
+              btnParent.innerHTML = '';
+              window.google.accounts.id.renderButton(btnParent, {
+                theme: 'outline',
+                size: 'large',
+                type: 'standard',
+                shape: 'pill',
+                text: 'continue_with',
+                logo_alignment: 'left',
+                width: 280,
+              });
+            }
           }
+        } catch (err) {
+          console.error('Google Auth Init Error:', err);
         }
       }
     };
@@ -75,6 +81,11 @@ export const LoyaltyCard: React.FC = () => {
 
   // Google válasz kezelése
   const handleGoogleResponse = async (response: any) => {
+    if (!response?.credential) {
+      setError('Nem érkezett érvényes azonosító a Google-től.');
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
