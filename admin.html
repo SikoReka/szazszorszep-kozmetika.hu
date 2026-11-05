@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Százszorszép Szalon Admin | Csippantó & Hűségpont Kezelő</title>
+
+    <!-- Kizárólag az Admin Manifest és PWA Beállítások -->
+    <link rel="manifest" href="/admin-manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Szalon Admin" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#714921" />
+
+    <!-- HTML5 QR Code Scanner a kamerás olvasáshoz -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    <div id="admin-root"></div>
+    <script type="module" src="/src/admin-main.tsx"></script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 {
-  "name": "Százszorszép Admin",
+  "name": "Százszorszép Szalon Admin",
   "short_name": "Szalon Admin",
-  "description": "Százszorszép Kozmetika - Szalon QR-Kód Olvasó & Hűségpont Kezelő",
-  "start_url": "/szalon-admin",
-  "scope": "/szalon-admin",
+  "description": "Százszorszép Kozmetika - Munkatársi Csippantó és Hűségpont Kezelő",
+  "start_url": "/admin.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f4eee6",
   "theme_color": "#714921",
