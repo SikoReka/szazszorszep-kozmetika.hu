@@ -164,14 +164,7 @@
 
 .cta-btn-group {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  min-width: 280px;
-}
-
-.cta-install-sub {
-  width: 100%;
 }
 
 .open-card-btn {
@@ -306,14 +299,7 @@
 
   .cta-btn-group {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  min-width: 280px;
-}
-
-.cta-install-sub {
-  width: 100%;
 }
 
 .open-card-btn {
@@ -353,14 +339,7 @@
 
   .cta-btn-group {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  min-width: 280px;
-}
-
-.cta-install-sub {
-  width: 100%;
 }
 
 .open-card-btn {

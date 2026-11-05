@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Gift, RefreshCw, LogOut, ArrowLeft, Heart, ShieldCheck } from 'lucide-react';
+import { Sparkles, Gift, RefreshCw, LogOut, ArrowLeft, ShieldCheck } from 'lucide-react';
 import { QRCodeDisplay } from './QRCodeDisplay';
 import { InstallAppModal } from './InstallAppModal';
 import './LoyaltyCard.css';
@@ -337,18 +337,6 @@ export const LoyaltyCard: React.FC = () => {
                   <span className="stat-val">{user.rewards_redeemed}</span>
                   <span className="stat-lbl">Beváltott ajándék</span>
                 </div>
-              </div>
-            </div>
-
-            {/* PWA / Kezdőképernyőre tevés gomb & tipp */}
-            <div className="pwa-install-tip glass">
-              <Heart size={20} className="tip-icon" />
-              <div style={{ flex: 1 }}>
-                <strong>Tedd ki a telefonod kezdőképernyőjére!</strong>
-                <p style={{ marginBottom: '10px' }}>
-                  Így egyetlen érintéssel elérheted a kártyádat bármikor a telefonodon, mint egy natív appot!
-                </p>
-                <InstallAppModal appName="Százszorszép Hűségkártya" />
               </div>
             </div>
           </motion.div>

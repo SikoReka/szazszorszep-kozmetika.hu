@@ -63,7 +63,7 @@ export const InstallAppModal: React.FC<InstallAppModalProps> = ({ appName, varia
         title="Alkalmazás hozzáadása a kezdőképernyőhöz"
       >
         <Smartphone size={16} className="pwa-phone-icon" />
-        <span>{isStandalone ? '📲 App aktív • Újratelepítés / Ikon' : `📲 ${appName} letöltése (App ikon)`}</span>
+        <span>{isStandalone ? `📲 ${appName} (Ikon útmutató)` : `📲 ${appName} telepítése`}</span>
       </button>
 
       {/* Telepítési Útmutató Modal (iOS + Android) */}

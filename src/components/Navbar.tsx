@@ -61,7 +61,7 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
           ))}
           <a href="/kartya" className="nav-loyalty-link" title="Digitális Hűségkártya és Belépés">
             <Sparkles size={14} className="gold-sparkle-icon" />
-            <span>{loggedInUser ? `Kártyám (${loggedInUser.stamps} pecsét)` : 'Hűségkártya (App)'}</span>
+            <span>{loggedInUser ? `Kártyám (${loggedInUser.stamps} pecsét)` : 'Hűségkártya'}</span>
           </a>
           <button onClick={onOpenBooking} className="btn btn-nav">
             IDŐPONTFOGLALÁS

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Gift, Smartphone, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { InstallAppModal } from './InstallAppModal';
 import './LoyaltySection.css';
 
 export const LoyaltySection: React.FC = () => {
@@ -90,9 +89,6 @@ export const LoyaltySection: React.FC = () => {
                 <span>Hűségkártyám Megnyitása</span>
                 <ArrowRight size={18} className="btn-arrow-icon" />
               </a>
-              <div className="cta-install-sub">
-                <InstallAppModal appName="Százszorszép Hűségkártya" />
-              </div>
             </div>
           </div>
           
