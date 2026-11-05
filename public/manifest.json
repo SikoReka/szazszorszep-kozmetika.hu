@@ -1,0 +1,17 @@
+{
+  "name": "Százszorszép Kozmetika Klub & Admin",
+  "short_name": "Százszorszép",
+  "description": "Százszorszép Kozmetika Hűségkártya és Szalon Rendszer",
+  "start_url": "/kartya",
+  "display": "standalone",
+  "background_color": "#faf9f6",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

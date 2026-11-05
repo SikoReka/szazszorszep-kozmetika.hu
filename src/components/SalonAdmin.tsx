@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Camera, CheckCircle2, AlertCircle, Gift, Sparkles, KeyRound, Database, ArrowLeft } from 'lucide-react';
+import { InstallAppModal } from './InstallAppModal';
 import './SalonAdmin.css';
 
 declare global {
@@ -285,6 +286,9 @@ export const SalonAdmin: React.FC = () => {
                 <span>DB ellenőrzés</span>
               </button>
             </div>
+
+            {/* PWA Kezdőképernyő Gomb */}
+            <InstallAppModal appName="Százszorszép Admin" />
 
             {/* Szkenner Vezérlő */}
             <div className="scanner-control-box">

@@ -1,0 +1,127 @@
+/* src/components/InstallAppModal.css */
+
+.install-pwa-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(229, 192, 123, 0.25) 100%);
+  color: #714921;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.install-pwa-badge-btn:hover {
+  background: #d4af37;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Modal */
+.ios-guide-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 99999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+}
+
+.ios-guide-modal {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1.5px solid #d4af37;
+}
+
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guide-header h3 {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.35rem;
+  color: #4a3525;
+  margin: 0;
+}
+
+.close-guide-btn {
+  background: none;
+  border: none;
+  color: #8c7360;
+  cursor: pointer;
+}
+
+.guide-intro {
+  font-size: 0.9rem;
+  color: #6d5b4d;
+  margin: 0;
+}
+
+.guide-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #faf8f5;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(190, 150, 109, 0.2);
+}
+
+.step-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #d4af37;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.guide-step strong {
+  font-size: 0.85rem;
+  color: #4a3525;
+}
+
+.guide-step p {
+  margin: 2px 0 0 0;
+  font-size: 0.8rem;
+  color: #7d6b5d;
+  line-height: 1.4;
+}
+
+.guide-done-btn {
+  background: linear-gradient(135deg, #714921 0%, #b89158 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}

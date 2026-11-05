@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Gift, RefreshCw, LogOut, ArrowLeft, Heart, ShieldCheck } from 'lucide-react';
 import { QRCodeDisplay } from './QRCodeDisplay';
+import { InstallAppModal } from './InstallAppModal';
 import './LoyaltyCard.css';
 
 declare global {
@@ -321,15 +322,15 @@ export const LoyaltyCard: React.FC = () => {
               </div>
             </div>
 
-            {/* PWA / Kezdőképernyőre tevés tipp */}
+            {/* PWA / Kezdőképernyőre tevés gomb & tipp */}
             <div className="pwa-install-tip glass">
               <Heart size={20} className="tip-icon" />
-              <div>
+              <div style={{ flex: 1 }}>
                 <strong>Tedd ki a telefonod kezdőképernyőjére!</strong>
-                <p>
-                  Nyisd meg ezt az oldalt a mobilodon, nyomj a Megosztás / Beállítások gombra, majd válaszd a 
-                  <strong> „Hozzáadás a kezdőképernyőhöz”</strong> opciót. Így egyetlen érintéssel elérheted, mint egy natív appot!
+                <p style={{ marginBottom: '10px' }}>
+                  Így egyetlen érintéssel elérheted a kártyádat bármikor a telefonodon, mint egy natív appot!
                 </p>
+                <InstallAppModal appName="Százszorszép Hűségkártya" />
               </div>
             </div>
           </motion.div>
