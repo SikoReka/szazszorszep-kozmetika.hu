@@ -23,8 +23,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
-    const body: { qr_token?: string; admin_name?: string } = await request.json();
-    const qrToken = body.qr_token;
+    const body: { qr_token?: string; phone?: string; email?: string; admin_name?: string } = await request.json();
+    const qrToken = body.qr_token || body.phone || body.email;
     const adminName = body.admin_name || 'Réka';
 
     if (!qrToken) {
