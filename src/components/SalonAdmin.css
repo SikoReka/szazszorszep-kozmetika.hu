@@ -428,3 +428,125 @@
     box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
   }
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-add-guest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #714921 0%, #b89158 100%);
+  color: #ffffff;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-guest-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 25px rgba(113, 73, 33, 0.08);
+}
+
+.add-guest-box h3 {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.15rem;
+  color: #4a3525;
+  margin: 0 0 12px 0;
+}
+
+.add-guest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-guest-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(190, 150, 109, 0.3);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  background: #faf8f5;
+}
+
+.add-guest-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pin-hint-label {
+  font-size: 0.8rem;
+  color: #7d6b5d;
+  white-space: nowrap;
+}
+
+.add-guest-input-pin {
+  width: 70px;
+  padding: 8px;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1.5px solid #d4af37;
+  font-size: 0.95rem;
+}
+
+.btn-save-guest {
+  flex: 1;
+  background: #2e7d32;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.user-card-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #714921;
+  font-weight: 600;
+}
+
+.salon-helper-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.helper-link-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #faf8f5;
+  border: 1px solid rgba(190, 150, 109, 0.3);
+  border-radius: 10px;
+  padding: 10px 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #714921;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.helper-link-btn:hover {
+  background: #f4eee6;
+  border-color: #d4af37;
+}

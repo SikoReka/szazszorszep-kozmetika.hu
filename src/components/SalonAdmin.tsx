@@ -1,7 +1,8 @@
+// src/components/SalonAdmin.tsx
+// Borbás Webdesign - Szalon Csippantó & Admin Felület Rékának
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Camera, CheckCircle2, AlertCircle, Gift, Sparkles, KeyRound, Database, ArrowLeft } from 'lucide-react';
-import { InstallAppModal } from './InstallAppModal';
+import { Camera, CheckCircle2, AlertCircle, Gift, Sparkles, KeyRound, Database, ArrowLeft, Phone, Search, Copy, Check, UserPlus } from 'lucide-react';
 import './SalonAdmin.css';
 
 declare global {
@@ -14,7 +15,8 @@ declare global {
 interface ScannedUser {
   id: string;
   name: string;
-  email: string;
+  phone?: string;
+  email?: string;
   picture?: string;
   stamps: number;
   total_stamps: number;
@@ -33,27 +35,21 @@ export const SalonAdmin: React.FC = () => {
   const [scannedUser, setScannedUser] = useState<ScannedUser | null>(null);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [processing, setProcessing] = useState(false);
-  const [manualToken, setManualToken] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [clientPinView, setClientPinView] = useState<string | null>(null);
+  const [showAddGuest, setShowAddGuest] = useState(false);
+  const [newGuestName, setNewGuestName] = useState('');
+  const [newGuestPhone, setNewGuestPhone] = useState('');
+  const [newGuestPin, setNewGuestPin] = useState('1234');
+
   const scannerRef = useRef<any>(null);
 
-  // Belépés ellenőrzése és Admin Manifest beállítása a telefonnak
+  // Belépés ellenőrzése
   useEffect(() => {
     if (pin === '2026') {
       setIsAuthenticated(true);
     }
-
-    // Átállítjuk a manifestet az Admin Manifestre, hogy a telefon a szalon admint telepítse
-    const manifestLink = document.querySelector('link[rel="manifest"]');
-    if (manifestLink) {
-      manifestLink.setAttribute('href', '/admin-manifest.json');
-    }
-
-    return () => {
-      // Visszaállítás a vendég manifestre ha elnavigál
-      if (manifestLink) {
-        manifestLink.setAttribute('href', '/manifest.json');
-      }
-    };
   }, [pin]);
 
   const handlePinSubmit = (e: React.FormEvent) => {
@@ -71,6 +67,7 @@ export const SalonAdmin: React.FC = () => {
     localStorage.removeItem('szaszszorszep_admin_pin');
     setPin('');
     setIsAuthenticated(false);
+    setScannedUser(null);
   };
 
   // Kamera QR-kód olvasó indítása
@@ -91,19 +88,16 @@ export const SalonAdmin: React.FC = () => {
             { facingMode: 'environment' },
             config,
             (decodedText: string) => {
-              // Sikeres beolvasás
               stopScanner();
               fetchUserByToken(decodedText);
             },
-            () => {
-              // Képkocka keresés alatt
-            }
+            () => {}
           )
           .catch((err: any) => {
             console.error('Kamera indítási hiba:', err);
             setStatusMessage({
               type: 'error',
-              text: 'Nem sikerült elindítani a kamerát. Kérlek engedélyezd a hozzáférést a böngészőben!',
+              text: 'Nem sikerült elindítani a kamerát. Kérlek engedélyezd a hozzáférést a böngészőben, vagy keresd meg a vendéget telefonszám alapján!',
             });
             setScanning(false);
           });
@@ -118,38 +112,41 @@ export const SalonAdmin: React.FC = () => {
         .then(() => {
           scannerRef.current.clear();
           scannerRef.current = null;
-          setScanning(false);
         })
-        .catch(() => {
-          setScanning(false);
-        });
-    } else {
-      setScanning(false);
+        .catch(() => {});
     }
+    setScanning(false);
   };
 
-  // Vendég adatainak lekérése QR Token alapján
-  const fetchUserByToken = async (token: string) => {
+  // Vendég adatainak lekérése QR token vagy telefonszám alapján
+  const fetchUserByToken = async (query: string) => {
+    if (!query.trim()) return;
     setProcessing(true);
     setStatusMessage(null);
+    setClientPinView(null);
 
     try {
-      const res = await fetch(`/api/card?token=${encodeURIComponent(token)}`);
+      const res = await fetch(`/api/card?token=${encodeURIComponent(query.trim())}`);
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'A QR kódhoz nem tartozik regisztrált vendég!');
+        throw new Error(data.error || 'A vendég nem található.');
       }
 
       setScannedUser(data.user);
+      setStatusMessage({
+        type: 'success',
+        text: `Vendég megtalálva: ${data.user.name} (${data.user.stamps}/10 pecsét)`,
+      });
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message });
+      setScannedUser(null);
     } finally {
       setProcessing(false);
     }
   };
 
-  // +1 Pecsét Jóváírása
+  // +1 Pecsét hozzáadása a beolvasott vendéghez
   const handleAddStamp = async () => {
     if (!scannedUser) return;
     setProcessing(true);
@@ -170,7 +167,7 @@ export const SalonAdmin: React.FC = () => {
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Hiba történt a pont jóváírásakor.');
+        throw new Error(data.error || 'Hiba történt a pecsét mentésekor.');
       }
 
       setScannedUser((prev) => (prev ? { ...prev, ...data.user } : null));
@@ -182,10 +179,10 @@ export const SalonAdmin: React.FC = () => {
     }
   };
 
-  // Ajándék beváltása (10 pecsét után)
+  // 10 Pecsét beváltása (visszaállítás 0-ra)
   const handleRedeemReward = async () => {
     if (!scannedUser) return;
-    if (!confirm(`Biztosan beváltod ${scannedUser.name} ajándékát? A pecsétek nullázódnak az új körhöz!`)) {
+    if (!confirm(`Biztosan beváltod ${scannedUser.name} ajándékát? A pecsétek száma 0-ra áll vissza!`)) {
       return;
     }
 
@@ -219,9 +216,86 @@ export const SalonAdmin: React.FC = () => {
     }
   };
 
-  // D1 Adatbázis inicializáló gomb
+  // Vendég kártya link másolása WhatsApphoz
+  const handleCopyLink = () => {
+    if (!scannedUser) return;
+    const origin = window.location.origin;
+    const link = `${origin}/kartya?token=${encodeURIComponent(scannedUser.qr_token)}`;
+    navigator.clipboard.writeText(link).then(() => {
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 3000);
+    });
+  };
+
+  // Vendég PIN megtekintése / kezelése
+  const handleViewClientPin = async () => {
+    if (!scannedUser) return;
+    try {
+      const res = await fetch('/api/admin/client-pin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-pin': pin,
+        },
+        body: JSON.stringify({ user_id: scannedUser.id }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setClientPinView(data.current_pin);
+      } else {
+        alert(data.error || 'Hiba történt a PIN lekérésekor.');
+      }
+    } catch (e: any) {
+      alert('Hiba: ' + e.message);
+    }
+  };
+
+  // Új vendég rögzítése a szalonban Réka által
+  const handleCreateGuest = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newGuestName.trim() || !newGuestPhone.trim()) {
+      alert('Kérlek add meg a vendég nevét és telefonszámát!');
+      return;
+    }
+
+    setProcessing(true);
+    setStatusMessage(null);
+
+    try {
+      const res = await fetch('/api/auth/client', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'register',
+          name: newGuestName.trim(),
+          phone: newGuestPhone.trim(),
+          pin: newGuestPin.trim() || '1234',
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Nem sikerült létrehozni a vendégkártyát.');
+      }
+
+      setScannedUser(data.user);
+      setStatusMessage({
+        type: 'success',
+        text: `Új VIP vendég rögzítve: ${data.user.name}! Most már adhatsz neki pecsétet.`,
+      });
+      setShowAddGuest(false);
+      setNewGuestName('');
+      setNewGuestPhone('');
+    } catch (err: any) {
+      setStatusMessage({ type: 'error', text: err.message });
+    } finally {
+      setProcessing(false);
+    }
+  };
+
+  // D1 Adatbázis inicializáló / migrációs gomb
   const handleSetupDb = async () => {
-    if (!confirm('Létrehozod / ellenőrzöd a Cloudflare D1 adatbázis tábláit?')) return;
+    if (!confirm('Lefuttatod a Cloudflare D1 adatbázis ellenőrzését és frissítéseit?')) return;
     setProcessing(true);
     try {
       const res = await fetch('/api/admin/setup-db', {
@@ -244,7 +318,7 @@ export const SalonAdmin: React.FC = () => {
         <div className="admin-nav-bar">
           <a href="/" className="back-link">
             <ArrowLeft size={16} />
-            <span>Weboldal</span>
+            <span>Főoldal</span>
           </a>
           {isAuthenticated && (
             <button onClick={handleLogout} className="admin-logout-btn">
@@ -264,7 +338,7 @@ export const SalonAdmin: React.FC = () => {
               <KeyRound size={28} />
             </div>
             <h2>Szalon Csippantó Admin</h2>
-            <p>Add meg a 4 jegyű admin PIN kódot a kezdéshez:</p>
+            <p>Add meg az admin PIN kódot a kezdéshez:</p>
 
             <form onSubmit={handlePinSubmit} className="pin-form">
               <input
@@ -280,10 +354,6 @@ export const SalonAdmin: React.FC = () => {
                 Belépés
               </button>
             </form>
-
-            <div style={{ width: '100%', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(190, 150, 109, 0.2)' }}>
-              <InstallAppModal appName="Százszorszép Admin" />
-            </div>
           </motion.div>
         ) : (
           /* SZALON KEZELŐPULT */
@@ -298,14 +368,62 @@ export const SalonAdmin: React.FC = () => {
                 <h1>Százszorszép Admin</h1>
                 <span className="operator-tag">Kezelő: <strong>{adminName}</strong></span>
               </div>
-              <button onClick={handleSetupDb} className="db-init-btn" title="D1 Táblák inicializálása">
-                <Database size={16} />
-                <span>DB ellenőrzés</span>
-              </button>
+              <div className="header-actions">
+                <button 
+                  onClick={() => setShowAddGuest(!showAddGuest)} 
+                  className="quick-add-guest-btn"
+                  title="Új vendég felvétele"
+                >
+                  <UserPlus size={15} />
+                  <span>{showAddGuest ? 'Bezárás' : 'Új Vendég'}</span>
+                </button>
+                <button onClick={handleSetupDb} className="db-init-btn" title="D1 Táblák inicializálása">
+                  <Database size={15} />
+                </button>
+              </div>
             </div>
 
-            {/* PWA Kezdőképernyő Gomb */}
-            <InstallAppModal appName="Százszorszép Admin" />
+            {/* ÚJ VENDÉG RÖGZÍTÉSE ŰRLAP (HA LENYITVA) */}
+            {showAddGuest && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="add-guest-box glass"
+              >
+                <h3>Új VIP Vendég Felvétele a Szalonban</h3>
+                <form onSubmit={handleCreateGuest} className="add-guest-form">
+                  <input
+                    type="text"
+                    required
+                    placeholder="Vendég teljes neve (pl. Kovács Anna)"
+                    value={newGuestName}
+                    onChange={(e) => setNewGuestName(e.target.value)}
+                    className="add-guest-input"
+                  />
+                  <input
+                    type="tel"
+                    required
+                    placeholder="Telefonszám (pl. 06 30 123 4567)"
+                    value={newGuestPhone}
+                    onChange={(e) => setNewGuestPhone(e.target.value)}
+                    className="add-guest-input"
+                  />
+                  <div className="add-guest-row">
+                    <span className="pin-hint-label">Alapértelmezett PIN:</span>
+                    <input
+                      type="text"
+                      maxLength={4}
+                      value={newGuestPin}
+                      onChange={(e) => setNewGuestPin(e.target.value)}
+                      className="add-guest-input-pin"
+                    />
+                    <button type="submit" disabled={processing} className="btn-save-guest">
+                      Létrehozás
+                    </button>
+                  </div>
+                </form>
+              </motion.div>
+            )}
 
             {/* Szkenner Vezérlő */}
             <div className="scanner-control-box">
@@ -324,23 +442,25 @@ export const SalonAdmin: React.FC = () => {
               )}
             </div>
 
-            {/* Kézi keresés email cím vagy kód alapján (ha nem megy a kamera) */}
+            {/* Kézi keresés Telefonszám, Név vagy QR kód alapján */}
             <div className="manual-token-box">
-              <span className="manual-label">Vagy keresd meg a vendéget email cím alapján:</span>
+              <span className="manual-label">Vagy keress vendéget telefonszám vagy név alapján:</span>
               <div className="manual-row">
                 <input
                   type="text"
-                  placeholder="vendeg@gmail.com vagy kód"
-                  value={manualToken}
-                  onChange={(e) => setManualToken(e.target.value)}
+                  placeholder="pl. 06 30 123 4567 vagy kód"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="manual-input"
+                  onKeyDown={(e) => e.key === 'Enter' && fetchUserByToken(searchQuery)}
                 />
                 <button
-                  onClick={() => fetchUserByToken(manualToken)}
-                  disabled={!manualToken}
+                  onClick={() => fetchUserByToken(searchQuery)}
+                  disabled={!searchQuery.trim() || processing}
                   className="manual-btn"
                 >
-                  Keresés
+                  <Search size={16} />
+                  <span>Keresés</span>
                 </button>
               </div>
             </div>
@@ -357,22 +477,22 @@ export const SalonAdmin: React.FC = () => {
               </motion.div>
             )}
 
-            {/* BEOLVASOTT VENDÉG KÁRTYÁJA ÉS AKCIÓGOMBOK */}
+            {/* BEOLVASOTT / MEGTALÁLT VENDÉG KÁRTYÁJA ÉS AKCIÓGOMBOK */}
             {scannedUser && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="scanned-user-card"
               >
                 <div className="user-info-row">
-                  {scannedUser.picture ? (
-                    <img src={scannedUser.picture} alt="" className="user-thumb" />
-                  ) : (
-                    <div className="user-thumb-fallback">{scannedUser.name.charAt(0)}</div>
-                  )}
-                  <div>
+                  <div className="user-thumb-fallback">{scannedUser.name.charAt(0).toUpperCase()}</div>
+                  <div className="user-text-info">
                     <h3 className="user-card-name">{scannedUser.name}</h3>
-                    <span className="user-card-email">{scannedUser.email}</span>
+                    {scannedUser.phone && (
+                      <span className="user-card-phone">
+                        <Phone size={13} /> {scannedUser.phone}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -384,7 +504,7 @@ export const SalonAdmin: React.FC = () => {
                     <span className="max-stamp-count">/ 10</span>
                   </div>
                   <span className="total-visits-tag">
-                    Összes eddigi kezelés: <strong>{scannedUser.total_stamps}</strong>
+                    Összes eddigi látogatás: <strong>{scannedUser.total_stamps}</strong>
                   </span>
                 </div>
 
@@ -406,9 +526,22 @@ export const SalonAdmin: React.FC = () => {
                       className="action-btn redeem-reward-btn"
                     >
                       <Gift size={20} />
-                      <span>🎁 Ajándék / Kedvezmény Beváltása</span>
+                      <span>🎁 10 Pecsét Beváltása (0-ra állítás)</span>
                     </button>
                   )}
+
+                  {/* Kényelmi funkciók Rékának */}
+                  <div className="salon-helper-actions">
+                    <button onClick={handleCopyLink} className="helper-link-btn" title="Kártya link másolása">
+                      {copiedLink ? <Check size={16} color="#27ae60" /> : <Copy size={16} />}
+                      <span>{copiedLink ? 'Link kimásolva!' : 'Kártya link másolása (WhatsApp)'}</span>
+                    </button>
+
+                    <button onClick={handleViewClientPin} className="helper-link-btn" title="Vendég PIN kódja">
+                      <KeyRound size={16} />
+                      <span>{clientPinView ? `PIN: ${clientPinView}` : 'Vendég PIN megtekintése'}</span>
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             )}

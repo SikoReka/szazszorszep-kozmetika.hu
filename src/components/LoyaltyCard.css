@@ -147,40 +147,139 @@
   line-height: 1.4;
 }
 
-.login-action-box {
+/* Űrlap Fülválasztó */
+.auth-tabs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: #f4eee6;
+  padding: 4px;
+  border-radius: 50px;
+  margin-top: 6px;
+}
+
+.auth-tab-btn {
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #714921;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.auth-tab-btn.active {
+  background: #ffffff;
+  color: #4a3525;
+  box-shadow: 0 4px 12px rgba(113, 73, 33, 0.12);
+}
+
+/* Kliens Belépő Űrlap */
+.client-auth-form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  gap: 16px;
+  text-align: left;
   margin-top: 10px;
 }
 
-.login-prompt {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #714921;
-}
-
-.google-btn-wrapper {
+.form-group {
   display: flex;
-  justify-content: center;
-  min-height: 48px;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.loading-text {
-  font-size: 0.85rem;
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #5c4738;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-icon {
+  position: absolute;
+  left: 14px;
   color: #b89158;
-  font-style: italic;
+  pointer-events: none;
+}
+
+.auth-input-field {
+  width: 100%;
+  padding: 13px 14px 13px 44px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(190, 150, 109, 0.35);
+  background: #faf8f5;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #2c241d;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.auth-input-field:focus {
+  border-color: #d4af37;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.auth-input-field.pin-field {
+  letter-spacing: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.btn-client-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #714921 0%, #b89158 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(113, 73, 33, 0.2);
+  transition: all 0.25s ease;
+  margin-top: 4px;
+}
+
+.btn-client-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b89158 0%, #d4af37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.35);
+}
+
+.btn-client-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .error-message {
   font-size: 0.85rem;
-  color: #d9534f;
-  background: #fdf2f2;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid #fad2d2;
+  color: #c0392b;
+  background: #fdf3f2;
+  border: 1px solid #fadbd8;
+  border-radius: 10px;
+  padding: 10px 14px;
+  line-height: 1.4;
+}
+
+.member-phone-sub {
+  font-size: 0.72rem;
+  color: #8c7360;
+  letter-spacing: 0.5px;
 }
 
 .trust-footer-note {
@@ -190,6 +289,7 @@
   font-size: 0.75rem;
   color: #9c8a7c;
   margin-top: 10px;
+  text-align: center;
 }
 
 /* BELÉPETT NÉZET: A DIGITÁLIS PASS KÁRTYA */

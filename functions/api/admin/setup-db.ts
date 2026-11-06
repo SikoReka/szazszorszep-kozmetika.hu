@@ -1,5 +1,5 @@
 // functions/api/admin/setup-db.ts
-// Kényelmi végpont: inicializálja a D1 adatbázis tábláit, ha még nem léteznének
+// Kényelmi végpont: inicializálja / frissíti a D1 adatbázis tábláit
 
 interface Env {
   DB: D1Database;
@@ -26,7 +26,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       CREATE TABLE IF NOT EXISTS users (
           id TEXT PRIMARY KEY,
           name TEXT NOT NULL,
-          email TEXT NOT NULL UNIQUE,
+          email TEXT,
+          phone TEXT,
+          pin TEXT,
           picture TEXT,
           stamps INTEGER DEFAULT 0,
           total_stamps INTEGER DEFAULT 0,
@@ -50,8 +52,27 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       CREATE INDEX IF NOT EXISTS idx_users_qr_token ON users(qr_token);
     `);
 
+    // Migráció: phone és pin oszlopok hozzáadása, ha még nem léteznek
+    try {
+      await env.DB.exec(`ALTER TABLE users ADD COLUMN phone TEXT;`);
+    } catch (e) {
+      // Oszlop már létezik
+    }
+
+    try {
+      await env.DB.exec(`ALTER TABLE users ADD COLUMN pin TEXT;`);
+    } catch (e) {
+      // Oszlop már létezik
+    }
+
+    try {
+      await env.DB.exec(`CREATE INDEX IF NOT EXISTS idx_users_phone ON users(phone);`);
+    } catch (e) {
+      // Index már létezik
+    }
+
     return new Response(
-      JSON.stringify({ success: true, message: 'D1 Táblák sikeresen létrehozva / ellenőrizve!' }),
+      JSON.stringify({ success: true, message: 'D1 Táblák és migrációk (phone, pin) sikeresen lefutottak!' }),
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
@@ -59,7 +80,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     );
   } catch (error: any) {
     return new Response(
-      JSON.stringify({ error: 'Hiba a táblák létrehozásakor', details: error.message }),
+      JSON.stringify({ error: 'Adatbázis hiba', details: error.message }),
       {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
