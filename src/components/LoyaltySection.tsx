@@ -32,10 +32,10 @@ export const LoyaltySection: React.FC = () => {
             <div className="step-icon-circle">
               <Smartphone size={28} />
             </div>
-            <h3 className="step-title">1 Kattintásos Csatlakozás</h3>
+            <h3 className="step-title">Gyors, Egyszerű Csatlakozás</h3>
             <p className="step-desc">
-              Nem kell plasztikkártyát cipelned. Jelentkezz be biztonságosan Google fiókoddal, 
-              és azonnal a telefonodon lesz a személyre szabott kártyád.
+              Nem kell plasztikkártyát cipelned. Add meg a neved és telefonszámodat, 
+              és azonnal a telefonodon lesz a személyre szabott aranykártyád.
             </p>
             <span className="step-sub-note">0 Ft havidíj • Bármikor elérhető</span>
           </motion.div>
@@ -81,7 +81,7 @@ export const LoyaltySection: React.FC = () => {
               <span className="cta-badge">Azonnali Hozzáférés</span>
               <h3 className="cta-heading">Kérd el a digitális kártyádat még ma!</h3>
               <p className="cta-sub">
-                Tedd ki a telefonod kezdőképernyőjére, és kövesd nyomon aktuális pecsétjeidet egyetlen érintéssel.
+                Nyisd meg a kártyádat a mobilodban, és kövesd nyomon aktuális pecsétjeidet és ajándékaidat egyetlen érintéssel.
               </p>
             </div>
             <div className="cta-btn-group">

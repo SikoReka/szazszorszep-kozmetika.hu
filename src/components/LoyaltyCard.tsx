@@ -194,14 +194,14 @@ export const LoyaltyCard: React.FC = () => {
                 className={`auth-tab-btn ${authMode === 'login' ? 'active' : ''}`}
                 onClick={() => { setAuthMode('login'); setError(null); }}
               >
-                Már van kártyám (Belépés)
+                Belépés
               </button>
               <button
                 type="button"
                 className={`auth-tab-btn ${authMode === 'register' ? 'active' : ''}`}
                 onClick={() => { setAuthMode('register'); setError(null); }}
               >
-                Új kártyát kérek
+                Új kártya
               </button>
             </div>
 
