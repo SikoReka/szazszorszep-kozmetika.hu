@@ -21,28 +21,28 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 
   try {
     let query = 'SELECT id, name, email, phone, picture, stamps, total_stamps, rewards_redeemed, qr_token FROM users WHERE ';
-    let param = '';
+    const params: string[] = [];
 
     if (userId) {
       query += 'id = ?';
-      param = userId;
+      params.push(userId);
     } else if (phone) {
       const cleanPhone = phone.replace(/[^\d+]/g, '').trim();
       query += 'phone = ? OR REPLACE(phone, " ", "") = ?';
-      param = cleanPhone;
+      params.push(cleanPhone, cleanPhone);
     } else if (qrToken && qrToken.includes('@')) {
       query += 'LOWER(email) = LOWER(?)';
-      param = qrToken.trim();
+      params.push(qrToken.trim());
     } else if (qrToken && /^\+?[0-9\s-]{8,16}$/.test(qrToken.trim())) {
       const cleanPhone = qrToken.replace(/[^\d+]/g, '').trim();
       query += 'phone = ? OR REPLACE(phone, " ", "") = ?';
-      param = cleanPhone;
+      params.push(cleanPhone, cleanPhone);
     } else {
       query += 'qr_token = ?';
-      param = qrToken!;
+      params.push(qrToken!);
     }
 
-    const user = await env.DB.prepare(query).bind(param).first();
+    const user = await env.DB.prepare(query).bind(...params).first();
 
     if (!user) {
       return new Response(JSON.stringify({ error: 'A hűségkártya nem található' }), {
