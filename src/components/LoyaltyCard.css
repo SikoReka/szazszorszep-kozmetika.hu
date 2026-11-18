@@ -154,7 +154,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 6px;
   background: #f4eee6;
-  padding: 4px;
+  padding: 5px;
   border-radius: 50px;
   margin-top: 6px;
 }
@@ -163,7 +163,7 @@
   background: transparent;
   border: none;
   border-radius: 50px;
-  padding: 10px 14px;
+  padding: 10px 12px;
   font-size: 0.82rem;
   font-weight: 700;
   color: #714921;
@@ -215,7 +215,7 @@
 
 .auth-input-field {
   width: 100%;
-  padding: 13px 14px 13px 44px;
+  padding: 13px 14px 13px 48px;
   border-radius: 14px;
   border: 1.5px solid rgba(190, 150, 109, 0.35);
   background: #faf8f5;

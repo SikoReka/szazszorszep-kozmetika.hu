@@ -251,6 +251,10 @@
 }
 
 .manual-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background: #714921;
   color: #ffffff;
   border: none;
