@@ -36,7 +36,6 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
     { name: 'Munkatársaink', href: '#about' },
     { name: 'Márkáink', href: '#brands' },
     { name: 'Kezelések', href: '#treatments' },
-    { name: 'Hűségprogram', href: '#loyalty' },
     { name: 'Galéria', href: '#gallery' },
     { name: 'Kapcsolat', href: '#contact' },
   ];
@@ -94,7 +93,7 @@ const Navbar = ({ onOpenBooking }: NavbarProps) => {
             onClick={() => setIsOpen(false)}
           >
             <Sparkles size={16} />
-            <span>{loggedInUser ? `Hűségkártyám (${loggedInUser.stamps} pecsét)` : 'Digitális Hűségkártya (App / Belépés)'}</span>
+            <span>{loggedInUser ? `Hűségkártyám (${loggedInUser.stamps} pecsét)` : 'Digitális Hűségkártya (Belépés)'}</span>
           </a>
           <a 
             href="/szalon-admin" 
