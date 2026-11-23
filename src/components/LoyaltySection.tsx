@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, Gift, Smartphone, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Gift, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import './LoyaltySection.css';
 
 export const LoyaltySection: React.FC = () => {
@@ -19,59 +18,6 @@ export const LoyaltySection: React.FC = () => {
             Értékeljük a hűségedet! Csatlakozz prémium klubunkhoz ingyenesen, gyűjts digitális 
             pecséteket kezeléseid után, és élvezd az exkluzív kedvezményeket és ajándékokat.
           </p>
-        </div>
-
-        {/* 3 Lépéses folyamat */}
-        <div className="loyalty-steps-grid">
-          
-          <motion.div 
-            whileHover={{ y: -6 }}
-            className="loyalty-step-card glass"
-          >
-            <div className="step-number-badge">1</div>
-            <div className="step-icon-circle">
-              <Smartphone size={28} />
-            </div>
-            <h3 className="step-title">Gyors, Egyszerű Csatlakozás</h3>
-            <p className="step-desc">
-              Nem kell plasztikkártyát cipelned. Add meg a neved és telefonszámodat, 
-              és azonnal a telefonodon lesz a személyre szabott aranykártyád.
-            </p>
-            <span className="step-sub-note">0 Ft havidíj • Bármikor elérhető</span>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -6 }}
-            className="loyalty-step-card glass highlighted-step"
-          >
-            <div className="step-number-badge">2</div>
-            <div className="step-icon-circle">
-              <Sparkles size={28} />
-            </div>
-            <h3 className="step-title">Pecsétgyűjtés a Szalonban</h3>
-            <p className="step-desc">
-              Minden kezelés alkalmával mutasd fel a digitális kártyádon lévő egyedi QR-kódot. 
-              Kozmetikusod lecsippantja, és azonnal jóváírja az új pecsétedet.
-            </p>
-            <span className="step-sub-note">Valós idejű szinkronizáció</span>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -6 }}
-            className="loyalty-step-card glass"
-          >
-            <div className="step-number-badge">3</div>
-            <div className="step-icon-circle">
-              <Gift size={28} />
-            </div>
-            <h3 className="step-title">Kényeztető Ajándékok</h3>
-            <p className="step-desc">
-              10 pecsét összegyűjtése után azonnali 15% kedvezményt kapsz a következő 
-              kezelésedből, vagy prémium ajándék masszázst választhatsz!
-            </p>
-            <span className="step-sub-note">Folyamatosan megújuló jutalmak</span>
-          </motion.div>
-
         </div>
 
         {/* Cselekvésre ösztönző CTA Doboz */}
