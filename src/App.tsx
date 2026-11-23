@@ -12,6 +12,8 @@ import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import LoyaltyCard from './components/LoyaltyCard';
 import SalonAdmin from './components/SalonAdmin';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import BookingPolicy from './components/BookingPolicy';
 import './App.css';
 
 function App() {
@@ -37,6 +39,14 @@ function App() {
 
   if (normalizedPath === '/szalon-admin' || normalizedPath === '/admin') {
     return <SalonAdmin />;
+  }
+
+  if (normalizedPath === '/adatkezeles' || normalizedPath === '/adatvedelem') {
+    return <PrivacyPolicy />;
+  }
+
+  if (normalizedPath === '/hazirend' || normalizedPath === '/szabalyzat') {
+    return <BookingPolicy />;
   }
 
   return (

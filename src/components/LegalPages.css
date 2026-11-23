@@ -1,0 +1,338 @@
+/* src/components/LegalPages.css */
+/* Borbás Webdesign Luxury Standard - Adatkezelési Tájékoztató & Házirend */
+
+.legal-page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top, #faf9f6 0%, #f4eee6 100%);
+  padding: 40px 16px 80px 16px;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  color: #2c241d;
+}
+
+.legal-container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Felső Navigáció */
+.legal-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(190, 150, 109, 0.2);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #714921;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(190, 150, 109, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  background: #ffffff;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 12px rgba(113, 73, 33, 0.1);
+}
+
+.legal-nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.legal-logo-img {
+  height: 38px;
+  width: auto;
+}
+
+/* Fő Fejléc */
+.legal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 10px 0 10px 0;
+}
+
+.legal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(229, 192, 123, 0.25) 100%);
+  color: #714921;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 50px;
+}
+
+.legal-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #4a3525;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.legal-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #6d5b4d;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Kártyák & Szekciók */
+.legal-sections-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.legal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 1px solid rgba(190, 150, 109, 0.25);
+  box-shadow: 0 10px 30px rgba(113, 73, 33, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legal-card-num {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgba(190, 150, 109, 0.25);
+  line-height: 1;
+}
+
+.legal-card-title {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 1.3rem;
+  color: #4a3525;
+  margin: 0;
+  padding-right: 40px;
+}
+
+.legal-card-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #4a3f35;
+  margin: 0;
+}
+
+/* Elérhetőségek lista */
+.legal-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.legal-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #4a3f35;
+}
+
+.legal-info-item .info-icon {
+  color: #b89158;
+  flex-shrink: 0;
+}
+
+.legal-info-item a {
+  color: #714921;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.legal-info-item a:hover {
+  color: #d4af37;
+}
+
+/* Felsorolások */
+.legal-bullet-list {
+  margin: 6px 0 0 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-bullet-list li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #4a3f35;
+}
+
+/* Kiemelt dobozok */
+.legal-highlight-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: #5c4738;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.legal-highlight-box svg {
+  color: #b89158;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legal-warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fdf5e6;
+  border: 1px solid #e6b800;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: #73510d;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.legal-warning-box svg {
+  color: #b38600;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legal-health-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fcf0f0;
+  border: 1px solid #e8b2b2;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: #8c3838;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.legal-health-box svg {
+  color: #c44d4d;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legal-authority-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f4eee6;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  color: #6d5b4d;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.legal-authority-box svg {
+  color: #27ae60;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legal-authority-box a {
+  color: #714921;
+  font-weight: 600;
+}
+
+/* Lábléc */
+.legal-footer-box {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(190, 150, 109, 0.25);
+  border-radius: 16px;
+  padding: 18px 22px;
+  font-size: 0.85rem;
+  color: #6d5b4d;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.legal-footer-box strong {
+  color: #4a3525;
+}
+
+/* Mobil reszponzivitás */
+@media (max-width: 600px) {
+  .legal-page-wrapper {
+    padding: 24px 12px 60px 12px;
+  }
+
+  .legal-title {
+    font-size: 1.6rem;
+  }
+
+  .legal-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .legal-card {
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .legal-card-num {
+    font-size: 1.4rem;
+    top: 16px;
+    right: 16px;
+  }
+
+  .legal-card-title {
+    font-size: 1.15rem;
+    padding-right: 32px;
+  }
+
+  .legal-top-nav {
+    flex-direction: column-reverse;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
