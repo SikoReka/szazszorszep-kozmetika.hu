@@ -79,31 +79,17 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-@media (max-width: 1240px) {
-  .nav-links {
-    gap: 14px;
-  }
-  .nav-link {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-  }
-  .btn-nav {
-    padding: 0.55rem 1.1rem;
-    font-size: 0.7rem;
-  }
+  gap: 16px;
 }
 
 .nav-link {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   color: var(--clr-accent-dark);
   position: relative;
-  padding: 8px 0;
+  padding: 6px 0;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -131,15 +117,15 @@
 .nav-loyalty-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 0.55rem 1.1rem;
+  gap: 5px;
+  padding: 0.45rem 0.95rem;
   border-radius: 50px;
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(229, 192, 123, 0.28) 100%);
   color: #714921;
   border: 1px solid rgba(212, 175, 55, 0.45);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
@@ -162,9 +148,9 @@
 }
 
 .btn-nav {
-  padding: 0.6rem 1.6rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   background-color: var(--clr-accent);
   color: #ffffff;
   white-space: nowrap;
@@ -191,7 +177,7 @@
   display: none;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1180px) {
   .nav-links {
     display: none;
   }
